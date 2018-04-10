@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CategoriaController@indexPublic');
 Auth::routes();
 Route::get('administra', 'CategoriaController@index')->middleware('auth');
 Route::resource('administra/categoria', 'CategoriaController')->middleware('auth');
+Route::resource('administra/animal', 'AnimalController')->middleware('auth');
+Route::resource('administra/animal/seccions', 'SeccioController')->middleware('auth');
 
 //Route::resource('administra/categoria', 'PostController')->middleware('auth');
 //Route::resource('administra/animal', 'PostController')->middleware('auth');

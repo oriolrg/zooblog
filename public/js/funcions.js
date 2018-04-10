@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
   });
   /**
   * Elimina restaurant
-  */
+  
   $("#eliminar button").click(function () {
     var id = $(this).val();
     var dataString = 'id_restaurant='+id;
@@ -30,20 +30,23 @@ jQuery(document).ready(function ($) {
       var data = {_token:_token}
       ajax(data, tipus, url);
     }
-  });
+  });*/
     /**
   * Elimina restaurant
   */
   $("#eliminar button").click(function () {
     var id = $(this).val();
+    var nom = $(this).attr("name");
+    console.log(nom);
     var dataString = 'id_restaurant='+id;
-    //var r = confirm('Estas segur que vols eliminar-lo?');
+    var r = confirm('Estas segur que vols eliminar-lo?');
     if (r == true) {
       var _token = $("input[name='_token']").val();
       var tipus = 'DELETE';
-      var url = "/administra/categoria/"+id;
+      var url = "/administra/"+nom+"/"+id;
+      console.log(url);
       var data = dataString;
-      var data = {_token:_token}
+      var data = {_token:_token};
       ajax(data, tipus, url);
     }
   });
@@ -88,5 +91,23 @@ jQuery(document).ready(function ($) {
                 }
             }
         });
+    }
+    /*
+    * Menú
+    */
+    $(".menu").removeClass("active");
+    var pathname = window.location.pathname;
+    pathname = pathname.replace('/administra/','');
+    //alert(pathname);
+    $("."+pathname).addClass("active");
+
+    $('.menu-content .collapse').on("show.bs.collapse", function() {                        
+        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");        
+    });
+    $(".smenu-content .collapse").on("hide.bs.collapse", function() {                   
+        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
+    });
+    if(pathname=="animal"){
+      $('.sub-menu').removeClass("collapse");
     }
 });

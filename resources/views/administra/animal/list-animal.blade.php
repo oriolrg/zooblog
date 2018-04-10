@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-@include('administra.menu')
+@include('administra.menu.menu')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Categories d'animals</div>
+                <div class="panel-heading">Animals</div>
 
                 <div class="panel-body">
                 <div>
                   <ul class="nav nav-tabs">
-                    <li class="llistarCategoria" id="llistarCategoria"><a href="#">Llistar categories</a></li>
-                    <li id="crearCategoria"><a href="#">Crear nova categoria</a></li>
+                    <li class="llistarCategoria" id="llistarCategoria"><a href="#">Llistar animals</a></li>
+                    <li id="crearCategoria"><a href="#">Crear nou animal</a></li>
                   </ul>
                 </div>
                 <div id="llistaCategoria">
@@ -32,39 +32,46 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($data as $key => $categoria)
+                    @foreach($dataAnimal as $key => $animal)
                         <tr class="success
-                            " id="{{ $categoria->id }}">
+                            " id="{{ $animal->id }}">
 
                             <td class="nom">
-                                {{ $categoria->title}}
+                                {{ $animal->title}}
                             </td>
                             <td class="poblacio">
-                                {{ $categoria->description}}
+                                {{ $animal->description}}
                             </td>
                             <td class="actiu">
-                              @if ($categoria->status === 1)
+                              @if ($animal->status === 1)
                                   <span style="color:green">Actiu</span>
                               @else
                                   <span style="color:red">Inactiu</span>
                               @endif
                             </td>
                             <td class="imatge">
-                              <img src="http://lavalldelord.com/appvallLord/storage/app/images/{{ $categoria->imatge}}" width="80px" class="img_thumbnail">
+                              <img src="http://lavalldelord.com/appvallLord/storage/app/images/{{ $animal->imatge}}" width="80px" class="img_thumbnail">
                             </td>
                             <td class="accions">
                               {{ csrf_field() }}
+                                <lavel id="seccions">
+                                    <button type="submit" class="btn btn-primary btn-xs" name="seccions" value="{{ $animal->id }}" data-content="seccions animal" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='/administra/animal/seccions/{{ $animal->id }}'">
+                                        <i class="glyphicon glyphicon-pencil"> Seccions </i>
+                                    </button>
                                 </lavel>
                                 <lavel id="modificar">
-                                    <button type="submit" class="btn btn-primary btn-xs" name="id_restaurant" value="{{ $categoria->id }}" data-content="Modificar categoria" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='/administra/categoria/{{ $categoria->id }}/edit'">
+                                    <button type="submit" class="btn btn-primary btn-xs" name="modificar" value="{{ $animal->id }}" data-content="Modificar animal" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='/administra/animal/{{ $animal->id }}/edit'">
                                         <i class="glyphicon glyphicon-pencil"> Modificar </i>
                                     </button>
                                 </lavel>
+                                <form>
                                 <lavel id="eliminar">
-                                    <button type="submit" class="buton eliminar btn btn-danger btn-xs" name="id_restaurant" value="{{ $categoria->id }}" data-content="Eliminar categoria" title="Eliminar" data-toggle="popover" data-trigger="hover">
+                                    <button type="submit" class="buton eliminar btn btn-danger btn-xs" name="animal" value="{{ $animal->id }}" data-content="Eliminar animal" title="Eliminar" data-toggle="popover" data-trigger="hover">
+                                    {{ csrf_field() }}
                                         <i class="glyphicon glyphicon-remove"> Eliminar </i>
                                     </button>
                                 </lavel>
+                                </form>
                             </td>
                     @endforeach
                     </tbody>
@@ -73,12 +80,19 @@
                 </div>
 
                 <div id="formCategoria">
-                    <form action="{{ url('administra/categoria') }}" method="POST">
+                    <form action="{{ url('administra/animal') }}" method="POST">
+                    {{ csrf_field() }}
                             @if(isset($post))
                                 <input type="hidden" name="post_id" value="{{isset($post) ? $post->id : ''}}">
                             @endif
                             <label for="title">Nom</label>
                             <input type="text" name="title" id="title" class="form-control" placeholder="Título..." value="{{isset($post) ? $post->title : ''}}">
+                            <label for="categoria">Categoria</label>
+                            <select name="categoria" id="categoria" class="form-control" placeholder="categoria..." value="{{isset($post) ? $post->categoria : ''}}">
+                            @foreach($dataCategoria as $key => $categoria)
+                                <option value="{{ $categoria->id }}">{{ $categoria->title }}</option>
+                            @endforeach
+                            </select>
                             <label for="description">Descripció</label>
                             <textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7">@isset($post) {{$post->description}} @endisset</textarea>
                             <label for="description">Imatge</label>

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AppModelsPost extends Model
+class ModelAnimal extends Model
 {
-    protected $table = 'posts';
+    protected $table = 'animals';
 }
