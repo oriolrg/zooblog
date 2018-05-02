@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', 'CategoriaController@indexPublic');
+//Route::get('/', 'CategoriaController@indexPublic');
+Route::get('/', 'PublicController@indexPublic');
+Route::get('/categoria/{categoria}', 'PublicController@getAnimals');
+Route::get('/categoria/{categoria}/{animal}', 'PublicController@getAnimal');
+//Route::get('/{categoria}/{animal}', 'PublicController@getAnimal');
 Auth::routes();
 Route::get('administra', 'CategoriaController@index')->middleware('auth');
 Route::resource('administra/categoria', 'CategoriaController')->middleware('auth');

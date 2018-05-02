@@ -15,13 +15,20 @@ class SeccioController extends Controller
 	    return view('administra.animal.seccions.list-seccio')->with('dataSeccio', $dataSeccio)->with('dataAnimal', $dataAnimal);
   	}
   	public function store() {
-	    $input = Input::all();	
+	    $input = Input::all();
+      if(isset($input['file1'])){
+        $fileprincipal = $input['file1'];
+        //obtenir nom imatge principal
+        $nomprincipal = $fileprincipal->getClientOriginalName();
+        //Guardat imatges en local
+        \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
+        $dataSeccio->imatge = $nomprincipal;
+      }
 	    $dataAnimal = ModelAnimal::find($input['animal_id']);
 	    $dataSeccio = new ModelSeccio();
 	    $dataSeccio->title = $input['title'];
 	    $dataSeccio->description = $input['description'];
 	    $dataSeccio->list = $input['list'];
-	    $dataSeccio->imatge = $input['imatge'];
 	    $dataSeccio->status = $input['status'];
 	    $dataSeccio->animal_id = $input['animal_id'];
 	    $dataSeccio->save(); // Guarda el objeto en la BD
@@ -34,8 +41,8 @@ class SeccioController extends Controller
     if ($id == null){
       return view('administra.animal.seccions.edit-seccio');
     }else{
-       $data['seccio'] = ModelSeccio::find($id);
-       if($data['seccio'] == null){
+       $data['editdata'] = ModelSeccio::find($id);
+       if($data['editdata'] == null){
           return 'El post no existe';
        }
        return view('administra.animal.seccions.edit-seccio', $data);
@@ -49,11 +56,18 @@ class SeccioController extends Controller
     }else{
       $input = Input::all();
       $dataSeccio = ModelSeccio::find($id);
+      if(isset($input['file1'])){
+        $fileprincipal = $input['file1'];
+        //obtenir nom imatge principal
+        $nomprincipal = $fileprincipal->getClientOriginalName();
+        //Guardat imatges en local
+        \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
+        $dataSeccio->imatge = $nomprincipal;
+      }
       $dataSeccio->title = $input['title'];
-	  $dataSeccio->description = $input['description'];
-	  $dataSeccio->list = $input['list'];
-	  $dataSeccio->imatge = $input['imatge'];
-	  $dataSeccio->status = $input['status'];
+  	  $dataSeccio->description = $input['description'];
+  	  $dataSeccio->list = $input['list'];
+  	  $dataSeccio->status = $input['status'];
       $dataSeccio->save();
       $data = ModelAnimal::get();
       return redirect()->action('AnimalController@index');  

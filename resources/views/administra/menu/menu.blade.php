@@ -15,11 +15,13 @@
                     Animals
                   </li>
                 </a>
+                @isset($dataAnimal)
                 <ul class="sub-menu collapse" id="animals">
                 
-                  <li><a href="#">Prova</a></li>
+                  <li><a href="#"></a></li>
                 
                 </ul>
+                @endisset
                 <a href="/administra/apadrina"> 
                   <li>
                     Apadrina un animal

@@ -50,15 +50,15 @@
                               @endif
                             </td>
                             <td class="imatge">
-                              <img src="http://lavalldelord.com/appvallLord/storage/app/images/{{ $seccio->imatge}}" width="80px" class="img_thumbnail">
+                              <img src="{{asset('storage/')}}/{{$seccio->imatge}}" width="80px" class="img_thumbnail">
                             </td>
                             <td class="accions">
                               {{ csrf_field() }}
-                                <lavel id="seccions">
+                                <!--<lavel id="seccions">
                                     <button type="submit" class="btn btn-primary btn-xs" name="seccions" value="{{ $seccio->id }}" data-content="seccions animal" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='/administra/animal/seccions/{{ $dataAnimal->id }}'">
                                         <i class="glyphicon glyphicon-pencil"> Comentaris </i>
                                     </button>
-                                </lavel>
+                                </lavel>-->
                                 <lavel id="modificar">
                                     <button type="submit" class="btn btn-primary btn-xs" name="modificar" value="{{ $seccio->id }}" data-content="Modificar animal" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='/administra/animal/seccions/{{ $seccio->id }}/edit'">
                                         <i class="glyphicon glyphicon-pencil"> Modificar </i>
@@ -80,7 +80,7 @@
                 </div>
 
                 <div id="formCategoria">
-                    <form action="{{ url('administra/animal/seccions') }}" method="POST">
+                    <form  enctype="multipart/form-data"  action="{{ url('administra/animal/seccions') }}" method="POST">
                     {{ csrf_field() }}
                             @if(isset($dataAnimal))
                                 <input type="hidden" name="animal_id" value="{{isset($dataAnimal) ? $dataAnimal->id : ''}}">
@@ -91,8 +91,8 @@
                             <textarea type="text" name="description" id="description" class="form-control" placeholder="Text principal..." rows="7">@isset($post) {{$post->description}} @endisset</textarea>
                             <label for="llista">Llista items</label>
                             <textarea type="text" name="list" id="list" class="form-control" placeholder="Llista items separats per coma..." rows="7">@isset($post) {{$post->description}} @endisset</textarea>
-                            <label for="description">Imatge</label>
-                            <textarea type="file" name="imatge" id="imatge" class="form-control" placeholder="Imatge..." rows="7">@isset($post) {{$post->description}} @endisset</textarea>
+                            <legend>Imatge</legend>
+                            @include('administra.uploadimage.uploadimage1')
                             <label for="title">Publicar?</label>
                             <select name="status" id="status" class="form-control">
                                 <option value="0" @isset($post) @if($post->status == 0) selected @endif @endisset>NO</option>

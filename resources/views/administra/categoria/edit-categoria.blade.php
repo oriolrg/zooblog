@@ -12,26 +12,29 @@
 
                 <div class="panel-body">
 
-								@if(isset($categoria))
-									<form action="{{ url('/administra/categoria/') }}/{{isset($categoria) ? $categoria->id : ''}}" method="POST">
+								@if(isset($editdata))
+									<form  enctype="multipart/form-data"  action="{{ url('/administra/categoria/') }}/{{isset($editdata) ? $editdata->id : ''}}" method="POST">
 										 {{ method_field('PUT') }}
 										 {{ csrf_field() }}
-										<input type="hidden" name="post_id" value="{{isset($categoria) ? $categoria->id : ''}}">
+										<input type="hidden" name="post_id" value="{{isset($editdata) ? $editdata->id : ''}}">
 										 
 
-										 <label for="title">Nom</label>
-												 <input type="text" name="title" id="title" class="form-control" placeholder="Título..." value="{{isset($categoria) ? $categoria->title : ''}}">
-										 <label for="description">Descripció</label>
-												 <textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7">@isset($categoria) {{$categoria->description}} @endisset</textarea>
-										<label for="description">Imatge</label>
-		 								   	 <textarea type="file" name="imatge" id="imatge" class="form-control" placeholder="Imatge..." rows="7">@isset($categoria) {{$categoria->description}} @endisset</textarea>
-										 <label for="title">Publicar?</label>
-												 <select name="status" id="status" class="form-control">
-														 <option value="0" @isset($categoria) @if($categoria->status == 0) selected @endif @endisset>NO</option>
-														 <option value="1" @isset($categoria) @if($categoria->status == 1) selected @endif @endisset>SI</option>
-												 </select>
-										 <input type="submit" class="btn btn-success" value="Guardar">
-									</form>
+										<label for="title">Nom</label>
+			                            <input type="text" name="title" id="title" class="form-control" placeholder="Título..." value="{{isset($editdata) ? $editdata->title : ''}}">
+			                            <label for="description">Descripció</label>
+			                            <textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7">@isset($editdata) {{$editdata->description}} @endisset</textarea>
+			                            <legend>Imatge</legend>
+			                            @include('administra.uploadimage.uploadimage1')
+			                            <label for="title">Publicar?</label>
+			                            <select name="status" id="status" class="form-control">
+			                                <option value="0" @isset($editdata) @if($editdata->status == 0) selected @endif @endisset>NO</option>
+			                                <option value="1" @isset($editdata) @if($editdata->status == 1) selected @endif @endisset>SI</option>
+			                            </select>
+			                            <button type="submit" class="btn btn-primary" >
+			                                    <i class="glyphicon glyphicon-send"> Enviar </i>
+			                                </button>
+			                    </form>
+									
 									@endisset
 				</div>
 			</div>

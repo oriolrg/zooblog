@@ -15,14 +15,31 @@ class AnimalController extends Controller
     $dataCategoria = ModelCategoria::get();
     return view('administra.animal.list-animal')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal);
      //return $data;
-  }
+  	}
     public function store() {
     $input = Input::all();
     $post = new ModelAnimal();
+    if(isset($input['file1'])){
+      $fileprincipal = $input['file1'];
+      //obtenir nom imatge principal
+      $nomprincipal = $fileprincipal->getClientOriginalName();
+      //Guardat imatges en local
+      \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
+      $post->imatge = $nomprincipal;
+    }
     $post->title = $input['title'];
+    $post->nomcientific = $input['nomcientific'];
+    $post->ocurrencia = $input['ocurrencia'];
+    $post->mida = $input['mida'];
+    $post->pes = $input['pes'];
+    $post->embaras = $input['embaras'];
+    $post->cries = $input['cries'];
+    $post->vida = $input['vida'];
+    $post->dieta = $input['dieta'];
+    $post->proteccio = $input['proteccio'];
     $post->description = $input['description'];
-    $post->imatge = $input['imatge'];
     $post->status = $input['status'];
+    $post->categoria_id = $input['categoria'];
     $post->save(); // Guarda el objeto en la BD
     $dataAnimal = ModelAnimal::get();
     $dataCategoria = ModelCategoria::get();
@@ -34,11 +51,12 @@ class AnimalController extends Controller
     if ($id == null){
       return view('administra.animal.edit-animal');
     }else{
-       $data['animal'] = ModelAnimal::find($id);
-       if($data['animal'] == null){
+       $data['editdata'] = ModelAnimal::find($id);
+       $dataCategoria = ModelCategoria::get();
+       if($data['editdata'] == null){
           return 'El post no existe';
        }
-       return view('administra.animal.edit-animal', $data);
+       return view('administra.animal.edit-animal', $data)->with('dataCategoria', $dataCategoria);
    }
   }
   public function update($id = null) {
@@ -49,10 +67,27 @@ class AnimalController extends Controller
     }else{
       $input = Input::all();
       $animal = ModelAnimal::find($id);
+      if(isset($input['file1'])){
+        $fileprincipal = $input['file1'];
+        //obtenir nom imatge principal
+        $nomprincipal = $fileprincipal->getClientOriginalName();
+        //Guardat imatges en local
+        \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
+        $animal->imatge = $nomprincipal;
+      }
       $animal->title = $input['title'];
+      $animal->nomcientific = $input['nomcientific'];
+      $animal->ocurrencia = $input['ocurrencia'];
+      $animal->mida = $input['mida'];
+      $animal->pes = $input['pes'];
+      $animal->embaras = $input['embaras'];
+      $animal->cries = $input['cries'];
+      $animal->vida = $input['vida'];
+      $animal->dieta = $input['dieta'];
+      $animal->proteccio = $input['proteccio'];
       $animal->description = $input['description'];
-      $animal->imatge = $input['imatge'];
       $animal->status = $input['status'];
+      $animal->categoria_id = $input['categoria'];
       $animal->save();
       $data = ModelAnimal::get();
       return redirect()->action('AnimalController@index');  

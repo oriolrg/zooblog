@@ -50,7 +50,7 @@
                               @endif
                             </td>
                             <td class="imatge">
-                              <img src="http://lavalldelord.com/appvallLord/storage/app/images/{{ $categoria->imatge}}" width="80px" class="img_thumbnail">
+                              <img src="{{asset('storage/')}}/{{$categoria->imatge}}" width="80px" class="img_thumbnail">
                             </td>
                             <td class="accions">
                               {{ csrf_field() }}
@@ -76,7 +76,7 @@
                 </div>
 
                 <div id="formCategoria">
-                    <form action="{{ url('administra/categoria') }}" method="POST">
+                    <form  enctype="multipart/form-data" action="{{ url('administra/categoria') }}" method="POST">
                     {{ csrf_field() }}
                             @if(isset($post))
                                 <input type="hidden" name="post_id" value="{{isset($post) ? $post->id : ''}}">
@@ -85,14 +85,20 @@
                             <input type="text" name="title" id="title" class="form-control" placeholder="Título..." value="{{isset($post) ? $post->title : ''}}">
                             <label for="description">Descripció</label>
                             <textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7">@isset($post) {{$post->description}} @endisset</textarea>
-                            <label for="description">Imatge</label>
-                            <textarea type="file" name="imatge" id="imatge" class="form-control" placeholder="Imatge..." rows="7">@isset($post) {{$post->description}} @endisset</textarea>
+
+
+
+                            
+                            <legend>Imatge</legend>
+                            @include('administra.uploadimage.uploadimage1')
                             <label for="title">Publicar?</label>
                             <select name="status" id="status" class="form-control">
                                 <option value="0" @isset($post) @if($post->status == 0) selected @endif @endisset>NO</option>
                                 <option value="1" @isset($post) @if($post->status == 1) selected @endif @endisset>SI</option>
                             </select>
-                            <input type="submit" class="btn btn-success" value="Guardar">
+                            <button type="submit" class="btn btn-primary" >
+                                    <i class="glyphicon glyphicon-send"> Enviar </i>
+                                </button>
                     </form>
                     @isset($post)
                         <form method="POST" action="http://localhost:8000/post/{{isset($post) ? $post->id : ''}}" accept-charset="UTF-8" class="pull-right">
