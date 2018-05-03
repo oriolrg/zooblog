@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ Route::get('administra', 'CategoriaController@index')->middleware('auth');
 Route::resource('administra/categoria', 'CategoriaController')->middleware('auth');
 Route::resource('administra/animal', 'AnimalController')->middleware('auth');
 Route::resource('administra/animal/seccions', 'SeccioController')->middleware('auth');
-
+Route::resource('administra/quisom', 'QuisomController')->middleware('auth');
 //Route::resource('administra/categoria', 'PostController')->middleware('auth');
 //Route::resource('administra/animal', 'PostController')->middleware('auth');
 //Route::get('/', 'PostController@getList');

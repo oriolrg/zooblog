@@ -17,7 +17,7 @@
 	@foreach($animal->seccions as $key => $seccions)
 	<?php $cont += 1 ?>
     @if(@isset($seccions->imatge))
-    <section class="@if($cont %2 == 0) bg-gray @endif">
+    <article class="@if($cont %2 == 0) bg-gray @endif">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 @if($cont %2 == 0) order-lg-2 @endif">
@@ -36,9 +36,9 @@
           </div>
         </div>
       </div>
-      </section>
+      </article>
       @else
-      <section class="@if($cont %2 == 0) bg-gray @endif">
+      <article class="@if($cont %2 == 0) bg-gray @endif">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-12 order-lg-1">
@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-      </section>
+      </article>
       @endif
       @endforeach
       @include('public.contacta.contacta')

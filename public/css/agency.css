@@ -144,6 +144,9 @@ header.masthead {
   header.masthead .intro-text {
     padding-top: 150px;
     padding-bottom: 100px; }
+    header.masthead .intro-text-sombra{
+      background: rgba(0,0,0,.4);
+    }
     header.masthead .intro-text .intro-lead-in {
       font-size: 22px;
       font-style: italic;
@@ -195,7 +198,7 @@ header.masthead {
       -moz-transition: all ease 0.5s;
       transition: all ease 0.5s;
       opacity: 0;
-      background: rgba(254, 209, 54, 0.9); }
+      background: rgba(256, 256, 256, 0.9); }
       #categories .portfolio-item .portfolio-link .portfolio-hover:hover {
         opacity: 1; }
       #categories .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
@@ -216,8 +219,7 @@ header.masthead {
     max-width: 400px;
     margin: 0 auto;
     padding: 25px;
-    text-align: center;
-    background-color: #fff; }
+    text-align: center;}
     #categories .portfolio-item .portfolio-caption h4 {
       margin: 0;
       text-transform: none; }

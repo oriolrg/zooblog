@@ -17,7 +17,7 @@ class CreateCategoriasTable extends Migration
           $table->increments('id');
           $table->string('title');
           $table->text('description');
-          $table->string('imatge');
+          $table->string('imatge')->nullable();
           $table->tinyInteger('status'); // 0 No publicado / 1 Publicado
           $table->timestamps();
         });

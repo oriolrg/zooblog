@@ -17,7 +17,7 @@
       <div class="row text-center">
         @foreach($data->animals as $key => $animals)
           @if ($animals->status === 1)
-          <div class="col-md-4">
+          <div class="col">
             <a href="{{asset('categoria')}}/{{$data->title}}/{{$animals->title}}">
               <span class="fa-stack fa-4x">
                 <img class="rounded-circle img-fluid" src="{{asset('storage/')}}/{{$animals->imatge}}" alt="">

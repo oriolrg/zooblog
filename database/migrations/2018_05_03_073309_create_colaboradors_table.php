@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeccionsTable extends Migration
+class CreateColaboradorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateSeccionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('seccions', function (Blueprint $table) {
+        Schema::create('colaboradors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('description');
-            $table->text('list')->nullable();
-            $table->string('imatge')->nullable();
+            $table->string('nom');
+            $table->string('descripcio');
+            $table->string('link');
             $table->tinyInteger('status'); // 0 No publicado / 1 Publicado
-            $table->unsignedInteger('animal_id')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateSeccionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seccions');
+        Schema::dropIfExists('colaboradors');
     }
 }

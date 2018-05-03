@@ -9,16 +9,16 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#categories">Categories</a>
+          <a class="nav-link js-scroll-trigger" href="/#categories">Categories</a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Page 1-1</a></li>
                             <li><a href="#">Page 1-2</a></li>
                             <li><a href="#">Page 1-3</a></li>
                         </ul>
         </li>
-        <li class="nav-item">
+        <!--<li class="nav-item">
         	<a class="nav-link js-scroll-trigger" href="#animals">Animals</a>
-        </li>
+        </li>-->
         <li class="nav-item">
         	<a class="nav-link js-scroll-trigger" href="#apadrina">Apadrina</a>
         </li>

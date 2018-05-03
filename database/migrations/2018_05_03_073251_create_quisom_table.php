@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeccionsTable extends Migration
+class CreateQuisomTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateSeccionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('seccions', function (Blueprint $table) {
+        Schema::create('quisom', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('description');
-            $table->text('list')->nullable();
+            $table->string('nom');
+            $table->text('funcions')->nullable();
             $table->string('imatge')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('linkedin')->nullable();
             $table->tinyInteger('status'); // 0 No publicado / 1 Publicado
-            $table->unsignedInteger('animal_id')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreateSeccionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seccions');
+        Schema::dropIfExists('quisom');
     }
 }

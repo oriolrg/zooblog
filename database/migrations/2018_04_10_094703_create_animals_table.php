@@ -17,16 +17,16 @@ class CreateAnimalsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('nomcientific');
-            $table->string('ocurrencia');
-            $table->string('mida');
-            $table->string('pes');
-            $table->string('embaras');
-            $table->string('cries');
-            $table->string('vida');
-            $table->string('dieta');
-            $table->string('proteccio');
-            $table->text('description');
-            $table->string('imatge');
+            $table->string('ocurrencia')->nullable();
+            $table->string('mida')->nullable();
+            $table->string('pes')->nullable();
+            $table->string('embaras')->nullable();;
+            $table->string('cries')->nullable();
+            $table->string('vida')->nullable();
+            $table->string('dieta')->nullable();
+            $table->string('proteccio')->nullable();
+            $table->text('description')->nullable();
+            $table->string('imatge')->nullable();
             $table->tinyInteger('status'); // 0 No publicado / 1 Publicado
             $table->unsignedInteger('categoria_id')->nullable();
             $table->timestamps();
