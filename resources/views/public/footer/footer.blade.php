@@ -3,7 +3,7 @@
      <div class="container">
        <div class="row">
          <div class="col-md-4">
-           <span class="copyright">Copyright &copy; tecnolord.cat 2017</span>
+           <span class="copyright">Copyright &copy; <a href="https://tecnolord.cat" style="text-decoration:none; color:black;">tecnolord.cat <?php echo date("Y"); ?></a></span>
          </div>
          <div class="col-md-4">
            <ul class="list-inline social-buttons">

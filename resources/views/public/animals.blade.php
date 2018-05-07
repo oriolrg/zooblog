@@ -1,6 +1,6 @@
 @extends('layouts.publicapp')
 @section('content')
-<header class="masthead" style="background-image: url('{{asset('storage/')}}/{{$data->imatge}}');">
+<header class="masthead" style="background-image: url('{{asset('public/storage/')}}/{{$data->imatge}}');">
   <div class="container">
     <div class="intro-text">
     <!-- TODO text corresponent a la plana on s'està -->
@@ -20,19 +20,18 @@
           <div class="col">
             <a href="{{asset('categoria')}}/{{$data->title}}/{{$animals->title}}">
               <span class="fa-stack fa-4x">
-                <img class="rounded-circle img-fluid" src="{{asset('storage/')}}/{{$animals->imatge}}" alt="">
+                <img class="rounded-circle img-fluid" src="{{asset('public/storage/')}}/{{$animals->imatge}}" alt="">
               </span>
               <h4 class="service-heading">{{ $animals->title}}</h4>
               <p class="text-muted">{{ $animals->description}}</p>
             </a>
-          </div>     
+          </div>
           @endif
         @endforeach
       </div>
     </div>
   </section>
-  @include('public.apadrina.apadrina')
-  @include('public.quisom.quisom')
+  
   @include('public.colaboradors.colaboradors')
   @include('public.contacta.contacta')
   @include('public.footer.footer')

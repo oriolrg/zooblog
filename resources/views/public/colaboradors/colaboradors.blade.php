@@ -1,4 +1,4 @@
-<section class="py-5" id="colaboradors">
+<section class="bg-light" id="colaboradors">
       <div class="container">
       <div class="row">
           <div class="col-lg-12 text-center">
@@ -6,27 +6,15 @@
             <h3 class="section-subheading text-muted"></h3>
           </div>
         </div>
+        @foreach($colaboradors as $key => $colaborador)
         <div class="row">
           <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="http://xarxanet.org/sites/default/files/styles/imatge-article/public/consell-comarcal-solsones.jpg?itok=FZoLVJl4" alt="">
+            <a href="http://{{$colaborador->link}}">
+              <img class="img-fluid d-block mx-auto" src="{{asset('public/storage/')}}/{{$colaborador->imatge}}" alt=""></img>
             </a>
+
           </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="http://xarxanet.org/sites/default/files/styles/imatge-article/public/consell-comarcal-solsones.jpg?itok=FZoLVJl4" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="http://xarxanet.org/sites/default/files/styles/imatge-article/public/consell-comarcal-solsones.jpg?itok=FZoLVJl4" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="http://xarxanet.org/sites/default/files/styles/imatge-article/public/consell-comarcal-solsones.jpg?itok=FZoLVJl4" alt="">
-            </a>
-          </div>
+          @endforeach
         </div>
       </div>
     </section>

@@ -1,16 +1,7 @@
 <!-- Contact -->
-   <section id="apadrina">
-     <div class="container">
-       <div class="row">
-         <div class="col-lg-12 text-center">
-           <h2 class="section-heading text-uppercase">Animals</h2>
-           <h3 class="section-subheading text-muted">Info</h3>
-         </div>
-       </div>
-       <div class="row">
-         <div class="col-lg-12">
-  text       Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.     
-         </div>
-       </div>
-     </div>
+   <section class="bg-light"  id="animals">
+     @if(@isset($animals))
+     <!-- TODO mostrar animals aleatoriament-->
+            <a href="{{asset('categoria')}}/animal/{{$animals[1]->title}}"><img src="{{asset('public/storage/')}}/{{$animals[rand(0,sizeof($animals)-1)]->imatge}}" width="100%" class="img_thumbnail"></a>
+     @endif
    </section>

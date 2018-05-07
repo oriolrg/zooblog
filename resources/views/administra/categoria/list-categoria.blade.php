@@ -50,7 +50,7 @@
                               @endif
                             </td>
                             <td class="imatge">
-                              <img src="{{asset('storage/')}}/{{$categoria->imatge}}" width="80px" class="img_thumbnail">
+                              <img src="{{asset('public/storage/')}}/{{$categoria->imatge}}" width="80px" class="img_thumbnail">
                             </td>
                             <td class="accions">
                               {{ csrf_field() }}
@@ -81,24 +81,7 @@
                             @if(isset($post))
                                 <input type="hidden" name="post_id" value="{{isset($post) ? $post->id : ''}}">
                             @endif
-                            <label for="title">Nom</label>
-                            <input type="text" name="title" id="title" class="form-control" placeholder="Título..." value="{{isset($post) ? $post->title : ''}}">
-                            <label for="description">Descripció</label>
-                            <textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7">@isset($post) {{$post->description}} @endisset</textarea>
-
-
-
-                            
-                            <legend>Imatge</legend>
-                            @include('administra.uploadimage.uploadimage1')
-                            <label for="title">Publicar?</label>
-                            <select name="status" id="status" class="form-control">
-                                <option value="0" @isset($post) @if($post->status == 0) selected @endif @endisset>NO</option>
-                                <option value="1" @isset($post) @if($post->status == 1) selected @endif @endisset>SI</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary" >
-                                    <i class="glyphicon glyphicon-send"> Enviar </i>
-                                </button>
+                            @include('administra.categoria.formulari')
                     </form>
                     @isset($post)
                         <form method="POST" action="http://localhost:8000/post/{{isset($post) ? $post->id : ''}}" accept-charset="UTF-8" class="pull-right">

@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{{asset('storage/')}}/{{$persona->imatge}}" alt="">
+              <img class="mx-auto rounded-circle" src="{{asset('public/storage/')}}/{{$persona->imatge}}" alt="">
               <h4>{{$persona->nom}}</h4>
               <p class="text-muted">{{$persona->funcions}}</p>
               <ul class="list-inline social-buttons">

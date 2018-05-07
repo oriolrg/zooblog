@@ -22,6 +22,11 @@ Route::resource('administra/categoria', 'CategoriaController')->middleware('auth
 Route::resource('administra/animal', 'AnimalController')->middleware('auth');
 Route::resource('administra/animal/seccions', 'SeccioController')->middleware('auth');
 Route::resource('administra/quisom', 'QuisomController')->middleware('auth');
+Route::resource('administra/colaboradors', 'ColaboradorsController')->middleware('auth');
+Route::resource('administra/contacta', 'ContactaController')->middleware('auth');
+Route::resource('administra/apadrina', 'ApadrinaController')->middleware('auth');
+Route::resource('administra/contacta', 'ContactaController')->middleware('auth');
+Route::post('/mail/contact_me', 'EmailController@emailSend');
 //Route::resource('administra/categoria', 'PostController')->middleware('auth');
 //Route::resource('administra/animal', 'PostController')->middleware('auth');
 //Route::get('/', 'PostController@getList');

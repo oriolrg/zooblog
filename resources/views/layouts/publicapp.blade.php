@@ -34,7 +34,7 @@
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
 
-        <title>{{ config('app.name', 'Laravel') }}"</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -64,12 +64,3 @@
         <script src="{{ asset('/js/funcions.js') }}"></script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-

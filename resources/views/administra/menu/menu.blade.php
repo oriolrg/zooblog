@@ -5,41 +5,34 @@
         <div class="menu-list">
           <h3>Menú Administració</h3>
             <ul id="menu-content" class="menu-content collapse out">
-                <a href="/administra/categoria">
+                <a href="{{asset('/administra/categoria')}}">
                   <li  data-toggle="collapse" data-target="#categories" class="categoria">
                     Categories d'animals
                   </li>
                 </a>
-                <a href="/administra/animal">
+                <a href="{{asset('/administra/animal')}}">
                   <li  data-toggle="collapse" data-target="#animals" class="animal">
                     Animals
                   </li>
                 </a>
-                @isset($dataAnimal)
-                <ul class="sub-menu collapse" id="animals">
-                
-                  <li><a href="#"></a></li>
-                
-                </ul>
-                @endisset
-                <a href="/administra/apadrina"> 
+                <a href="{{asset('/administra/')}}">
                   <li>
-                    Apadrina un animal
+                    Apadrina un animal(fora de servei)
                   </li>
                 </a>
-                <a href="/administra/quisom">
-                  <li>
+                <a href="{{asset('/administra/quisom')}}">
+                  <li   data-toggle="collapse" data-target="#quisom" class="quisom">
                     Qui sóm
                   </li>
                 </a>
-                <a href="/administra/colaboradors">
-                  <li>
+                <a href="{{asset('/administra/colaboradors')}}">
+                  <li  data-toggle="collapse" data-target="#colaboradors" class="colaboradors">
                      Col·laboradors
                   </li>
                 </a>
-                <a href="/administra/peu">
-                  <li>
-                     Peu de pàgina
+                <a href="{{asset('/administra/contacta')}}">
+                  <li  data-toggle="collapse" data-target="#contacta" class="contacta">
+                     Contacta
                   </li>
                 </a>
             </ul>

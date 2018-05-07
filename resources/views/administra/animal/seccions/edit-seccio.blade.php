@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Edita seccio {{ $editdata->title }}</div>
+                <div class="panel-heading"><a href="{{ url('/administra/animal/seccions/') }}/{{isset($editdata) ? $editdata->animal_id : ''}}" style="text-decoration:none; "><i class="hidden-xl" style="font-size:large;">←</i></a> Edita seccio {{ $editdata->title }}</div>
 
                 <div class="panel-body">
 
@@ -17,22 +17,7 @@
 										 {{ method_field('PUT') }}
 										 {{ csrf_field() }}
 										<input type="hidden" name="post_id" value="{{isset($editdata) ? $editdata->animal_id : ''}}">
-										 
-
-										 <label for="title">Nom</label>
-												 <input type="text" name="title" id="title" class="form-control" placeholder="Título..." value="{{isset($editdata) ? $editdata->title : ''}}">
-										 <label for="description">Descripció</label>
-												 <textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7">@isset($editdata) {{$editdata->description}} @endisset</textarea>
-										<label for="llista">Llista items</label>
-                            					<textarea type="text" name="list" id="list" class="form-control" placeholder="Llista items separats per coma..." rows="7">@isset($editdata) {{$editdata->list}} @endisset</textarea>
-										<legend>Imatge</legend>
-										@include('administra.uploadimage.uploadimage1')
-			                            <label for="title">Publicar?</label>
-												 <select name="status" id="status" class="form-control">
-														 <option value="0" @isset($editdata) @if($editdata->status == 0) selected @endif @endisset>NO</option>
-														 <option value="1" @isset($editdata) @if($editdata->status == 1) selected @endif @endisset>SI</option>
-												 </select>
-										 <input type="submit" class="btn btn-success" value="Guardar">
+										@include('administra.animal.seccions.formulari')
 									</form>
 								@endisset
 				</div>

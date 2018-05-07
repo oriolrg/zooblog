@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- Navigation -->
-<header class="masthead" style="background-image: url('{{asset('storage/')}}/{{$animal->imatge}}');">
+<header class="masthead" style="background-image: url('{{asset('public/storage/')}}/{{$animal->imatge}}');">
   <div class="container">
     <div class="intro-text">
     <!-- TODO text corresponent a la plana on s'està -->
@@ -22,7 +22,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6 @if($cont %2 == 0) order-lg-2 @endif">
             <div class="p-5">
-              <img class="img-fluid rounded-circle" src="{{asset('storage/')}}/{{$seccions->imatge}}" alt="">
+              <img class="img-fluid rounded-circle" src="{{asset('public/storage/')}}/{{$seccions->imatge}}" alt="">
             </div>
           </div>
           <div class="col-lg-6 order-lg-1">

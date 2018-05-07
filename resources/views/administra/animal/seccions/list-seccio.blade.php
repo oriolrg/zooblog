@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Seccions {{ $dataAnimal->title}}</div>
+                <div class="panel-heading"><a href="{{ url('/administra/animal/') }}" style="text-decoration:none; "><i class="hidden-xl" style="font-size:large;">←</i></a> Seccions {{ $dataAnimal->title}}</div>
 
                 <div class="panel-body">
                 <div>
@@ -50,7 +50,7 @@
                               @endif
                             </td>
                             <td class="imatge">
-                              <img src="{{asset('storage/')}}/{{$seccio->imatge}}" width="80px" class="img_thumbnail">
+                              <img src="{{asset('public/storage/')}}/{{$seccio->imatge}}" width="80px" class="img_thumbnail">
                             </td>
                             <td class="accions">
                               {{ csrf_field() }}
@@ -85,20 +85,7 @@
                             @if(isset($dataAnimal))
                                 <input type="hidden" name="animal_id" value="{{isset($dataAnimal) ? $dataAnimal->id : ''}}">
                             @endif
-                            <label for="title">Nom</label>
-                            <input type="text" name="title" id="title" class="form-control" placeholder="Títol seccio..." value="{{isset($post) ? $post->title : ''}}">
-                            <label for="description">Descripció</label>
-                            <textarea type="text" name="description" id="description" class="form-control" placeholder="Text principal..." rows="7">@isset($post) {{$post->description}} @endisset</textarea>
-                            <label for="llista">Llista items</label>
-                            <textarea type="text" name="list" id="list" class="form-control" placeholder="Llista items separats per coma..." rows="7">@isset($post) {{$post->description}} @endisset</textarea>
-                            <legend>Imatge</legend>
-                            @include('administra.uploadimage.uploadimage1')
-                            <label for="title">Publicar?</label>
-                            <select name="status" id="status" class="form-control">
-                                <option value="0" @isset($post) @if($post->status == 0) selected @endif @endisset>NO</option>
-                                <option value="1" @isset($post) @if($post->status == 1) selected @endif @endisset>SI</option>
-                            </select>
-                            <input type="submit" class="btn btn-success" value="Guardar">
+                            @include('administra.animal.seccions.formulari')
                     </form>
                     @isset($post)
                         <form method="POST" action="http://localhost:8000/post/{{isset($post) ? $post->id : ''}}" accept-charset="UTF-8" class="pull-right">

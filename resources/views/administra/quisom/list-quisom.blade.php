@@ -50,7 +50,7 @@
                               @endif
                             </td>
                             <td class="imatge">
-                              <img src="{{asset('storage/')}}/{{$categoria->imatge}}" width="80px" class="img_thumbnail">
+                              <img src="{{asset('public/storage/')}}/{{$categoria->imatge}}" width="80px" class="img_thumbnail">
                             </td>
                             <td class="accions">
                               {{ csrf_field() }}
@@ -81,28 +81,7 @@
                             @if(isset($post))
                                 <input type="hidden" name="post_id" value="{{isset($post) ? $post->id : ''}}">
                             @endif
-                            <label for="title">Nom</label>
-                            <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom..." value="{{isset($post) ? $post->title : ''}}">
-                            <label for="description">Funcions</label>
-                            <textarea type="text" name="funcions" id="funcions" class="form-control" placeholder="Funcions..." rows="2">@isset($post) {{$post->description}} @endisset</textarea>
-                            <label for="description">Twitter</label>
-                            <textarea type="text" name="twitter" id="twitter" class="form-control" placeholder="Enllaç a twitter..." rows="1">@isset($post) {{$post->description}} @endisset</textarea>
-                            <label for="description">Facebook</label>
-                            <textarea type="text" name="facebook" id="facebook" class="form-control" placeholder="Enllaç a Fecabook..." rows="1">@isset($post) {{$post->description}} @endisset</textarea>
-                            <label for="description">Instagram</label>
-                            <textarea type="text" name="instagram" id="instagram" class="form-control" placeholder="Enllaç a Instagram..." rows="1">@isset($post) {{$post->description}} @endisset</textarea>
-                            <label for="description">Linkedin</label>
-                            <textarea type="text" name="linkedin" id="linkedin" class="form-control" placeholder="Enllaç a Linkedin..." rows="1">@isset($post) {{$post->description}} @endisset</textarea>
-                            <legend>Imatge</legend>
-                            @include('administra.uploadimage.uploadimage1')
-                            <label for="title">Publicar?</label>
-                            <select name="status" id="status" class="form-control">
-                                <option value="0" @isset($post) @if($post->status == 0) selected @endif @endisset>NO</option>
-                                <option value="1" @isset($post) @if($post->status == 1) selected @endif @endisset>SI</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary" >
-                                    <i class="glyphicon glyphicon-send"> Enviar </i>
-                                </button>
+                            @include('administra.quisom.formulari')
                     </form>
                     @isset($post)
                         <form method="POST" action="http://localhost:8000/post/{{isset($post) ? $post->id : ''}}" accept-charset="UTF-8" class="pull-right">

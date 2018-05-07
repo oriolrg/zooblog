@@ -50,7 +50,7 @@
                               @endif
                             </td>
                             <td class="imatge">
-                              <img src="{{asset('storage/')}}/{{$animal->imatge}}" width="80px" class="img_thumbnail">
+                              <img src="{{asset('public/storage/')}}/{{$animal->imatge}}" width="80px" class="img_thumbnail">
                             </td>
                             <td class="accions">
                               {{ csrf_field() }}
@@ -85,42 +85,7 @@
                             @if(isset($post))
                                 <input type="hidden" name="post_id" value="{{isset($post) ? $post->id : ''}}">
                             @endif
-                            <label for="title">Nom</label>
-                            <input type="text" name="title" id="title" class="form-control" placeholder="Título..." value="{{isset($post) ? $post->title : ''}}">
-                            <label for="title">Nom Científic</label>
-                            <input type="text" name="nomcientific" id="nomcientific" class="form-control" placeholder="Nom Científic..." value="{{isset($post) ? $post->nomcientific : ''}}">
-                            <label for="title">Ocurrència</label>
-                            <input type="text" name="ocurrencia" id="ocurrencia" class="form-control" placeholder="ocurrencia..." value="{{isset($post) ? $post->ocurrencia : ''}}">
-                            <label for="categoria">Categoria</label>
-                            <select name="categoria" id="categoria" class="form-control" placeholder="categoria..." value="{{isset($post) ? $post->categoria : ''}}">
-                            @foreach($dataCategoria as $key => $categoria)
-                                <option value="{{ $categoria->id }}">{{ $categoria->title }}</option>
-                            @endforeach
-                            </select>
-                            <label for="title">Mida</label>
-                            <input type="text" name="mida" id="mida" class="form-control" placeholder="mida..." value="{{isset($post) ? $post->mida : ''}}">
-                            <label for="title">Pes</label>
-                            <input type="text" name="pes" id="pes" class="form-control" placeholder="pes..." value="{{isset($post) ? $post->pes : ''}}">
-                            <label for="title">Embaràs</label>
-                            <input type="text" name="embaras" id="embaras" class="form-control" placeholder="embaras..." value="{{isset($post) ? $post->embaras : ''}}">
-                            <label for="title">Nº de cries</label>
-                            <input type="text" name="cries" id="cries" class="form-control" placeholder="cries..." value="{{isset($post) ? $post->cries : ''}}">
-                            <label for="title">Vida</label>
-                            <input type="text" name="vida" id="vida" class="form-control" placeholder="vida..." value="{{isset($post) ? $post->vida : ''}}">
-                            <label for="title">Dieta</label>
-                            <input type="text" name="dieta" id="dieta" class="form-control" placeholder="dieta..." value="{{isset($post) ? $post->dieta : ''}}">
-                            <label for="title">Estatus de protecció</label>
-                            <input type="text" name="proteccio" id="proteccio" class="form-control" placeholder="proteccio..." value="{{isset($post) ? $post->proteccio : ''}}">
-                            <label for="description">Descripció</label>
-                            <textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7">@isset($post) {{$post->description}} @endisset</textarea>
-                            <legend>Imatge</legend>
-                            @include('administra.uploadimage.uploadimage1')
-                            <label for="title">Publicar?</label>
-                            <select name="status" id="status" class="form-control">
-                                <option value="0" @isset($post) @if($post->status == 0) selected @endif @endisset>NO</option>
-                                <option value="1" @isset($post) @if($post->status == 1) selected @endif @endisset>SI</option>
-                            </select>
-                            <input type="submit" class="btn btn-success" value="Guardar">
+                            @include('administra.animal.formulari')
                     </form>
                     @isset($post)
                         <form method="POST" action="http://localhost:8000/post/{{isset($post) ? $post->id : ''}}" accept-charset="UTF-8" class="pull-right">

@@ -17,7 +17,8 @@ class CreateColaboradorsTable extends Migration
             $table->increments('id');
             $table->string('nom');
             $table->string('descripcio');
-            $table->string('link');
+            $table->string('link');            
+            $table->string('imatge')->nullable();
             $table->tinyInteger('status'); // 0 No publicado / 1 Publicado
             $table->timestamps();
         });

@@ -7,10 +7,9 @@
            <h3 class="section-subheading text-muted">Telèfon 619417550</h3>
          </div>
        </div>
-       <!--<div class="row">
+       <div class="row">
          <div class="col-lg-12">
            <form id="contactForm" name="sentMessage" novalidate>
-             {!! csrf_field() !!}
              <div class="row">
                <div class="col-md-6">
                  <div class="form-group">
@@ -32,14 +31,19 @@
                    <p class="help-block text-danger"></p>
                  </div>
                </div>
+
                <div class="clearfix"></div>
                <div class="col-lg-12 text-center">
+                 
                  <div id="success"></div>
                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Envia el missatge</button>
-               </div>
+
              </div>
+
            </form>
          </div>
-       </div>-->
+       </div>
      </div>
+     <!-- recaptcha -->
+     <script src='https://www.google.com/recaptcha/api.js'></script>
    </section>
