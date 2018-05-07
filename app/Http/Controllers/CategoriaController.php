@@ -33,10 +33,10 @@ class CategoriaController extends Controller
       \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
       $post->imatge = $nomprincipal;
     }
-    
+
     $post->title = $input['title'];
     $post->description = $input['description'];
-    
+
     $post->status = $input['status'];
     $post->save(); // Guarda el objeto en la BD
     $data = ModelCategoria::get();
@@ -88,7 +88,7 @@ class CategoriaController extends Controller
       $categoria->status = $input['status'];
       $categoria->save();
       $data = ModelCategoria::get();
-      return redirect()->action('CategoriaController@index');  
+      return redirect()->action('CategoriaController@index');
    }
   }
   public function destroy($id) {

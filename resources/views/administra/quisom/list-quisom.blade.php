@@ -12,7 +12,7 @@
                 <div>
                   <ul class="nav nav-tabs">
                     <li class="llistarCategoria" id="llistarCategoria"><a href="#">Llistar membres</a></li>
-                    <li id="crearCategoria"><a href="#">Crear novu membre</a></li>
+                    <li id="crearCategoria"><a href="#">Crear nou membre</a></li>
                   </ul>
                 </div>
                 <div id="llistaCategoria">

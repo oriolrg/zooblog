@@ -8,8 +8,8 @@
 <textarea type="text" name="facebook" id="facebook" class="form-control" placeholder="Enllaç a Fecabook..." rows="1">@isset($editdata) {{$editdata->facebook}} @endisset</textarea>
 <label for="description">Instagram</label>
 <textarea type="text" name="instagram" id="instagram" class="form-control" placeholder="Enllaç a Instagram..." rows="1">@isset($editdata) {{$editdata->instagram}} @endisset</textarea>
-<label for="description">Linkedin</label>
-<textarea type="text" name="linkedin" id="linkedin" class="form-control" placeholder="Enllaç a Linkedin..." rows="1">@isset($editdata) {{$editdata->linkedin}} @endisset</textarea>
+<label for="description">Web</label>
+<textarea type="text" name="linkedin" id="linkedin" class="form-control" placeholder="Enllaç a Web..." rows="1">@isset($editdata) {{$editdata->linkedin}} @endisset</textarea>
 <legend>Imatge</legend>
   @include('administra.uploadimage.uploadimage1')
 <label for="title">Publicar?</label>

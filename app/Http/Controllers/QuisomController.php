@@ -37,6 +37,7 @@ class QuisomController extends Controller
     $post->facebook = $input['facebook'];
     $post->instagram = $input['instagram'];
     $post->linkedin = $input['linkedin'];
+    $post->status = $input['status'];
     $post->save(); // Guarda el objeto en la BD
     $data = ModelQuisom::get();
     return view('administra.quisom.list-quisom')->with('data', $data);

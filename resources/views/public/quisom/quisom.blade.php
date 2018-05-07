@@ -16,17 +16,17 @@
               <p class="text-muted">{{$persona->funcions}}</p>
               <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
-                  <a href="#">
+                  <a href="{{$persona->twitter}}">
                     <i class="fa fa-twitter"></i>
                   </a>
                 </li>
                 <li class="list-inline-item">
-                  <a href="#">
+                  <a href="{{$persona->facebook}}">
                     <i class="fa fa-facebook"></i>
                   </a>
                 </li>
                 <li class="list-inline-item">
-                  <a href="#">
+                  <a href="{{$persona->linkedin}}">
                     <i class="fa fa-linkedin"></i>
                   </a>
                 </li>

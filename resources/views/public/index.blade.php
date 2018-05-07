@@ -1,6 +1,6 @@
 @extends('layouts.publicapp')
 @section('content')
-  <header class="masthead" style="background-image: url('{{asset('/storage/app/public//')}}/{{$data[rand(0,sizeof($data)-1)]->imatge}}');">
+  <header class="masthead" @if(sizeof($data) > 0) style="background-image: url('{{asset('/storage/app/public//')}}/{{$data[rand(0,sizeof($data)-1)]->imatge}}');" @endif >
     <div class="container">
       <div class="intro-text" >
         <div class="intro-text-sombra">
