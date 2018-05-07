@@ -69,8 +69,7 @@ class SeccioController extends Controller
   	  $dataSeccio->list = $input['list'];
   	  $dataSeccio->status = $input['status'];
       $dataSeccio->save();
-      $data = ModelAnimal::get();
-      return redirect()->action('AnimalController@index');  
+      return redirect()->action('SeccioController@show', ['id' => $dataSeccio->animal_id]);
    }
   }
   public function destroy($id) {

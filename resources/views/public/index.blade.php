@@ -1,6 +1,6 @@
 @extends('layouts.publicapp')
 @section('content')
-  <header class="masthead" style="background-image: url('{{asset('public/storage/')}}/{{$data[rand(0,sizeof($data)-1)]->imatge}}');">
+  <header class="masthead" style="background-image: url('{{asset('/storage/app/public//')}}/{{$data[rand(0,sizeof($data)-1)]->imatge}}');">
     <div class="container">
       <div class="intro-text" >
         <div class="intro-text-sombra">
@@ -26,10 +26,10 @@
           <div class="col-md-3 col-sm-6 portfolio-item">
             <a class="portfolio-link"  href="{{asset('categoria')}}/{{$categoria->title}}">
               <div class="portfolio-hover">
-                  <img class="img-fluid" src="{{asset('public/storage/')}}/{{$categoria->imatge}}" alt="">
+                  <img class="img-fluid" src="{{asset('/storage/app/public//')}}/{{$categoria->imatge}}" alt="">
 
               </div>
-              <img class="rounded-circle img-fluid" src="{{asset('public/storage/')}}/{{$categoria->imatge}}" alt="">
+              <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$categoria->imatge}}" alt="">
             </a>
             <div class="portfolio-caption">
               <h4>{{ $categoria->title}}</h4>

@@ -1,6 +1,6 @@
 <!-- Header -->
 <!-- TODO imatge corresponent a la plana on s'està -->
-<header class="masthead" style="background-image: url('{{asset('public/storage/')}}/Aguila-daurada.jpg');">
+<header class="masthead" style="background-image: url('{{asset('/storage/app/public//')}}/Aguila-daurada.jpg');">
   <div class="container">
     <div class="intro-text">
     <!-- TODO text corresponent a la plana on s'està -->

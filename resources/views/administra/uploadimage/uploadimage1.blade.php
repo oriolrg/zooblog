@@ -12,10 +12,10 @@
 			                    <li>Màxim 500 kb</li>
 			                </ul>
 			        </label>
-			        <input type="file" name="file1" id="file1"/>			        
+			        <input type="file" name="file1" id="file1"/>
 			    </div>
 			    <hr id="line">
-			    <div id="image_preview1"><img id="previewing1" src="{{asset('storage')}}/{{$editdata->imatge}}" /></div>
+			    <div id="image_preview1"><img id="previewing1" src="{{asset('/storage/app/public/')}}/{{$editdata->imatge}}" /></div>
 			</div>
 		</div>
 	</div>
@@ -34,7 +34,7 @@
 			                    <li>Màxim 500 kb</li>
 			                </ul>
 			        </label>
-			        <input type="file" name="file1" id="file1"/>			        
+			        <input type="file" name="file1" id="file1"/>
 			    </div>
 			    <hr id="line">
 			    <div id="image_preview1"><img id="previewing1" src="{{asset('storage/no-image-box.png')}}" /></div>

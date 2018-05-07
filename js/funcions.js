@@ -37,14 +37,12 @@ jQuery(document).ready(function ($) {
   $("#eliminar button").click(function () {
     var id = $(this).val();
     var nom = $(this).attr("name");
-    console.log(nom);
     var dataString = 'id_restaurant='+id;
     var r = confirm('Estas segur que vols eliminar-lo?');
     if (r == true) {
       var _token = $("input[name='_token']").val();
       var tipus = 'DELETE';
-      var url = "/administra/"+nom+"/"+id;
-      console.log(url);
+      var url = "/ZooBlog/administra/"+nom+"/"+id;
       var data = dataString;
       var data = {_token:_token};
       ajax(data, tipus, url);

@@ -50,13 +50,13 @@
                               @endif
                             </td>
                             <td class="imatge">
-                              <img src="{{asset('public/storage/')}}/{{$categoria->imatge}}" width="80px" class="img_thumbnail">
+                              <img src="{{asset('/storage/app/public//')}}/{{$categoria->imatge}}" width="80px" class="img_thumbnail">
                             </td>
                             <td class="accions">
                               {{ csrf_field() }}
                                 </lavel>
                                 <lavel id="modificar">
-                                    <button type="submit" class="btn btn-primary btn-xs" name="id_restaurant" value="{{ $categoria->id }}" data-content="Modificar categoria" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='/administra/quisom/{{ $categoria->id }}/edit'">
+                                    <button type="submit" class="btn btn-primary btn-xs" name="id_restaurant" value="{{ $categoria->id }}" data-content="Modificar categoria" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='{{asset('/administra/quisom/')}}/{{ $categoria->id }}/edit'">
                                         <i class="glyphicon glyphicon-pencil"> Modificar </i>
                                     </button>
                                 </lavel>
