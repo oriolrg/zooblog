@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mail\TecnoLordSend;
-use App\Mail\TecnoLordResposta;
+use App\Mail\ZooSend;
+use App\Mail\ZooResposta;
 use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
@@ -19,14 +19,14 @@ class EmailController extends Controller
       $objMail->email = $request->input('email');
       $objMail->message = $request->input('message');
       $objMail->captcha = $request->input('captcha');
-      Mail::to("vall.tecnolord@gmail.com")->send(new TecnoLordSend($objMail));
+      Mail::to("vall.tecnolord@gmail.com")->send(new ZooSend($objMail));
       //Resposta automàtica al client
-      Mail::to($objMail->receiver)->send(new TecnoLordResposta($objMail));
+      Mail::to($objMail->receiver)->send(new ZooResposta($objMail));
       return $objMail->nom;
       if($objMail->captcha){
-        Mail::to("vall.tecnolord@gmail.com")->send(new TecnoLordSend($objMail));
+        Mail::to("vall.tecnolord@gmail.com")->send(new ZooSend($objMail));
         //Resposta automàtica al client
-        Mail::to($objMail->receiver)->send(new TecnoLordResposta($objMail));
+        Mail::to($objMail->receiver)->send(new ZooResposta($objMail));
         return $objMail->nom;
       }
         //return "Confirma que no ets un robot";

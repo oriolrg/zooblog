@@ -4,7 +4,7 @@ Hola <i>{{ $demo->nom }}</i>,
 <p><u>Contingut del missatge:</u></p>
 
 <div>
-<p><b>Demo One:</b>&nbsp;{{ $demo->nom }}</p>
+<p><b>Nom:</b>&nbsp;{{ $demo->nom }}</p>
 <p><b>Telèfon:</b>&nbsp;{{ $demo->telefon }}</p>
 <p><b>Email:</b>&nbsp;{{ $demo->email }}</p>
 </div>

@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class TecnoLordSend extends Mailable
+class ZooSend extends Mailable
 {
     use Queueable, SerializesModels;
     /**
