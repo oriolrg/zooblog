@@ -19,12 +19,12 @@ $(function() {
       }
       $this = $("#sendMessageButton");
       $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
-      var _token = $("input[name='_token']").val();
+      var token = $("input[name='_token']").val();
       $.ajax({
-          url: "/mail/contact_me",
+          url: "mail/contact_me",
           type:'POST',
           data: {
-            _token:_token,
+            _token: token,
             name: name,
             phone: phone,
             email: email,
@@ -32,7 +32,7 @@ $(function() {
           },
           cache: false,
           success: function(data) {
-            console.log(data);
+            console.log("success"+data);
             $('#success').html("<div class='alert alert-success'>");
             $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
               .append("</button>");
@@ -45,7 +45,7 @@ $(function() {
           },
           error: function(data) {
             // Fail message
-            console.log(data);
+            console.log("error"+data.status);
             $('#success').html("<div class='alert alert-danger'>");
             $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
               .append("</button>");

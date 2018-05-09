@@ -26,7 +26,7 @@ Route::resource('administra/colaboradors', 'ColaboradorsController')->middleware
 Route::resource('administra/contacta', 'ContactaController')->middleware('auth');
 Route::resource('administra/apadrina', 'ApadrinaController')->middleware('auth');
 Route::resource('administra/contacta', 'ContactaController')->middleware('auth');
-Route::post('/mail/contact_me', 'EmailController@emailSend');
+Route::post('mail/contact_me', 'EmailController@emailSend');
 //Route::resource('administra/categoria', 'PostController')->middleware('auth');
 //Route::resource('administra/animal', 'PostController')->middleware('auth');
 //Route::get('/', 'PostController@getList');
