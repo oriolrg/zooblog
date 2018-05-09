@@ -1,4 +1,4 @@
-<p>Missatge web des de Tecnolord:</p>
+<p>Missatge web des de Blog Zoo del Pirineu:</p>
 
 <p><u>Dades del contacte:</u></p>
 

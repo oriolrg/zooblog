@@ -1,5 +1,5 @@
 Hola <i>{{ $demo->nom }}</i>,
-<p>El seu missatge ha estat correctament enviat a TecnoLord.</p>
+<p>El seu missatge ha estat correctament enviat a Zoo del Pirineu.</p>
 
 <p><u>Contingut del missatge:</u></p>
 
@@ -14,8 +14,8 @@ Hola <i>{{ $demo->nom }}</i>,
 <div>
 <i>{{ $demo->message }}</i>
 </div>
-
+<br/>
 Moltes gràcies per contactar amb nosaltres, en breu rebrà resposta.
 <br/>
-<i>Oriol Riu Gispert</i>
-<a href="tecnolord.cat">tecnolord.cat</a>
+<i>Zoo del pirineu</i>
+<a href="zoopirineu.com">zoopirineu.com</a>
