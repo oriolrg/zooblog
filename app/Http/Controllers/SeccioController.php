@@ -16,6 +16,7 @@ class SeccioController extends Controller
   	}
   	public function store() {
 	    $input = Input::all();
+			$dataSeccio = new ModelSeccio();
       if(isset($input['file1'])){
         $fileprincipal = $input['file1'];
         //obtenir nom imatge principal
@@ -25,16 +26,16 @@ class SeccioController extends Controller
         $dataSeccio->imatge = $nomprincipal;
       }
 	    $dataAnimal = ModelAnimal::find($input['animal_id']);
-	    $dataSeccio = new ModelSeccio();
 	    $dataSeccio->title = $input['title'];
 	    $dataSeccio->description = $input['description'];
 	    $dataSeccio->list = $input['list'];
 	    $dataSeccio->status = $input['status'];
 	    $dataSeccio->animal_id = $input['animal_id'];
 	    $dataSeccio->save(); // Guarda el objeto en la BD
-	    $dataSeccio = ModelSeccio::get();
-	    return view('administra.animal.seccions.list-seccio')->with('dataSeccio', $dataSeccio)->with('dataAnimal', $dataAnimal);
-	    //return view('administra.list-categoria');
+	    $dataSeccio = ModelSeccio::get()->where('animal_id', $input['animal_id']);
+			return redirect()->action('SeccioController@show', ['id' => $input['animal_id']]);
+	    //return redirect(url()->current().'/'.$input['animal_id']);
+
   }
   public function edit($id = null) {
 

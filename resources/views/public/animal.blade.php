@@ -12,6 +12,46 @@
     </div>
   </div>
 </header>
+<article class="bg-gray">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="p-5">
+          <legend>{{$animal->title}}</legend>
+          <ul>
+            <li>
+              Nom científic: {{ $animal->nomcientific }}
+            </li>
+            <li>
+              Ocurrència: {{ $animal->ocurrencia }}
+            </li>
+            <li>
+              Mida: {{ $animal->mida }}
+            </li>
+            <li>
+              Pes: {{ $animal->pes }}
+            </li>
+            <li>
+              Embaras: {{ $animal->embaras }}
+            </li>
+            <li>
+              Nº de cries: {{ $animal->cries }}
+            </li>
+            <li>
+              Vida: {{ $animal->vida }}
+            </li>
+            <li>
+              Dieta: {{ $animal->dieta }}
+            </li>
+            <li>
+              Estatus de protecció: {{ $animal->proteccio }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
 
     <?php $cont = 0 ?>
 	@foreach($animal->seccions as $key => $seccions)

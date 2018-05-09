@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Input;
 class AnimalController extends Controller
 {
     public function index() {
-     
+
     $dataAnimal = ModelAnimal::get();
     $dataCategoria = ModelCategoria::get();
     return view('administra.animal.list-animal')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal);
@@ -43,6 +43,7 @@ class AnimalController extends Controller
     $post->save(); // Guarda el objeto en la BD
     $dataAnimal = ModelAnimal::get();
     $dataCategoria = ModelCategoria::get();
+    return redirect()->action('AnimalController@index');
     return view('administra.animal.list-animal')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal);
     //return view('administra.list-categoria');
   }
@@ -90,7 +91,7 @@ class AnimalController extends Controller
       $animal->categoria_id = $input['categoria'];
       $animal->save();
       $data = ModelAnimal::get();
-      return redirect()->action('AnimalController@index');  
+      return redirect()->action('AnimalController@index');
    }
   }
   public function destroy($id) {

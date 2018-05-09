@@ -23,15 +23,42 @@
                 <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$animals->imatge}}" alt="">
               </span>
               <h4 class="service-heading">{{ $animals->title}}</h4>
-              <p class="text-muted">{{ $animals->description}}</p>
+              <h6>{{ $animals->nomcientific }}</h6>
             </a>
+            <ul  class="text-muted">
+              <li>
+                Ocurrència: {{ $animals->ocurrencia }}
+              </li>
+              <li>
+                Mida: {{ $animals->mida }}
+              </li>
+              <li>
+                Pes: {{ $animals->pes }}
+              </li>
+              <li>
+                Embaras: {{ $animals->embaras }}
+              </li>
+              <li>
+                Nº de cries: {{ $animals->cries }}
+              </li>
+              <li>
+                Vida: {{ $animals->vida }}
+              </li>
+              <li>
+                Dieta: {{ $animals->dieta }}
+              </li>
+              <li>
+                Estatus de protecció: {{ $animals->proteccio }}
+              </li>
+            </ul>
+            <p>{{ $animals->description}}</p>
           </div>
           @endif
         @endforeach
       </div>
     </div>
   </section>
-  
+
   @include('public.colaboradors.colaboradors')
   @include('public.contacta.contacta')
   @include('public.footer.footer')

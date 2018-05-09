@@ -59,14 +59,12 @@
                                         <i class="glyphicon glyphicon-pencil"> Modificar </i>
                                     </button>
                                 </lavel>
-                                <form>
                                 <lavel id="eliminar">
                                     <button type="submit" class="buton eliminar btn btn-danger btn-xs" name="contacta" value="{{ $categoria->id }}" data-content="Eliminar categoria" title="Eliminar" data-toggle="popover" data-trigger="hover">
                                     {{ csrf_field() }}
                                         <i class="glyphicon glyphicon-remove"> Eliminar </i>
                                     </button>
                                 </lavel>
-                                </form>
                             </td>
                     @endforeach
                     </tbody>

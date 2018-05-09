@@ -94,7 +94,7 @@ class CategoriaController extends Controller
   public function destroy($id) {
     $post = ModelCategoria::find($id);
     if($post == null)
-       return "No existe este post";
+       return "error";
     else
        $post->delete();
   }

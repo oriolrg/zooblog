@@ -37,14 +37,17 @@ jQuery(document).ready(function ($) {
   $("#eliminar button").click(function () {
     var id = $(this).val();
     var nom = $(this).attr("name");
-    console.log(nom);
     var dataString = 'id_restaurant='+id;
     var r = confirm('Estas segur que vols eliminar-lo?');
     if (r == true) {
       var _token = $("input[name='_token']").val();
       var tipus = 'DELETE';
-      var url = nom+"/"+id;
-      console.log(url);
+      if(window.location.host=='localhost')
+      {
+        var url = "/ZooBlog/administra/"+nom+"/"+id;
+      }else{
+        var url = "/public/ZooBlog/administra/"+nom+"/"+id;
+      }
       var data = dataString;
       var data = {_token:_token};
       ajax(data, tipus, url);
@@ -59,13 +62,19 @@ jQuery(document).ready(function ($) {
             type: tipus,
             data: data,
             success: function(data) {
+              console.log("succes")
                 if($.isEmptyObject(data.error)){
                     location.reload(true);
+                    console.log("data"+data);
+
                 }else{
-                    console.log(data.error);
+                    console.log(data);
                 }
             },
-            error: function (jqXHR, exception) {
+            error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
+              console.log("error")
+                /*console.log(JSON.stringify(jqXHR));
+                console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
                 var msg = '';
                 if (jqXHR.status === 0) {
                     msg = 'Not connect.\n Verify Network.';
@@ -85,10 +94,13 @@ jQuery(document).ready(function ($) {
                 } else if (exception === 'abort') {
                     msg = 'Ajax request aborted.';
                     console.log(msg);
+                } else if (exception === 'error') {
+                    msg = 'Ajax panic.';
+                    console.log(msg);
                 } else {
                     msg = 'Uncaught Error.\n' + jqXHR.responseText;
                     console.log(msg);
-                }
+                }*/
             }
         });
     }
