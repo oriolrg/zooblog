@@ -47,8 +47,7 @@
   </div>
   <!-- recaptcha -->
   <script src='https://www.google.com/recaptcha/api.js'></script>
-</section>
-<section>
+
   <div class="row">
     <div class="col-lg-12 text-center">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2959.326297959138!2d1.496310515448796!3d42.12189737920366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a5c7138a448751%3A0x94a38b73d95dd68c!2sZoo+del+Pirineu!5e0!3m2!1sca!2ses!4v1525707510802" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>

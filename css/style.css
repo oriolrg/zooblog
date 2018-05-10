@@ -182,6 +182,9 @@ section:nth-child(even){
   width: 90%;
   height: 80%;
 }
+.blanc{
+  background-color: #fff;
+}
 /* CARDS
 section {
     padding: 30px 0;

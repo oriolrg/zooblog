@@ -1,4 +1,4 @@
-<section id="animals">
+<section class="an" id="animals">
   <div class="mbr-row mbr-justify-content-center">
     @foreach ($animals as $key => $animal)
       <div class="card mbr-col-sm-3 mbr-col-md-12 mbr-col-lg-3">
