@@ -31,6 +31,7 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('/css/agency.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/agency.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/card.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
 

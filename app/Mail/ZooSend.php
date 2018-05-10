@@ -33,7 +33,7 @@ class ZooSend extends Mailable
      */
     public function build()
     {
-      return $this->from('vall.tecnolord@gmail.com')
+      return $this->from('zoopirineu@gmail.com')
                   ->view('mails.send');
                     //->attach(public_path('/images').'/demo.jpg', [
                     //        'as' => 'demo.jpg',
