@@ -1,7 +1,7 @@
 <label for="title">Nom</label>
-<input type="text" name="title" id="title" class="form-control" placeholder="Título..." value="{{isset($editdata) ? $editdata->title : ''}}">
+<input type="text" name="title" id="title" class="form-control" placeholder="Título..." value="{{isset($editdata) ? $editdata->title : ''}}" maxlength="30">
 <label for="title">Nom Científic</label>
-<input type="text" name="nomcientific" id="nomcientific" class="form-control" placeholder="Nom Científic..." value="{{isset($editdata) ? $editdata->nomcientific : ''}}">
+<input type="text" name="nomcientific" id="nomcientific" class="form-control" placeholder="Nom Científic..." value="{{isset($editdata) ? $editdata->nomcientific : ''}}"  maxlength="30">
 <label for="title">Ocurrència</label>
 <input type="text" name="ocurrencia" id="ocurrencia" class="form-control" placeholder="ocurrencia..." value="{{isset($editdata) ? $editdata->ocurrencia : ''}}">
 <label for="categoria">Categoria</label>
@@ -25,7 +25,7 @@
 <label for="title">Estatus de protecció</label>
 <input type="text" name="proteccio" id="proteccio" class="form-control" placeholder="proteccio..." value="{{isset($editdata) ? $editdata->proteccio : ''}}">
 <label for="description">Descripció</label>
-<textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7">@isset($editdata) {{$editdata->description}} @endisset</textarea>
+<textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7" maxlength="200">@isset($editdata) {{$editdata->description}} @endisset</textarea>
 <label for="description">Imatge</label>
 @include('administra.uploadimage.uploadimage1')
 <label for="title">Publicar?</label>

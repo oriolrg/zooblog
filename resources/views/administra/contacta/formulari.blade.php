@@ -1,7 +1,7 @@
 <label for="title">Direcció</label>
 <input type="text" name="direccio" id="direccio" class="form-control" placeholder="Direcció..." value="{{isset($editdata) ? $editdata->direccio : ''}}">
 <label for="description">Telèfon</label>
-<input type="text" name="telefon" id="telefon" class="form-control" placeholder="Telèfon..." value="{{isset($editdata) ? $editdata->telefon : ''}}">
+<input type="text" name="telefon" id="telefon" class="form-control" placeholder="Telèfon..." value="{{isset($editdata) ? $editdata->telefon : ''}}"  maxlength="9">
 <label for="link">Email</label><!-- TODO controlar que email no sigui null -->
 <input type="text" name="email" id="email" class="form-control" placeholder="Email..." rows="1" value="{{isset($editdata) ? $editdata->email : ''}}">
 <label for="link">Latitud</label>

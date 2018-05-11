@@ -1,7 +1,7 @@
 <label for="title">Nom</label>
-<input type="text" name="nom" id="nom" class="form-control" placeholder="Título..." value="{{isset($editdata) ? $editdata->nom : ''}}">
+<input type="text" name="nom" id="nom" class="form-control" placeholder="Título..." value="{{isset($editdata) ? $editdata->nom : ''}}"  maxlength="30">
 <label for="funcions">Funcions</label>
-<textarea type="text" name="funcions" id="funcions" class="form-control" placeholder="Funcions..." rows="2">@isset($editdata) {{$editdata->funcions}} @endisset</textarea>
+<textarea type="text" name="funcions" id="funcions" class="form-control" placeholder="Funcions..." rows="2" maxlength="200">@isset($editdata) {{$editdata->funcions}} @endisset</textarea>
 <label for="description">Twitter</label>
 <textarea type="text" name="twitter" id="twitter" class="form-control" placeholder="Enllaç a twitter..." rows="1">@isset($editdata) {{$editdata->twitter}} @endisset</textarea>
 <label for="description">Facebook</label>

@@ -1,5 +1,5 @@
 <label for="title">Nom</label>
-<input type="text" name="nom" id="nom" class="form-control" placeholder="Nom..." value="{{isset($editdata) ? $editdata->nom : ''}}">
+<input type="text" name="nom" id="nom" class="form-control" placeholder="Nom..." value="{{isset($editdata) ? $editdata->nom : ''}}"  maxlength="30">
 <label for="description">Funcions</label>
 <textarea type="text" name="funcions" id="funcions" class="form-control" placeholder="Funcions..." rows="2">@isset($editdata) {{$editdata->descripcio}} @endisset</textarea>
 <label for="link">Enllaç</label><!-- TODO controlar que enllaç no sigui null -->
