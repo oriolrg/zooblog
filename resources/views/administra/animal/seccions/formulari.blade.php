@@ -1,7 +1,7 @@
 <label for="title">Nom</label>
     <input type="text" name="title" id="title" class="form-control" placeholder="Título..." value="{{isset($editdata) ? $editdata->title : ''}}"  maxlength="30">
 <label for="description">Descripció</label>
-    <textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7" maxlength="200">@isset($editdata) {{$editdata->description}} @endisset</textarea>
+    <textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7">@isset($editdata) <?php echo strip_tags($editdata->description);?> @endisset</textarea>
 <label for="llista">Llista items</label>
     <textarea type="text" name="list" id="list" class="form-control" placeholder="Llista items separats per coma..." rows="7">@isset($editdata) {{$editdata->list}} @endisset</textarea>
 <legend>Imatge</legend>

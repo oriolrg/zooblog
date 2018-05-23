@@ -40,7 +40,7 @@
                                 {{ $seccio->title}}
                             </td>
                             <td class="poblacio">
-                                {{ $seccio->description}}
+                                <?php echo $seccio->description;?>
                             </td>
                             <td class="actiu">
                               @if ($seccio->status === 1)

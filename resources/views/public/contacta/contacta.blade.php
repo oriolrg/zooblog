@@ -35,12 +35,26 @@
                 <p class="help-block text-danger"></p>
               </div>
             </div>
+            <div class="col-md-6">
+                 <div class="form-group">
+                   <input type="checkbox" name="checkbox" id="option" required  data-validation-required-message="Accepta la politica de privacitat."><label for="option"><span></span> <p class="section-subheading text-muted">Sí, accepto la <a class="portfolio-link" data-toggle="modal" href="#politicaPrivacitat">politica de privacitat</a> de ZooPirineu</p></label>
+                   <p class="help-block text-danger"></p>
+                 </div>
+            </div>
             <div class="clearfix"></div>
             <div class="col-lg-12 text-center">
               <div id="success"></div>
               <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Envia el missatge</button>
             </div>
           </div>
+          <p class="section-subheading text-muted">
+               ZooPirineu li informa que les dades de caracter personal que proporcionis omplint el formulari
+               serán tractats per Stania Kuspertova (ZooPirineu) com a responsable d'aquesta web. La finalitat de la recollida i tractament de les dades personals que sol·licito són per gestionar la sol·licitut que realizes en aquest formulario de contacte.
+               Legitimació: Consentimient de l'interessat.
+          </p>
+          <p>
+
+          </p>
         </form>
       </div>
     </div>

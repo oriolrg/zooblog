@@ -85,9 +85,9 @@
             <div class="p-5">
               <legend>{{$seccions->title}}</legend>
                   <p>
-                      {{$seccions->description}}
+                    <?php echo $seccions->description;?>
                   </p>
-                  {{$seccions->list}}
+                  <?php echo $seccions->list;?>
             </div>
           </div>
         </div>

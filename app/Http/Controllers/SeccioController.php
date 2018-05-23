@@ -27,8 +27,8 @@ class SeccioController extends Controller
       }
 	    $dataAnimal = ModelAnimal::find($input['animal_id']);
 	    $dataSeccio->title = $input['title'];
-	    $dataSeccio->description = $input['description'];
-	    $dataSeccio->list = $input['list'];
+	    $dataSeccio->description = nl2br($input['description']);
+	    $dataSeccio->list = nl2br($input['list']);
 	    $dataSeccio->status = $input['status'];
 	    $dataSeccio->animal_id = $input['animal_id'];
 	    $dataSeccio->save(); // Guarda el objeto en la BD
@@ -66,8 +66,8 @@ class SeccioController extends Controller
         $dataSeccio->imatge = $nomprincipal;
       }
       $dataSeccio->title = $input['title'];
-  	  $dataSeccio->description = $input['description'];
-  	  $dataSeccio->list = $input['list'];
+  	  $dataSeccio->description = nl2br($input['description']);
+  	  $dataSeccio->list = nl2br($input['list']);
   	  $dataSeccio->status = $input['status'];
       $dataSeccio->save();
       return redirect()->action('SeccioController@show', ['id' => $dataSeccio->animal_id]);

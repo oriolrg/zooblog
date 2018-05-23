@@ -11,7 +11,9 @@
 |
 */
 
-//Route::get('/', 'CategoriaController@indexPublic');
+Route::get('/politica', function () {
+    return view('public/politicaPrivacitat/politicaPrivacitat');
+});
 Route::get('/', 'PublicController@indexPublic');
 Route::get('/categoria/{categoria}', 'PublicController@getAnimals');
 Route::get('/categoria/{categoria}/{animal}', 'PublicController@getAnimal');

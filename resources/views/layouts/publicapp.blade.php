@@ -40,7 +40,28 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <!-- Styles -->
+        <!-- cookies -->
+      <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+      <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+      <script>
+              window.addEventListener("load", function(){
+              window.cookieconsent.initialise({
+                "palette": {
+                  "popup": {
+                    "background": "#000"
+                  },
+                  "button": {
+                    "background": "#f1d600"
+                  }
+                },
+                "content": {
+                  "message": "Aquest lloc web utilitza galetes per assegurar-vos que obtingueu la millor experiència al nostre lloc web. Aprèn més",
+                  "dismiss": "Accepta",
+                  "link": "Política de Cookies",
+                  "href": "politica"
+                }
+              })});
+      </script>
 
     </head>
     <body>

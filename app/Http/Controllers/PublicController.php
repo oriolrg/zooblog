@@ -17,7 +17,7 @@ class PublicController extends Controller
     public function indexPublic() {
 	    $data = ModelCategoria::get()->where('status', 1);
       $quisom = ModelQuisom::get()->where('status', 1);
-      $animals = ModelAnimal::get()->where('status', 1);
+      $animals = ModelAnimal::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
       $colaboradors = ModelColaborador::get()->where('status', 1);
       $contacta = ModelContacta::get();
 	    return view('public.index')
