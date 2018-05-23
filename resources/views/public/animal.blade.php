@@ -97,7 +97,7 @@
       @endforeach
       @include('public.contacta.contacta')
       @include('public.footer.footer')
-
+      @include('public.politicaPrivacitat.politicaPrivacitat')
 
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('js/vendor/jquery/jquery.min.js') }}"></script>

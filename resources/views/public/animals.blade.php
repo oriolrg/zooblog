@@ -62,4 +62,5 @@
   @include('public.colaboradors.colaboradors')
   @include('public.contacta.contacta')
   @include('public.footer.footer')
+  @include('public.politicaPrivacitat.politicaPrivacitat')
 @endsection
