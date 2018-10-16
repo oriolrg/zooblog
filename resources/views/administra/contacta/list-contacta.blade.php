@@ -33,34 +33,34 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($data as $key => $categoria)
+                    @foreach($data as $key => $familia)
                         <tr class="success
-                            " id="{{ $categoria->id }}">
+                            " id="{{ $familia->id }}">
                             <td class="funcions">
-                                {{ $categoria->direccio}}
+                                {{ $familia->direccio}}
                             </td>
                             <td class="nom">
-                                {{ $categoria->telefon}}
+                                {{ $familia->telefon}}
                             </td>
                             <td class="funcions">
-                                {{ $categoria->email}}
+                                {{ $familia->email}}
                             </td>
                             <td class="funcions">
-                                {{ $categoria->latitud}}
+                                {{ $familia->latitud}}
                             </td>
                             <td class="funcions">
-                                {{ $categoria->longitud}}
+                                {{ $familia->longitud}}
                             </td>
                             <td class="accions">
                               {{ csrf_field() }}
                                 </lavel>
                                 <lavel id="modificar">
-                                    <button type="submit" class="btn btn-primary btn-xs" name="id_restaurant" value="{{ $categoria->id }}" data-content="Modificar categoria" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='/administra/contacta/{{ $categoria->id }}/edit'">
+                                    <button type="submit" class="btn btn-primary btn-xs" name="id_restaurant" value="{{ $familia->id }}" data-content="Modificar familia" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='/administra/contacta/{{ $familia->id }}/edit'">
                                         <i class="glyphicon glyphicon-pencil"> Modificar </i>
                                     </button>
                                 </lavel>
                                 <lavel id="eliminar">
-                                    <button type="submit" class="buton eliminar btn btn-danger btn-xs" name="contacta" value="{{ $categoria->id }}" data-content="Eliminar categoria" title="Eliminar" data-toggle="popover" data-trigger="hover">
+                                    <button type="submit" class="buton eliminar btn btn-danger btn-xs" name="contacta" value="{{ $familia->id }}" data-content="Eliminar familia" title="Eliminar" data-toggle="popover" data-trigger="hover">
                                     {{ csrf_field() }}
                                         <i class="glyphicon glyphicon-remove"> Eliminar </i>
                                     </button>

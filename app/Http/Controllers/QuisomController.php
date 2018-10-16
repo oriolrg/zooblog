@@ -41,12 +41,12 @@ class QuisomController extends Controller
     $post->save(); // Guarda el objeto en la BD
     $data = ModelQuisom::get();
     return view('administra.quisom.list-quisom')->with('data', $data);
-    //return view('administra.list-categoria');
+    //return view('administra.list-familia');
   }
   public function edit($id = null) {
 
     if ($id == null){
-      return view('administra.categoria.edit-post');
+      return view('administra.familia.edit-post');
     }else{
        $data['editdata'] = ModelQuisom::find($id);
        if($data['editdata'] == null){

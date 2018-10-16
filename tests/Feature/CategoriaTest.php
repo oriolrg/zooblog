@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class Categoria extends TestCase
+class Familia extends TestCase
 {
     /**
      * A basic test example.

@@ -32,36 +32,36 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($data as $key => $categoria)
+                    @foreach($data as $key => $familia)
                         <tr class="success
-                            " id="{{ $categoria->id }}">
+                            " id="{{ $familia->id }}">
 
                             <td class="nom">
-                                {{ $categoria->nom}}
+                                {{ $familia->nom}}
                             </td>
                             <td class="funcions">
-                                {{ $categoria->funcions}}
+                                {{ $familia->funcions}}
                             </td>
                             <td class="actiu">
-                              @if ($categoria->status === 1)
+                              @if ($familia->status === 1)
                                   <span style="color:green">Actiu</span>
                               @else
                                   <span style="color:red">Inactiu</span>
                               @endif
                             </td>
                             <td class="imatge">
-                              <img src="{{asset('/storage/app/public//')}}/{{$categoria->imatge}}" width="80px" class="img_thumbnail">
+                              <img src="{{asset('/storage/app/public//')}}/{{$familia->imatge}}" width="80px" class="img_thumbnail">
                             </td>
                             <td class="accions">
                               {{ csrf_field() }}
                                 </lavel>
                                 <lavel id="modificar">
-                                    <button type="submit" class="btn btn-primary btn-xs" name="id_restaurant" value="{{ $categoria->id }}" data-content="Modificar categoria" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='{{asset('/administra/quisom/')}}/{{ $categoria->id }}/edit'">
+                                    <button type="submit" class="btn btn-primary btn-xs" name="id_restaurant" value="{{ $familia->id }}" data-content="Modificar familia" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='{{asset('/administra/quisom/')}}/{{ $familia->id }}/edit'">
                                         <i class="glyphicon glyphicon-pencil"> Modificar </i>
                                     </button>
                                 </lavel>
                                 <lavel id="eliminar">
-                                    <button type="submit" class="buton eliminar btn btn-danger btn-xs" name="quisom" value="{{ $categoria->id }}" data-content="Eliminar categoria" title="Eliminar" data-toggle="popover" data-trigger="hover">
+                                    <button type="submit" class="buton eliminar btn btn-danger btn-xs" name="quisom" value="{{ $familia->id }}" data-content="Eliminar familia" title="Eliminar" data-toggle="popover" data-trigger="hover">
                                     {{ csrf_field() }}
                                         <i class="glyphicon glyphicon-remove"> Eliminar </i>
                                     </button>

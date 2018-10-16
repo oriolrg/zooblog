@@ -37,7 +37,7 @@ class ColaboradorsController extends Controller
     $post->save(); // Guarda el objeto en la BD
     $data = ModelColaborador::get();
     return view('administra.colaboradors.list-colaboradors')->with('data', $data);
-    //return view('administra.list-categoria');
+    //return view('administra.list-familia');
   }
   public function edit($id = null) {
 

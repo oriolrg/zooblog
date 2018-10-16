@@ -5,19 +5,19 @@
         <div class="menu-list">
           <h3>Menú Administració</h3>
             <ul id="menu-content" class="menu-content collapse out">
-                <a href="{{asset('/administra/categoria')}}">
-                  <li  data-toggle="collapse" data-target="#categories" class="categoria">
-                    Categories d'animals
+                <a href="{{asset('/administra/familia')}}">
+                  <li  data-toggle="collapse" data-target="#categories" class="familia">
+                    Familia d'animals
                   </li>
                 </a>
-                <a href="{{asset('/administra/animal')}}">
-                  <li  data-toggle="collapse" data-target="#animals" class="animal">
-                    Animals
+                <a href="{{asset('/administra/especie')}}">
+                  <li  data-toggle="collapse" data-target="#animals" class="especie">
+                    Espècie
                   </li>
                 </a>
-                <a href="{{asset('/administra/')}}">
+                <a href="{{asset('/administra/apadrina')}}">
                   <li>
-                    Apadrina un animal(fora de servei)
+                    Apadrina un especie(fora de servei)
                   </li>
                 </a>
                 <a href="{{asset('/administra/quisom')}}">

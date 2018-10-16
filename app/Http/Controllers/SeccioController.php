@@ -12,7 +12,7 @@ class SeccioController extends Controller
 	public function show($id) {
     	$dataAnimal = ModelAnimal::find($id);
 	    $dataSeccio = ModelSeccio::get()->where('animal_id', $id);
-	    return view('administra.animal.seccions.list-seccio')->with('dataSeccio', $dataSeccio)->with('dataAnimal', $dataAnimal);
+	    return view('administra.especie.seccions.list-seccio')->with('dataSeccio', $dataSeccio)->with('dataAnimal', $dataAnimal);
   	}
   	public function store() {
 	    $input = Input::all();
@@ -40,20 +40,20 @@ class SeccioController extends Controller
   public function edit($id = null) {
 
     if ($id == null){
-      return view('administra.animal.seccions.edit-seccio');
+      return view('administra.especie.seccions.edit-seccio');
     }else{
        $data['editdata'] = ModelSeccio::find($id);
        if($data['editdata'] == null){
           return 'El post no existe';
        }
-       return view('administra.animal.seccions.edit-seccio', $data);
+       return view('administra.especie.seccions.edit-seccio', $data);
    }
   }
   public function update($id = null) {
 
     if ($id == null){
       $data = ModelSeccio::get();
-      return view('administra.animal.seccions.list-seccio')->with('data', $data);
+      return view('administra.especie.seccions.list-seccio')->with('data', $data);
     }else{
       $input = Input::all();
       $dataSeccio = ModelSeccio::find($id);

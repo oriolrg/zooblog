@@ -25,7 +25,7 @@ class ContactaController extends Controller
     $post->save(); // Guarda el objeto en la BD
     $data = ModelContacta::get();
     return view('administra.contacta.list-contacta')->with('data', $data);
-    //return view('administra.list-categoria');
+    //return view('administra.list-familia');
   }
   public function edit($id = null) {
 

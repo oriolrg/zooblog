@@ -13,7 +13,7 @@ class AnimalController extends Controller
 
     $dataAnimal = ModelAnimal::get();
     $dataCategoria = ModelCategoria::get();
-    return view('administra.animal.list-animal')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal);
+    return view('administra.especie.list-especie')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal);
      //return $data;
   	}
     public function store() {
@@ -39,57 +39,57 @@ class AnimalController extends Controller
     $post->proteccio = $input['proteccio'];
     $post->description = $input['description'];
     $post->status = $input['status'];
-    $post->categoria_id = $input['categoria'];
+    $post->categoria_id = $input['familia'];
     $post->save(); // Guarda el objeto en la BD
     $dataAnimal = ModelAnimal::get();
     $dataCategoria = ModelCategoria::get();
     return redirect()->action('AnimalController@index');
-    return view('administra.animal.list-animal')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal);
-    //return view('administra.list-categoria');
+    return view('administra.especie.list-especie')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal);
+    //return view('administra.list-familia');
   }
   public function edit($id = null) {
 
     if ($id == null){
-      return view('administra.animal.edit-animal');
+      return view('administra.especie.edit-especie');
     }else{
        $data['editdata'] = ModelAnimal::find($id);
        $dataCategoria = ModelCategoria::get();
        if($data['editdata'] == null){
           return 'El post no existe';
        }
-       return view('administra.animal.edit-animal', $data)->with('dataCategoria', $dataCategoria);
+       return view('administra.especie.edit-especie', $data)->with('dataCategoria', $dataCategoria);
    }
   }
   public function update($id = null) {
 
     if ($id == null){
       $data = ModelAnimal::get();
-      return view('administra.animal.list-categoria')->with('data', $data);
+      return view('administra.especie.list-familia')->with('data', $data);
     }else{
       $input = Input::all();
-      $animal = ModelAnimal::find($id);
+      $especie = ModelAnimal::find($id);
       if(isset($input['file1'])){
         $fileprincipal = $input['file1'];
         //obtenir nom imatge principal
         $nomprincipal = $fileprincipal->getClientOriginalName();
         //Guardat imatges en local
         \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
-        $animal->imatge = $nomprincipal;
+        $especie->imatge = $nomprincipal;
       }
-      $animal->title = $input['title'];
-      $animal->nomcientific = $input['nomcientific'];
-      $animal->ocurrencia = $input['ocurrencia'];
-      $animal->mida = $input['mida'];
-      $animal->pes = $input['pes'];
-      $animal->embaras = $input['embaras'];
-      $animal->cries = $input['cries'];
-      $animal->vida = $input['vida'];
-      $animal->dieta = $input['dieta'];
-      $animal->proteccio = $input['proteccio'];
-      $animal->description = $input['description'];
-      $animal->status = $input['status'];
-      $animal->categoria_id = $input['categoria'];
-      $animal->save();
+      $especie->title = $input['title'];
+      $especie->nomcientific = $input['nomcientific'];
+      $especie->ocurrencia = $input['ocurrencia'];
+      $especie->mida = $input['mida'];
+      $especie->pes = $input['pes'];
+      $especie->embaras = $input['embaras'];
+      $especie->cries = $input['cries'];
+      $especie->vida = $input['vida'];
+      $especie->dieta = $input['dieta'];
+      $especie->proteccio = $input['proteccio'];
+      $especie->description = $input['description'];
+      $especie->status = $input['status'];
+      $especie->categoria_id = $input['familia'];
+      $especie->save();
       $data = ModelAnimal::get();
       return redirect()->action('AnimalController@index');
    }

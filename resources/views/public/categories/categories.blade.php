@@ -6,18 +6,18 @@
       </div>
     </div>
     <div class="row">
-      @foreach($data as $key => $categoria)
-      @if ($categoria->status === 1)
+      @foreach($data as $key => $familia)
+      @if ($familia->status === 1)
         <div class="col-md-3 col-sm-6 portfolio-item">
-          <a class="portfolio-link"  href="{{asset('categoria')}}/{{$categoria->title}}">
+          <a class="portfolio-link"  href="{{asset('familia')}}/{{$familia->title}}">
             <div class="portfolio-hover">
-                <img class="img-fluid" src="{{asset('/storage/app/public//')}}/{{$categoria->imatge}}" alt="">
+                <img class="img-fluid" src="{{asset('/storage/app/public//')}}/{{$familia->imatge}}" alt="">
             </div>
-            <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$categoria->imatge}}" alt="">
+            <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$familia->imatge}}" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>{{ $categoria->title}}</h4>
-            <p class="text-muted">{{ $categoria->description}}</p>
+            <h4>{{ $familia->title}}</h4>
+            <p class="text-muted">{{ $familia->description}}</p>
           </div>
         </div>
         @endif

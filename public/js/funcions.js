@@ -15,6 +15,28 @@ jQuery(document).ready(function ($) {
     $("#llistaCategoria").hide();
       //location.reload(true);
   });
+  
+  $("#pesaddLevel").click(function () {
+    var value = $("#pes").val() + "<ul>Text aquí</ul>";
+    $("#pes").val(value);
+  });
+  $("#midaaddLevel").click(function () {
+    var value = $("#mida").val() + "<ul>Text aquí</ul>";
+    $("#mida").val(value);
+  });
+  $("#vidaaddLevel").click(function () {
+    var value = $("#vida").val() + "<ul>Text aquí</ul>";
+    $("#vida").val(value);
+  });
+  $("#dietaaddLevel").click(function () {
+    var value = $("#dieta").val() + "<ul>Text aquí</ul>";
+    $("#dieta").val(value);
+  });
+  $("#descriptionaddLevel").click(function () {
+    var value = $("#description").val() + "<ul><li>Text aquí</li></ul>";
+    $("#description").val(value);
+  });
+  
   /**
   * Elimina restaurant
 
@@ -25,7 +47,7 @@ jQuery(document).ready(function ($) {
     if (r == true) {
       var _token = $("input[name='_token']").val();
       var tipus = 'DELETE';
-      var url = "/administra/categoria/"+id;
+      var url = "/administra/familia/"+id;
       var data = dataString;
       var data = {_token:_token}
       ajax(data, tipus, url);
@@ -43,7 +65,7 @@ jQuery(document).ready(function ($) {
     if (r == true) {
       var _token = $("input[name='_token']").val();
       var tipus = 'DELETE';
-      var url = "/administra/"+nom+"/"+id;
+      var url = "/public/ZooBlog/administra/"+nom+"/"+id;
       console.log(url);
       var data = dataString;
       var data = {_token:_token};
@@ -98,15 +120,15 @@ jQuery(document).ready(function ($) {
     */
 
     var pathname = window.location.pathname;
-    if(pathname.indexOf("animal") > -1){
-      var pathname = "animal";
+    if(pathname.indexOf("especie") > -1){
+      var pathname = "especie";
       menuSelec(pathname);
     }
-    if(pathname.indexOf("/animal/") > -1){
-      var pathname = "animal";
+    if(pathname.indexOf("/especie/") > -1){
+      var pathname = "especie";
       submenuSelec(pathname);
-    }else if(pathname.indexOf("categoria") > -1){
-      var pathname = "categoria";
+    }else if(pathname.indexOf("familia") > -1){
+      var pathname = "familia";
       menuSelec(pathname);
     }else if(pathname.indexOf("quisom") > -1){
       var pathname = "quisom";
@@ -131,7 +153,7 @@ jQuery(document).ready(function ($) {
       $(".smenu-content .collapse").on("hide.bs.collapse", function() {
         $(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
       });
-      if(pathname=="animal"){
+      if(pathname=="especie"){
         $('.sub-menu').removeClass("collapse");
       }
     }
@@ -175,3 +197,29 @@ jQuery(document).ready(function ($) {
     }
 
 });
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = x.length }
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+  }
+  x[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " w3-opacity-off";
+}

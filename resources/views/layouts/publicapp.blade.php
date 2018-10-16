@@ -84,5 +84,6 @@
         <script src="{{ asset('/js/agency.min.js') }}"></script>
         <!-- Generic functions -->
         <script src="{{ asset('/js/funcions.js') }}"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </body>
 </html>
