@@ -17,7 +17,7 @@
                 </a>
                 <a href="{{asset('/administra/apadrina')}}">
                   <li>
-                    Apadrina un especie(fora de servei)
+                    Apadrina un animal
                   </li>
                 </a>
                 <a href="{{asset('/administra/quisom')}}">
