@@ -74,9 +74,10 @@ class ApadrinaController extends Controller
         $fileprincipal = $input['file1'];
         //obtenir nom imatge principal
         $nomprincipal = $fileprincipal->getClientOriginalName();
+        //return $nomprincipal;
         //Guardat imatges en local
         \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
-        $apadrina->imatge = $nomprincipal;
+        $post->imatge = $nomprincipal;
       }
       $post->nom = $input['nom'];
       $post->description = $input['description'];

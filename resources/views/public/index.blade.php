@@ -14,7 +14,7 @@
 </header>
 @include('public.categories.categories')
 @include('public.animals.animals')
-@include('public.quisom.quisom')
+@include('public.apadrina.apadrina')
 @include('public.colaboradors.colaboradors')
 @include('public.contacta.contacta')
 @include('public.footer.footer')
