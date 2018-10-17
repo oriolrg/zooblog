@@ -33,7 +33,7 @@
                     </thead>
                     <tbody>
                     @foreach($dataApadrina as $key => $apadrina)
-                        <tr class="success
+                        <tr class="success <?php if($apadrina->apadrinat === 1) {echo 'danger';} ?>
                             " id="{{ $apadrina->id }}">
 
                             <td class="nom">
