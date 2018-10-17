@@ -34,7 +34,7 @@
     </div>
   </section>
 
-  @include('public.colaboradors.colaboradors')
+  @include('public.apadrina.apadrina')
   @include('public.contacta.contacta')
   @include('public.footer.footer')
   @include('public.politicaPrivacitat.politicaPrivacitat')

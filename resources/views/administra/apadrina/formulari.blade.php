@@ -7,13 +7,13 @@
 <label for="familia">Familia</label>
 <select name="familia" id="familia" class="form-control" placeholder="familia..." value="{{isset($editdata) ? $editdata->familia : ''}}">
 @foreach($dataCategoria as $key => $familia)
-    <option value="{{ $familia->id }}">{{ $familia->title }}</option>
+    <option value="{{ $familia->id }}" @isset($editdata) @if($familia->id == $editdata->categoria_id) selected @endif @endisset>{{ $familia->title }}</option>
 @endforeach
 </select>
 <label for="especie">Espècie</label>
 <select name="especie" id="especie" class="form-control" placeholder="especie..." value="{{isset($editdata) ? $editdata->especie : ''}}">
 @foreach($dataAnimal as $key => $especie)
-    <option value="{{ $especie->id }}">{{ $especie->title }}</option>
+    <option value="{{ $especie->id }}" @isset($editdata) @if($especie->id == $editdata->animal_id) selected @endif @endisset>{{ $especie->title }}</option>
 @endforeach
 </select>
 <legend>Imatge</legend>

@@ -29,29 +29,40 @@ class PublicController extends Controller
 	    //return $data;
 	}
 	public function getAnimals($familia) {
-    $quisom = ModelQuisom::get()->where('status', 1);
+    //Obtenir categories amb nom familia
+    $familiaCategoria = ModelCategoria::where('title', $familia)->get();
+    //Obtenir id
+    $idCategoria = $familiaCategoria[0]->id;
+    $apadrina = ModelApadrina::get()->where('status', 1)->where('categoria_id', $idCategoria);
     $animals = ModelAnimal::get()->where('status', 1);
     $colaboradors = ModelColaborador::get()->where('status', 1);
     $contacta = ModelContacta::get();
-		$data = ModelCategoria::where('title', $familia)->first();
-       	//$animals = ModelAnimal::where('categoria_id', $familia->id)->get();
+	$data = ModelCategoria::where('title', $familia)->first();
+    	//$animals = ModelAnimal::where('categoria_id', $familia->id)->get();
        	//$seccions = ModelSeccio::where('animal_id', $especie->id)->get();
-       	$data['animals'] = ModelCategoria::find($data->id)->animals;
-       	return view('public.familia')
+    $data['animals'] = ModelCategoria::find($data->id)->animals;
+   	return view('public.familia')
         ->with('data', $data)
         ->with('data', $data)
-        ->with('quisom', $quisom)
+        ->with('apadrina', $apadrina)
         ->with('animals', $animals)
         ->with('colaboradors', $colaboradors)
         ->with('contacta', $contacta);
-       	return $familia;
-
   	}
   	public function getAnimal($familia, $especie) {
+        //Obtenir categories amb nom familia
+        $especieAnimal = ModelAnimal::where('title', $especie)->get();
+        //Obtenir id
+        $idFamilia = $especieAnimal[0]->id;
+        $apadrina = ModelApadrina::get()->where('status', 1)->where('animal_id', $idFamilia);
   		$especie = ModelAnimal::where('title', $especie)->first();
-  		$seccions = ModelAnimal::find($especie->id)->seccions;
+        $seccions = ModelAnimal::find($especie->id)->seccions;
+        $contacta = ModelContacta::get();
   		$especie['seccions'] = $seccions;
-		return view('public.especie')->with('especie', $especie);
+        return view('public.especie')
+            ->with('especie', $especie)
+            ->with('apadrina', $apadrina)
+            ->with('contacta', $contacta);
        	return $especie;
 
   	}

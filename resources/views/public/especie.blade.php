@@ -123,6 +123,7 @@
     </div>
   </div>
 
+@include('public.apadrina.apadrina')
 @include('public.contacta.contacta')
 @include('public.footer.footer')
 @include('public.politicaPrivacitat.politicaPrivacitat')

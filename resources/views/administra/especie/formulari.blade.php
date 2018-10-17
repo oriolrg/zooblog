@@ -7,7 +7,7 @@
 <label for="familia">Familia</label>
 <select name="familia" id="familia" class="form-control" placeholder="familia..." value="{{isset($editdata) ? $editdata->familia : ''}}">
 @foreach($dataCategoria as $key => $familia)
-    <option value="{{ $familia->id }}">{{ $familia->title }}</option>
+    <option value="{{ $familia->id }}" @isset($editdata) @if($familia->id == $editdata->categoria_id) selected @endif @endisset>{{ $familia->title }}</option>
 @endforeach
 </select>
 <label for="title">Mida <a id="midaaddLevel" value="mida"> + Afegir nivell</a></label>
