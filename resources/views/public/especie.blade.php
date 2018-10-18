@@ -12,19 +12,18 @@
     </div>
   </div>
 </header>
+<div class="container">
   <div class="flex">
     <div>
-      <div class="container">
-        <legend>{{$especie->title}}</legend>
-      </div>
-      <div class="container">
+      
+        <legend>{{$especie->title}} {{$especie->nomcientific}}</legend>
+      
         <div class="intro-lead-in"><?php echo $especie->description;?></div>
-      </div>
+      
     </div>
   </div>
   <div class="flex">
-    <div>
-      <div class="container items">
+      <div class="items">
         <ul>
           <li>
             Nom científic: {{ $especie->nomcientific }}
@@ -54,9 +53,9 @@
             Estatus de protecció: {{ $especie->proteccio }}
           </li>
         </ul>
-      </div>
     </div>
-    <div class="w3-content" style="max-width:1200px">
+    <div class="flex">
+    <div class="w3-content slider">
       @foreach($especie->seccions as $key => $seccions)
         <img class="mySlides" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" style="width:100%">
       @endforeach
@@ -72,47 +71,43 @@
         @endforeach
       </div>
     </div>
+    </div>
   </div>
- <div class="flex">
+  <div class="flex">
     <div>
       <?php $cont = 0 ?>
       <article class="text">
-        <div class="container">
           @foreach($especie->seccions as $key => $seccions)
             <?php $cont += 1 ?>
             @if(@isset($seccions->imatge))
               <article class="@if($cont %2 == 0) bg-gray @endif">
-                <div class="container">
-                  <div class="row align-items-center">
-                    <div class="col-lg-6 @if($cont %2 == 0) order-lg-2 @endif">
-                      <div class="p-5">
-                        <img class="img-fluid rounded-circle" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" alt="">
-                      </div>
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                      <div class="p-5">
-                        <legend>{{$seccions->title}}</legend>
-                        <p>
-                          {{$seccions->description}}
-                        </p>
-                        {{$seccions->list}}
-                      </div>
+                <div class="row align-items-center">
+                  <div class="col-lg-6 @if($cont %2 == 0) order-lg-2 @endif">
+                    <div class="p-5">
+                      <img class="img-fluid rounded-circle" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" alt="">
                     </div>
                   </div>
-                </div>
+                  <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                      <legend>{{$seccions->title}}</legend>
+                      <p>
+                        {{$seccions->description}}
+                      </p>
+                        {{$seccions->list}}
+                    </div>
+                  </div>
+                </div>               
               </article>
             @else
-              <article class="@if($cont %2 == 0) bg-gray @endif">
-                <div class="container">
-                  <div class="row align-items-center">
-                    <div class="col-lg-12 order-lg-1">
-                      <div class="p-5">
-                        <legend>{{$seccions->title}}</legend>
-                          <p>
-                            <?php echo $seccions->description;?>
-                          </p>
-                          <?php echo $seccions->list;?>
-                      </div>
+              <article class="@if($cont %2 == 0) bg-gray @endif">    
+                <div class="row align-items-center">
+                  <div class="col-lg-12 order-lg-1">
+                    <div class="p-5">
+                      <legend>{{$seccions->title}}</legend>
+                      <p>
+                        <?php echo $seccions->description;?>
+                      </p>
+                      <?php echo $seccions->list;?>
                     </div>
                   </div>
                 </div>
@@ -122,7 +117,7 @@
       </article>
     </div>
   </div>
-
+</div>
 @include('public.apadrina.apadrina')
 @include('public.contacta.contacta')
 @include('public.footer.footer')
