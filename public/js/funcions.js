@@ -8,12 +8,26 @@ jQuery(document).ready(function ($) {
     $("#formCategoria").hide();
       //location.reload(true);
   });
-   $("#crearCategoria").click(function () {
+  $("#crearCategoria").click(function () {
     $("#crearCategoria").addClass("active");
     $("#llistarCategoria").removeClass("active");
     $("#formCategoria").show();
     $("#llistaCategoria").hide();
       //location.reload(true);
+  });
+  $("#llistarSeccio").click(function () {
+    $("#llistarSeccio").addClass("active");
+    $("#crearSeccio").removeClass("active");
+    $("#llistaSeccio").show();
+    $("#formSeccio").hide();
+    //location.reload(true);
+  });
+  $("#crearSeccio").click(function () {
+    $("#crearSeccio").addClass("active");
+    $("#llistarSeccio").removeClass("active");
+    $("#formSeccio").show();
+    $("#llistaSeccio").hide();
+    //location.reload(true);
   });
   
   $("#pesaddLevel").click(function () {
@@ -36,25 +50,8 @@ jQuery(document).ready(function ($) {
     var value = $("#description").val() + "<ul><li>Text aquí</li></ul>";
     $("#description").val(value);
   });
-  
   /**
-  * Elimina restaurant
-
-  $("#eliminar button").click(function () {
-    var id = $(this).val();
-    var dataString = 'id_restaurant='+id;
-    var r = confirm('Estas segur que vols eliminar-lo?');
-    if (r == true) {
-      var _token = $("input[name='_token']").val();
-      var tipus = 'DELETE';
-      var url = "/administra/familia/"+id;
-      var data = dataString;
-      var data = {_token:_token}
-      ajax(data, tipus, url);
-    }
-  });*/
-    /**
-  * Elimina restaurant
+  * Elimina  TODO
   */
   $("#eliminar button").click(function () {
     var id = $(this).val();
@@ -73,130 +70,149 @@ jQuery(document).ready(function ($) {
     }
   });
   /**
-     * Executa ajax amb les dades passades
-     */
-    function ajax(data, tipus, url){
-        $.ajax({
-            url: url,
-            type: tipus,
-            data: data,
-            success: function(data) {
-                if($.isEmptyObject(data.error)){
-                    location.reload(true);
-                }else{
-                    console.log(data.error);
-                }
-            },
-            error: function (jqXHR, exception) {
-                var msg = '';
-                if (jqXHR.status === 0) {
-                    msg = 'Not connect.\n Verify Network.';
-                    console.log(msg);
-                } else if (jqXHR.status == 404) {
-                    msg = 'Requested page not found. [404]';
-                    console.log(msg);
-                } else if (jqXHR.status == 500) {
-                    msg = 'Internal Server Error [500].';
-                    console.log(msg);
-                } else if (exception === 'parsererror') {
-                    msg = 'Requested JSON parse failed.';
-                    console.log(msg);
-                } else if (exception === 'timeout') {
-                    msg = 'Time out error.';
-                    console.log(msg);
-                } else if (exception === 'abort') {
-                    msg = 'Ajax request aborted.';
-                    console.log(msg);
-                } else {
-                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                    console.log(msg);
-                }
-            }
-        });
-    }
-
-    /*
-    * Menú
-    */
-
-    var pathname = window.location.pathname;
-    if(pathname.indexOf("especie") > -1){
-      var pathname = "especie";
-      menuSelec(pathname);
-    }
-    if(pathname.indexOf("/especie/") > -1){
-      var pathname = "especie";
-      submenuSelec(pathname);
-    }else if(pathname.indexOf("familia") > -1){
-      var pathname = "familia";
-      menuSelec(pathname);
-    }else if(pathname.indexOf("quisom") > -1){
-      var pathname = "quisom";
-      menuSelec(pathname);
-    }else if(pathname.indexOf("colaboradors") > -1){
-      var pathname = "colaboradors";
-      menuSelec(pathname);
-    }else if(pathname.indexOf("contacta") > -1){
-      var pathname = "contacta";
-      menuSelec(pathname);
-    }
-    function menuSelec(pathname){
+  * Executa ajax amb les dades passades
+  */
+  function ajax(data, tipus, url){
+    $.ajax({
+      url: url,
+      type: tipus,
+      data: data,
+      success: function(data) {
+        if($.isEmptyObject(data.error)){
+          location.reload(true);
+        }else{
+          console.log(data.error);
+        }
+      },
+      error: function (jqXHR, exception) {
+        var msg = '';
+        if (jqXHR.status === 0) {
+          msg = 'Not connect.\n Verify Network.';
+          console.log(msg);
+        } else if (jqXHR.status == 404) {
+          msg = 'Requested page not found. [404]';
+          console.log(msg);
+        } else if (jqXHR.status == 500) {
+          msg = 'Internal Server Error [500].';
+          console.log(msg);
+        } else if (exception === 'parsererror') {
+          msg = 'Requested JSON parse failed.';
+          console.log(msg);
+        } else if (exception === 'timeout') {
+          msg = 'Time out error.';
+          console.log(msg);
+        } else if (exception === 'abort') {
+          msg = 'Ajax request aborted.';
+          console.log(msg);
+        } else {
+          msg = 'Uncaught Error.\n' + jqXHR.responseText;
+          console.log(msg);
+        }
+      }
+    });
+  }
+  /*
+  * Rutes
+  */
+  var pathname = window.location.pathname;
+  if(pathname.indexOf("especie") > -1){
+    var pathname = "especie";
+    menuSelec(pathname);
+  }
+  if(pathname.indexOf("/especie/") > -1){
+    var pathname = "especie";
+    submenuSelec(pathname);
+  }else if(pathname.indexOf("familia") > -1){
+    var pathname = "familia";
+    menuSelec(pathname);
+  }else if(pathname.indexOf("quisom") > -1){
+    var pathname = "quisom";
+    menuSelec(pathname);
+  }else if(pathname.indexOf("colaboradors") > -1){
+    var pathname = "colaboradors";
+    menuSelec(pathname);
+  }else if(pathname.indexOf("contacta") > -1){
+    var pathname = "contacta";
+    menuSelec(pathname);
+  }
+  /*
+  * Menú
+  */
+  function menuSelec(pathname){
       $(".menu").removeClass("active");
       $("."+pathname).addClass("active");
+  }
+  function submenuSelec(pathname){
+    alert(pathname);
+    $('.menu-content .collapse').on("show.bs.collapse", function() {
+      $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
+    });
+    //alert();
+    $(".smenu-content .collapse").on("hide.bs.collapse", function() {
+      $(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
+    });
+    if(pathname=="especie"){
+      $('.sub-menu').removeClass("collapse");
     }
-    function submenuSelec(pathname){
-      alert(pathname);
-      $('.menu-content .collapse').on("show.bs.collapse", function() {
-        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
-      });
-      //alert();
-      $(".smenu-content .collapse").on("hide.bs.collapse", function() {
-        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
-      });
-      if(pathname=="especie"){
-        $('.sub-menu').removeClass("collapse");
-      }
+  }
+  // Funcio de previsualització de la imatge
+  $("#file1").change(function() {
+    $("#message1").empty(); // To remove the previous error message
+    var file = this.files[0];
+    var imagefile = file.type;
+    var match= ["image/jpeg","image/png","image/jpg"];
+    if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
+      $('#previewing1').attr('src','noimage.png');
+      $("#message1").html("<p id='error' style='color:red'>Selecciona una imatge valida</p>"+"<h4 style='color:red'>Important</h4>"+"<span id='error_message' style='color:red'>Només s'accepten formats jpeg, jpg and png</span>");
+      return false;
+    }if(file.size>500000){
+      $('#previewing1').attr('src','noimage.png');
+      $("#message1").html("<p id='error' style='color:red'>Selecciona una imatge valida</p>"+"<h4 style='color:red'>Important</h4>"+"<span id='error_message' style='color:red'>Màxim 50kb</span>");
+      return false;
+    }else{
+      var reader = new FileReader();
+      reader.onload = imageIsLoaded1;
+      reader.readAsDataURL(this.files[0]);
     }
+  });
+  // Funcio de carrega de la imatge
+  function imageIsLoaded1(e) {
+    $("#file1").css("color","green");
+    $('#image_preview1').css("display", "block");
+    $('#previewing1').attr('src', e.target.result);
+    $('#previewing1').attr('width', '100px');
+    $('#previewing1').attr('height', '230px');
+  }
 
+    /*
+  * Afegir seccio
+  */
+  $('#addSeccio').click(function () {
+    alert("afegir");
+    var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+    var newNum = new Number(num + 1); // the numeric ID of the new input field being added
 
+    // create the new element via clone(), and manipulate it's ID using newNum value
+    var newElem = $('#input' + num).clone().attr('id', 'Add' + newNum);
 
-     // Funcio de previsualització de la imatge
+    // manipulate the name/id values of the input inside the new element
+    newElem.children(':last').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
 
-        $("#file1").change(function() {
+    // insert the new element after the last "duplicatable" input field
+    $('#input' + num).after(newElem);
 
-            $("#message1").empty(); // To remove the previous error message
-            var file = this.files[0];
-            var imagefile = file.type;
-            var match= ["image/jpeg","image/png","image/jpg"];
-            if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2])))
-            {
-                $('#previewing1').attr('src','noimage.png');
-                $("#message1").html("<p id='error' style='color:red'>Selecciona una imatge valida</p>"+"<h4 style='color:red'>Important</h4>"+"<span id='error_message' style='color:red'>Només s'accepten formats jpeg, jpg and png</span>");
+    // enable the "remove" button
+    $('#btnDel').attr('disabled', false);
 
-                return false;
-            }if(file.size>500000){
-              $('#previewing1').attr('src','noimage.png');
-              $("#message1").html("<p id='error' style='color:red'>Selecciona una imatge valida</p>"+"<h4 style='color:red'>Important</h4>"+"<span id='error_message' style='color:red'>Màxim 50kb</span>");
-              return false;
-            }
-            else
-            {
-                var reader = new FileReader();
-                reader.onload = imageIsLoaded1;
-                reader.readAsDataURL(this.files[0]);
-            }
-        });
-
-
-    function imageIsLoaded1(e) {
-        $("#file1").css("color","green");
-        $('#image_preview1').css("display", "block");
-        $('#previewing1').attr('src', e.target.result);
-        $('#previewing1').attr('width', '250px');
-        $('#previewing1').attr('height', '230px');
-    }
+    // business rule: you can only add 10 names
+    if (newNum == 10)
+      $('#btnAdd').attr('disabled', 'disabled');
+  });
 
 });
+  /*
+  * Slider
+  */
 var slideIndex = 1;
 showDivs(slideIndex);
 

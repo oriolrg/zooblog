@@ -17,6 +17,7 @@ Route::get('/politica', function () {
 Route::get('/', 'PublicController@indexPublic');
 Route::get('familia/{familia}', 'PublicController@getAnimals');
 Route::get('familia/{familia}/{especie}', 'PublicController@getAnimal');
+Route::get('apadrina/{apadrina}', 'PublicController@getApadrina');
 //Route::get('/{familia}/{especie}', 'PublicController@getAnimal');
 Auth::routes();
 Route::get('administra', 'CategoriaController@index')->middleware('auth');

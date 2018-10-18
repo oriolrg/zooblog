@@ -6,9 +6,9 @@
 <input type="text" name="ocurrencia" id="ocurrencia" class="form-control" placeholder="ocurrencia..." value="{{isset($editdata) ? $editdata->ocurrencia : ''}}">
 <label for="familia">Familia</label>
 <select name="familia" id="familia" class="form-control" placeholder="familia..." value="{{isset($editdata) ? $editdata->familia : ''}}">
-@foreach($dataCategoria as $key => $familia)
-    <option value="{{ $familia->id }}" @isset($editdata) @if($familia->id == $editdata->categoria_id) selected @endif @endisset>{{ $familia->title }}</option>
-@endforeach
+    @foreach($dataCategoria as $key => $familia)
+        <option value="{{ $familia->id }}" @isset($editdata) @if($familia->id == $editdata->categoria_id) selected @endif @endisset>{{ $familia->title }}</option>
+    @endforeach
 </select>
 <label for="title">Mida <a id="midaaddLevel" value="mida"> + Afegir nivell</a></label>
 <input type="text" name="mida" id="mida" class="form-control" placeholder="mida..." value="{{isset($editdata) ? $editdata->mida : ''}}">

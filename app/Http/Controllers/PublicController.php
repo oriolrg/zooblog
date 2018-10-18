@@ -65,5 +65,13 @@ class PublicController extends Controller
             ->with('contacta', $contacta);
        	return $especie;
 
+      }
+      public function getApadrina($apadrina) {
+        //Obtenir categories amb nom familia
+        $apadrinaAnimal = ModelApadrina::where('nom', $apadrina)->get();
+        return view('public.animals.apadrina')
+            ->with('apadrina', $apadrinaAnimal);
+       	return $especie;
+
   	}
 }

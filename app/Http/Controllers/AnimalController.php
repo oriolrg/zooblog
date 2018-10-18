@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ModelAnimal;
 use App\ModelCategoria;
+use App\ModelSeccio;
 use Illuminate\Support\Facades\Input;
 
 class AnimalController extends Controller
@@ -13,7 +14,9 @@ class AnimalController extends Controller
 
     $dataAnimal = ModelAnimal::get();
     $dataCategoria = ModelCategoria::get();
-    return view('administra.especie.list-especie')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal);
+
+    $dataSeccio = ModelSeccio::get();
+    return view('administra.especie.list-especie')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal)->with('dataSeccio', $dataSeccio);
      //return $data;
   	}
     public function store() {
@@ -54,10 +57,12 @@ class AnimalController extends Controller
     }else{
        $data['editdata'] = ModelAnimal::find($id);
        $dataCategoria = ModelCategoria::get();
+       $dataSeccio = ModelSeccio::get()->where('animal_id', $id);
        if($data['editdata'] == null){
           return 'El post no existe';
        }
-       return view('administra.especie.edit-especie', $data)->with('dataCategoria', $dataCategoria);
+       //return $dataSeccio;
+       return view('administra.especie.edit-especie', $data)->with('dataCategoria', $dataCategoria)->with('dataSeccio', $dataSeccio);
    }
   }
   public function update($id = null) {

@@ -7,7 +7,6 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Espècies</div>
-
                 <div class="panel-body">
                 <div>
                   <ul class="nav nav-tabs">
@@ -54,7 +53,7 @@
                             </td>
                             <td class="accions">
                               {{ csrf_field() }}
-                                <lavel id="seccions">
+                              <lavel id="seccions">
                                     <button type="submit" class="btn btn-primary btn-xs" name="seccions" value="{{ $especie->id }}" data-content="seccions especie" title="Modificar" data-toggle="popover" data-trigger="hover" onclick="window.location.href='{{ asset('/administra/especie/seccions/') }}/{{ $especie->id }}'">
                                         <i class="glyphicon glyphicon-pencil"> Seccions </i>
                                     </button>
@@ -73,10 +72,8 @@
                             </td>
                     @endforeach
                     </tbody>
-
                 </table>
                 </div>
-
                 <div id="formCategoria">
                     <form  enctype="multipart/form-data"  action="{{ url('administra/especie') }}" method="POST">
                     {{ csrf_field() }}
