@@ -161,7 +161,7 @@ section:nth-child(even){
   background-color: #fff;
 }
 .card:hover{
-  border: 1px solid grey;
+  border: 1px solid #fff;
 }
 .card:hover img{
   opacity: 1;

@@ -50,6 +50,10 @@ jQuery(document).ready(function ($) {
     var value = $("#description").val() + "<ul><li>Text aquí</li></ul>";
     $("#description").val(value);
   });
+  $("#LlistaItemsnaddLevel").click(function () {
+    var value = $("#list").val() + "<ul><li>Text aquí</li></ul>";
+    $("#list").val(value);
+  });
   /**
   * Elimina  TODO
   */

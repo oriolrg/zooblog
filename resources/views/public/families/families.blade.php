@@ -1,12 +1,12 @@
-<section  id="categories">
+<section  id="families">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">Categories d'animals</h2>
+        <h2 class="section-heading text-uppercase">Families d'animals</h2>
       </div>
     </div>
     <div class="row">
-      @foreach($data as $key => $familia)
+      @foreach($families as $key => $familia)
       @if ($familia->status === 1)
         <div class="col-md-3 col-sm-6 portfolio-item">
           <a class="portfolio-link"  href="{{asset('familia')}}/{{$familia->title}}">

@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#categories">Categories</a>
+          <a class="nav-link js-scroll-trigger" href="#families">Families d'animals</a>
         </li>
         <!--<li class="nav-item">
         	<a class="nav-link js-scroll-trigger" href="#animals">Animals</a>
@@ -18,10 +18,10 @@
         	<a class="nav-link js-scroll-trigger" href="#apadrina">Apadrina</a>
         </li>-->
         <li class="nav-item">
-        	<a class="nav-link js-scroll-trigger" href="#animals">Animals</a>
+        	<a class="nav-link js-scroll-trigger" href="#especies">Especies d'animals</a>
         </li>
         <li class="nav-item">
-        	<a class="nav-link js-scroll-trigger" href="#quisom">Quí sóm</a>
+        	<a class="nav-link js-scroll-trigger" href="#apadrina">Apadrina'ns</a>
         </li>
         <li class="nav-item">
         	<a class="nav-link js-scroll-trigger" href="#colaboradors">Col·laboradors</a>

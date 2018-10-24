@@ -22,7 +22,7 @@
                 </a>
                 <a href="{{asset('/administra/quisom')}}">
                   <li   data-toggle="collapse" data-target="#quisom" class="quisom">
-                    Qui sóm
+                    Informació de la pàgina(SEO)
                   </li>
                 </a>
                 <a href="{{asset('/administra/colaboradors')}}">

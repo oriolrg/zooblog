@@ -1,6 +1,6 @@
-<section class="an" id="animals">
+<section class="an" id="especies">
   <div class="mbr-row mbr-justify-content-center">
-    @foreach ($animals as $key => $especie)
+    @foreach ($especies as $key => $especie)
       <div class="card mbr-col-sm-3 mbr-col-md-12 mbr-col-lg-3">
         <a  class="portfolio-link" href="{{asset('familia')}}/especie/{{$especie->title}}">
           <div class="card-wrapper">

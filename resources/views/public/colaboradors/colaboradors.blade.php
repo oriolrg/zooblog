@@ -1,4 +1,4 @@
-<section class="blanc" id="colaboradors">
+<section class=".bg-gray" id="colaboradors">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">

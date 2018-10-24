@@ -91,9 +91,9 @@
                     <div class="p-5">
                       <legend>{{$seccions->title}}</legend>
                       <p>
-                        {{$seccions->description}}
+                        <?php echo $seccions->description;?>
                       </p>
-                        {{$seccions->list}}
+                        <?php echo $seccions->list;?>
                     </div>
                   </div>
                 </div>               
@@ -119,6 +119,8 @@
   </div>
 </div>
 @include('public.apadrina.apadrina')
+@include('public.families.families')
+@include('public.colaboradors.colaboradors')
 @include('public.contacta.contacta')
 @include('public.footer.footer')
 @include('public.politicaPrivacitat.politicaPrivacitat')

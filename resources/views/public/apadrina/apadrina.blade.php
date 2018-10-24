@@ -1,4 +1,4 @@
-<section class="an" id="apadrina">
+<section class="bg-gray" id="apadrina">
 <div class="row">
          <div class="col-lg-12 text-center">
            <h2 class="section-heading text-uppercase">Apadrina'ns</h2>

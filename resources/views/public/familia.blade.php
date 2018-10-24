@@ -14,27 +14,30 @@
 
     <div class="container">
     <!-- TODO insertar descripció blog i comentaris -->
-    <div class="intro-lead-in">{{$data->description}}</div>
-      <div class="row text-center">
-        @foreach($data->animals as $key => $animals)
-          @if ($animals->status === 1)
-          <div class="col">
-            <a href="{{asset('familia')}}/{{$data->title}}/{{$animals->title}}">
-              <span class="fa-stack fa-4x">
-                <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$animals->imatge}}" alt="">
-              </span>
-              <h4 class="service-heading">{{ $animals->title}}</h4>
-              <h6>{{ $animals->nomcientific }}</h6>
-            </a>
-            <p>{{ $animals->description}}</p>
-          </div>
-          @endif
-        @endforeach
+      <div class="intro-lead-in">{{$data->description}}</div>
+        <div class="row text-center">
+          @foreach($data->animals as $key => $animals)
+            @if ($animals->status === 1)
+            <div class="col">
+              <a href="{{asset('familia')}}/{{$data->title}}/{{$animals->title}}">
+                <span class="fa-stack fa-4x">
+                  <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$animals->imatge}}" alt="">
+                </span>
+                <h4 class="service-heading">{{ $animals->title}}</h4>
+                <h6>{{ $animals->nomcientific }}</h6>
+              </a>
+              <p>{{ $animals->description}}</p>
+            </div>
+            @endif
+          @endforeach
+        </div>
       </div>
     </div>
   </section>
 
   @include('public.apadrina.apadrina')
+  @include('public.families.families')
+  @include('public.colaboradors.colaboradors')
   @include('public.contacta.contacta')
   @include('public.footer.footer')
   @include('public.politicaPrivacitat.politicaPrivacitat')

@@ -99,5 +99,6 @@ class ApadrinaController extends Controller
     else
        $post->delete();
   }
+  
       
 }
