@@ -9,6 +9,7 @@ use App\ModelSeccio;
 use App\ModelApadrina;
 use App\ModelColaborador;
 use App\ModelContacta;
+use App\Http\Controllers\RedsysController;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\UploadedFile;
 
@@ -73,7 +74,7 @@ class PublicController extends Controller
        	return $especie;
 
       }
-      public function getApadrina($apadrina) {
+    public function getApadrina($apadrina) {
         //Obtenir categories amb nom familia
         $families = ModelCategoria::get()->where('status', 1);
         $especies = ModelAnimal::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
@@ -88,5 +89,10 @@ class PublicController extends Controller
             ->with('contacta', $contacta);
        	return $especie;
 
-  	}
+    }
+    public function apadrina(){
+        $redsys= new RedsysController;
+        //TODO assignar els valors. 1er no pedido, 2on preu, 3er display (true, false) i 4rt Descripció comanda
+        $redsys->index(512,50,true,'apadrina'); 
+    }
 }

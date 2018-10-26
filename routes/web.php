@@ -34,3 +34,11 @@ Route::post('mail/contact_me', 'EmailController@emailSend');
 //Route::resource('administra/especie', 'PostController')->middleware('auth');
 //Route::get('/', 'PostController@getList');
 //Route::resource('post', 'PostController')->middleware('auth');
+
+
+
+/**
+* Comprobar redsys
+*/
+Route::post('/redsys/notification','RedsysController@comprobar');
+Route::get('/redsys/notification','RedsysController@comprobar');
