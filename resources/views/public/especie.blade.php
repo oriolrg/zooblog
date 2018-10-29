@@ -16,8 +16,6 @@
   <div class="flex">
     <div>
       
-        <legend>{{$especie->title}} {{$especie->nomcientific}}</legend>
-      
         <div class="intro-lead-in"><?php echo $especie->description;?></div>
       
     </div>
@@ -28,30 +26,46 @@
           <li>
             Nom científic: {{ $especie->nomcientific }}
           </li>
-          <li>
-            Ocurrència: {{ $especie->ocurrencia }}
-          </li>
-          <li>
-            Mida: <?php echo $especie->mida;?>
-          </li>
-          <li>
-            Pes:  <?php echo $especie->pes;?>
-          </li>
-          <li>
-            Embaras: {{ $especie->embaras }}
-          </li>
-          <li>
-            Nº de cries: {{ $especie->cries }}
-          </li>
-          <li>
-            Vida: <?php echo $especie->vida;?>
-          </li>
-          <li>
-            Dieta: <?php echo $especie->dieta;?>
-          </li>
-          <li>
-            Estatus de protecció: {{ $especie->proteccio }}
-          </li>
+          @if(!empty($especie->ocurrencia))
+            <li>
+              Ocurrència: {{ $especie->ocurrencia }}
+            </li>
+          @endif
+          @if(!empty($especie->mida))
+            <li>
+              Mida: <?php echo $especie->mida;?>
+            </li>
+          @endif
+          @if(!empty($especie->pes))
+            <li>
+              Pes:  <?php echo $especie->pes;?>
+            </li>
+          @endif
+          @if(!empty($especie->embaras))
+            <li>
+              Embaras: {{ $especie->embaras }}
+            </li>
+          @endif
+          @if(!empty($especie->cries))
+            <li>
+              Nº de cries: {{ $especie->cries }}
+            </li>
+          @endif
+          @if(!empty($especie->vida))
+            <li>
+              Vida: <?php echo $especie->vida;?>
+            </li>
+          @endif
+          @if(!empty($especie->dieta))
+            <li>
+              Dieta: <?php echo $especie->dieta;?>
+            </li>
+          @endif
+          @if(!empty($especie->proteccio))
+            <li>
+              Estatus de protecció: {{ $especie->proteccio }}
+            </li>
+          @endif
         </ul>
     </div>
     <div class="flex">
