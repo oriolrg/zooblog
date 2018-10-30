@@ -21,12 +21,14 @@
             <div class="col">
               <a href="{{asset('familia')}}/{{$data->title}}/{{$animals->title}}">
                 <span class="fa-stack fa-4x">
-                  <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$animals->imatge}}" alt="">
+                  <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$animals->imatge}}" alt="{{$animals->title}}">
                 </span>
                 <h4 class="service-heading">{{ $animals->title}}</h4>
                 <h6>{{ $animals->nomcientific }}</h6>
               </a>
-              <p>{{ $animals->description}}</p>
+              <a href="{{asset('familia')}}/{{$data->title}}/{{$animals->title}}">
+                <p>{{substr($animals->description,0,100)}}...</p>
+              </a>
             </div>
             @endif
           @endforeach

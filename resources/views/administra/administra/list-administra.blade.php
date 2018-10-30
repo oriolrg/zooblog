@@ -10,12 +10,13 @@
 
                 <div class="panel-body">
                 
-                <form  enctype="multipart/form-data"  action="{{ url('administra/administra') }}" method="POST">
+                <form  enctype="multipart/form-data"  action="{{ url('administra/administra/edit') }}" method="POST">
                     {{ csrf_field() }}
-                            @if(isset($post))
-                                <input type="hidden" name="post_id" value="{{isset($post) ? $post->id : ''}}">
-                            @endif
-                            @include('administra.administra.formulari')
+                    {{ method_field('PUT') }}
+                    @if(isset($dataAdministra))
+                        <input type="hidden" name="post_id" value="{{isset($dataAdministra) ? $dataAdministra[0]->id : ''}}">
+                    @endif
+                    @include('administra.administra.formulari')
                 </form>
                 
             </div>

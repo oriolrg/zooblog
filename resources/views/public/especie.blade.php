@@ -71,7 +71,7 @@
     <div class="flex">
     <div class="w3-content slider">
       @foreach($especie->seccions as $key => $seccions)
-        <img class="mySlides" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" style="width:100%">
+        <img class="mySlides" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" style="width:100%" alt="{{$seccions->title}}">
       @endforeach
       <div class="w3-row-padding w3-section">
         <?php $i = 0;?>
@@ -79,7 +79,7 @@
           <?php $i += 1;?>
           @if(strlen($seccions->imatge)>=2)
             <div class="w3-col s3">
-              <img class="demo w3-opacity w3-hover-opacity-off" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" style="width:100%" onclick="currentDiv({{$i}})">
+              <img class="demo w3-opacity w3-hover-opacity-off" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" alt="{{$seccions->title}}" style="width:100%" onclick="currentDiv({{$i}})">
             </div>
           @endif
         @endforeach
@@ -98,7 +98,7 @@
                 <div class="row align-items-center">
                   <div class="col-lg-6 @if($cont %2 == 0) order-lg-2 @endif">
                     <div class="p-5">
-                      <img class="img-fluid rounded-circle" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" alt="">
+                      <img class="img-fluid rounded-circle" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" alt="{{$seccions->title}}">
                     </div>
                   </div>
                   <div class="col-lg-6 order-lg-1">

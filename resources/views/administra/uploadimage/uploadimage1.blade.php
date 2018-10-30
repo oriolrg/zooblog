@@ -32,14 +32,14 @@
 			        <label>
 			            <strong>Mides recomanades: </strong>
 			                <ul >
-								<li><p class="seo">Per tal de millorar el posicionament SEO, </br>puja una imatge amb nom relacionat amb la seva descripció</p></li>
+								<li class="seo">Per tal de millorar el posicionament SEO, </br>puja una imatge amb nom relacionat amb la seva descripció (Ex. mussol.jpeg)</li>
 			                    <li>Màxim 500 kb</li>
 			                </ul>
 			        </label>
 			        <input type="file" name="file1" id="file1"/>
 			    </div>
 			    <hr id="line">
-			    <div id="image_preview1"><img id="previewing1" src="{{asset('storage/no-image-box.png')}}" /></div>
+			    <div id="image_preview1"><img id="previewing1" src="{{asset('app/public/storage/no-image-box.png')}}" /></div>
 			</div>
 		</div>
 	</div>

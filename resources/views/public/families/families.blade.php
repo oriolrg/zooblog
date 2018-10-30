@@ -11,13 +11,13 @@
         <div class="col-md-3 col-sm-6 portfolio-item">
           <a class="portfolio-link"  href="{{asset('familia')}}/{{$familia->title}}">
             <div class="portfolio-hover">
-                <img class="img-fluid" src="{{asset('/storage/app/public//')}}/{{$familia->imatge}}" alt="">
+                <img class="img-fluid" src="{{asset('/storage/app/public//')}}/{{$familia->imatge}}" alt="{{$familia->title}}">
             </div>
-            <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$familia->imatge}}" alt="">
+            <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$familia->imatge}}" alt="{{$familia->title}}">
           </a>
           <div class="portfolio-caption">
             <h4>{{ $familia->title}}</h4>
-            <p class="text-muted">{{ $familia->description}}</p>
+            <p class="text-muted">{{substr($familia->description,0,100)}} <a  class="portfolio-link" href="{{asset('familia')}}/{{$familia->title}}" style="color:green">...</a></p>
           </div>
         </div>
         @endif
