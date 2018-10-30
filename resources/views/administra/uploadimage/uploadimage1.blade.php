@@ -9,7 +9,7 @@
 			        <label>
 			            <strong>Recomanacions: </strong>
 			                <ul>
-								<li>Per tal de millorar el posicionament SEO, </br>puja una imatge amb nom relacionat amb la seva descripció</li>
+								<li class="seo">Per tal de millorar el posicionament SEO, </br>puja una imatge amb nom relacionat amb la seva descripció (Ex. mussol.jpeg)</li>
 			                    <li>Màxim 500 kb</li>
 			                </ul>
 			        </label>

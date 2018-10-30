@@ -1,4 +1,4 @@
-@extends('layouts.publicapp')
+@extends('layouts.publicespecie')
 @section('content')
 
 <!-- Navigation -->

@@ -1,4 +1,4 @@
-@extends('layouts.publicapp')
+@extends('layouts.publicfamilia')
 @section('content')
 <header class="masthead" style="background-image: url('{{asset('/storage/app/public//')}}/{{$data->imatge}}');">
   <div class="container">
