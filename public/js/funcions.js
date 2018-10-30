@@ -129,14 +129,17 @@ jQuery(document).ready(function ($) {
   }else if(pathname.indexOf("familia") > -1){
     var pathname = "familia";
     menuSelec(pathname);
-  }else if(pathname.indexOf("quisom") > -1){
-    var pathname = "quisom";
-    menuSelec(pathname);
   }else if(pathname.indexOf("colaboradors") > -1){
     var pathname = "colaboradors";
     menuSelec(pathname);
   }else if(pathname.indexOf("contacta") > -1){
     var pathname = "contacta";
+    menuSelec(pathname);
+  }else if(pathname.indexOf("apadrina") > -1) {
+    var pathname = "apadrina";
+    menuSelec(pathname);
+  }else if(pathname.indexOf("administra") > -1) {
+    var pathname = "administra";
     menuSelec(pathname);
   }
   /*
@@ -166,12 +169,14 @@ jQuery(document).ready(function ($) {
     var imagefile = file.type;
     var match= ["image/jpeg","image/png","image/jpg"];
     if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
+      document.getElementById("file1").value = "";
       $('#previewing1').attr('src','noimage.png');
       $("#message1").html("<p id='error' style='color:red'>Selecciona una imatge valida</p>"+"<h4 style='color:red'>Important</h4>"+"<span id='error_message' style='color:red'>Només s'accepten formats jpeg, jpg and png</span>");
       return false;
     }if(file.size>500000){
+      document.getElementById("file1").value = "";
       $('#previewing1').attr('src','noimage.png');
-      $("#message1").html("<p id='error' style='color:red'>Selecciona una imatge valida</p>"+"<h4 style='color:red'>Important</h4>"+"<span id='error_message' style='color:red'>Màxim 50kb</span>");
+      $("#message1").html("<p id='error' style='color:red'>Selecciona una imatge valida</p>"+"<h4 style='color:red'>Important</h4>"+"<span id='error_message' style='color:red'>Màxim 500kb</span>");
       return false;
     }else{
       var reader = new FileReader();

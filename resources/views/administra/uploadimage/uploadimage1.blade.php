@@ -3,12 +3,13 @@
 	<div id="selectImage">
 	    <div class="main" class="col-md-12 col-md-offset">
 	        <div class="col-md" align="center">
-			    <label>Selecciona la imatge pàgina principal</label><br/>
+				<label>Selecciona la imatge pàgina principal</label><br/>
 			    <div id="message1"></div>
 			    <div id="selectImage">
 			        <label>
-			            <strong>Mides recomanades: </strong>
+			            <strong>Recomanacions: </strong>
 			                <ul>
+								<li>Per tal de millorar el posicionament SEO, </br>puja una imatge amb nom relacionat amb la seva descripció</li>
 			                    <li>Màxim 500 kb</li>
 			                </ul>
 			        </label>
@@ -30,7 +31,8 @@
 			    <div id="selectImage">
 			        <label>
 			            <strong>Mides recomanades: </strong>
-			                <ul>
+			                <ul >
+								<li><p class="seo">Per tal de millorar el posicionament SEO, </br>puja una imatge amb nom relacionat amb la seva descripció</p></li>
 			                    <li>Màxim 500 kb</li>
 			                </ul>
 			        </label>

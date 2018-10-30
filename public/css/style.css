@@ -188,6 +188,9 @@ body {
   width:33%;
   float:left;
 }
+#previewing1{
+  width: 50%;
+}
 
 @media (max-width: 767px) {
   
@@ -195,4 +198,7 @@ body {
     flex-direction: column;
   }
   
+}
+.seo{
+  color:red;
 }

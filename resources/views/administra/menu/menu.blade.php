@@ -5,6 +5,11 @@
         <div class="menu-list">
           <h3>Menú Administració</h3>
             <ul id="menu-content" class="menu-content collapse out">
+                <a href="{{asset('/administra/administra')}}">
+                  <li  data-toggle="collapse" data-target="#administra" class="administra">
+                     Informació de la pàgina(SEO)
+                  </li>
+                </a>
                 <a href="{{asset('/administra/familia')}}">
                   <li  data-toggle="collapse" data-target="#categories" class="familia">
                     Familia d'animals
@@ -16,13 +21,8 @@
                   </li>
                 </a>
                 <a href="{{asset('/administra/apadrina')}}">
-                  <li>
+                  <li  data-toggle="collapse" data-target="#apadrina" class="apadrina">
                     Apadrina un animal
-                  </li>
-                </a>
-                <a href="{{asset('/administra/quisom')}}">
-                  <li   data-toggle="collapse" data-target="#quisom" class="quisom">
-                    Informació de la pàgina(SEO)
                   </li>
                 </a>
                 <a href="{{asset('/administra/colaboradors')}}">
