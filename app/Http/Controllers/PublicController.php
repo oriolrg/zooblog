@@ -9,25 +9,28 @@ use App\ModelSeccio;
 use App\ModelApadrina;
 use App\ModelColaborador;
 use App\ModelContacta;
+use App\ModelAdministra;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\UploadedFile;
 
 class PublicController extends Controller
 {
     public function indexPublic() {
-	  $families = ModelCategoria::get()->where('status', 1);
-      $apadrina = ModelApadrina::get()->where('status', 1);
-      $especies = ModelAnimal::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
-      $colaboradors = ModelColaborador::get()->where('status', 1);
-      $imatges = ModelCategoria::get()->where('status', 1);
-      $contacta = ModelContacta::get();
+        $families = ModelCategoria::get()->where('status', 1);
+        $apadrina = ModelApadrina::get()->where('status', 1);
+        $especies = ModelAnimal::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
+        $colaboradors = ModelColaborador::get()->where('status', 1);
+        $imatges = ModelCategoria::get()->where('status', 1);
+        $contacta = ModelContacta::get();
+        $administra = ModelAdministra::first();
         return view('public.index')
-        ->with('imatges', $imatges)
-        ->with('families', $families)
-        ->with('apadrina', $apadrina->random(count($apadrina)))
-        ->with('especies', $especies)
-        ->with('colaboradors', $colaboradors)
-        ->with('contacta', $contacta);
+            ->with('imatges', $imatges)
+            ->with('families', $families)
+            ->with('apadrina', $apadrina->random(count($apadrina)))
+            ->with('especies', $especies)
+            ->with('colaboradors', $colaboradors)
+            ->with('contacta', $contacta)
+            ->with('administra', $administra);
 	    //return $data;
 	}
 	public function getAnimals($familia) {
@@ -41,6 +44,7 @@ class PublicController extends Controller
         $contacta = ModelContacta::get();
         $families = ModelCategoria::get()->where('status', 1);
         $data = ModelCategoria::where('title', $familia)->first();
+        $administra = ModelAdministra::get();
             //$animals = ModelAnimal::where('categoria_id', $familia->id)->get();
             //$seccions = ModelSeccio::where('animal_id', $especie->id)->get();
         $data['animals'] = ModelCategoria::find($data->id)->animals;
@@ -50,7 +54,8 @@ class PublicController extends Controller
             ->with('apadrina', $apadrina)
             ->with('animals', $animals)
             ->with('colaboradors', $colaboradors)
-            ->with('contacta', $contacta);
+            ->with('contacta', $contacta)
+            ->with('administra', $administra);
   	}
   	public function getAnimal($familia, $especie) {
         //Obtenir categories amb nom familia
@@ -63,13 +68,15 @@ class PublicController extends Controller
         $seccions = ModelAnimal::find($especie->id)->seccions;
         $colaboradors = ModelColaborador::get()->where('status', 1);
         $contacta = ModelContacta::get();
+        $administra = ModelAdministra::get();
   		$especie['seccions'] = $seccions;
         return view('public.especie')
             ->with('families', $families)
             ->with('especie', $especie)
             ->with('apadrina', $apadrina)
             ->with('colaboradors', $colaboradors)
-            ->with('contacta', $contacta);
+            ->with('contacta', $contacta)
+            ->with('administra', $administra);
        	return $especie;
 
       }
@@ -80,12 +87,14 @@ class PublicController extends Controller
         $colaboradors = ModelColaborador::get()->where('status', 1);
         $apadrinaAnimal = ModelApadrina::where('nom', $apadrina)->get();
         $contacta = ModelContacta::get();
+        $administra = ModelAdministra::get();
         return view('public.apadrina')
             ->with('apadrina', $apadrinaAnimal)
             ->with('families', $families)
             ->with('especies', $especies)
             ->with('colaboradors', $colaboradors)
-            ->with('contacta', $contacta);
+            ->with('contacta', $contacta)
+            ->with('administra', $administra);
        	return $especie;
 
   	}

@@ -15,37 +15,75 @@ class AdministraController extends Controller
         return view('administra.administra.list-administra')->with('dataAdministra', $dataAdministra);
         //return $data;
   	}
-    public function store() {
-        $input = Input::all();
-        $post = new ModelAdministra();
-        if(isset($input['file1'])){
-            $fileprincipal = $input['file1'];
-            //obtenir nom imatge principal
-            $nomprincipal = $fileprincipal->getClientOriginalName();
-            //Guardat imatges en local
-            \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
-            $post->imatge = $nomprincipal;
+    public function store($id = null) {
+        if($id){
+           return "Error";     
+        }else{
+            $input = Input::all();
+            $post = new ModelAdministra();
+            if(isset($input['file1'])){
+                $fileprincipal = $input['file1'];
+                //obtenir nom imatge principal
+                $nomprincipal = $fileprincipal->getClientOriginalName();
+                //Guardat imatges en local
+                \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
+                $post->imatge = $nomprincipal;
+            }
+            $post->titol = $input['titol'];
+            $post->llista = $input['llista'];
+            $post->description = $input['descripcio'];
+            $post->save(); // Guarda el objeto en la BD
+            return redirect()->action('AdministraController@index');
         }
-        $post->titol = $input['titol'];
-        $post->llista = $input['llista'];
-        $post->description = $input['descripcio'];
-        $post->email = $input['email'];
-        $post->direccio = $input['direccio'];
-        $post->telefon = $input['telefon'];
-        $post->save(); // Guarda el objeto en la BD
-        return redirect()->action('AdministraController@index');
+        
         
     }
     public function edit($id = null) {
-
         if ($id == null){
-        return view('administra.administra.list-administra');
+            $data = ModelAdministra::get();
+            return view('administra.especie.list-familia')->with('data', $data);
+        }else{
+            $input = Input::all();
+            $post = ModelAdministra::find($id);
+            if(isset($input['file1'])){
+                $fileprincipal = $input['file1'];
+                //obtenir nom imatge principal
+                $nomprincipal = $fileprincipal->getClientOriginalName();
+                //Guardat imatges en local
+                \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
+                $post->imatge = $nomprincipal;
+            }
+            $post->titol = $input['titol'];
+            $post->llista = $input['llista'];
+            $post->description = $input['descripcio'];
+            $post->save(); // Guarda el objeto en la BD
+            return redirect()->action('AdministraController@index');
         }
     }
-    public function update($id = null) {
-
+    /*public function update($id = null) {
+        return "update";
+        if ($id == null){
+            $data = ModelAnimal::get();
+            return view('administra.especie.list-familia')->with('data', $data);
+        }else{
+            $input = Input::all();
+            $post = new ModelAdministra();
+            if(isset($input['file1'])){
+                $fileprincipal = $input['file1'];
+                //obtenir nom imatge principal
+                $nomprincipal = $fileprincipal->getClientOriginalName();
+                //Guardat imatges en local
+                \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
+                $post->imatge = $nomprincipal;
+            }
+            $post->titol = $input['titol'];
+            $post->llista = $input['llista'];
+            $post->description = $input['descripcio'];
+            $post->save(); // Guarda el objeto en la BD
+            return redirect()->action('AdministraController@index');
+        }
         
-    }
+    }*/
     public function destroy($id) {
         $post = ModelAdministra::find($id);
         if($post == null)

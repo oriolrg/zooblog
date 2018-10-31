@@ -19,8 +19,12 @@ Route::get('familia/{familia}', 'PublicController@getAnimals');
 Route::get('familia/{familia}/{especie}', 'PublicController@getAnimal');
 Route::get('apadrina/{apadrina}', 'PublicController@getApadrina');
 //Route::get('/{familia}/{especie}', 'PublicController@getAnimal');
-Auth::routes();
-Route::get('administra', 'CategoriaController@index')->middleware('auth');
+Route::group(['prefix' => 'administra'], function () {
+
+    Auth::routes();
+
+});
+Route::get('administra', 'AdministraController@index')->middleware('auth');
 Route::resource('administra/familia', 'CategoriaController')->middleware('auth');
 Route::resource('administra/especie', 'AnimalController')->middleware('auth');
 Route::resource('administra/especie/seccions', 'SeccioController')->middleware('auth');

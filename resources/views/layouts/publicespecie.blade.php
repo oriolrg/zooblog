@@ -3,10 +3,9 @@
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="title" content="{{ config('app.name', 'Laravel') }}">
-    <!-- TODO implementar descripció header -->
-    <meta name="description" content="">
-    <!-- TODO implementar paraules clau -->
+    <meta name="title" content="{{$administra->titol}}">
+    <meta name="description" content="{{$administra->description}}">
+    <meta name="keywords" content="{{$administra->llista}}">
     <meta name="author" content="TecnoLord: Oriol Riu Gispert">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -35,7 +34,7 @@
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
 
-        <title>{{ config('app.name', 'Laravel') }} - Especies - {{$especie->title}}</title>
+        <title>{{$administra->titol}} - Especies - {{$especie->title}}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">

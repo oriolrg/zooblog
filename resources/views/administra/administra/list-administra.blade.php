@@ -10,9 +10,8 @@
 
                 <div class="panel-body">
                 
-                <form  enctype="multipart/form-data"  action="{{ url('administra/administra/edit') }}" method="POST">
+                <form  enctype="multipart/form-data"  action="{{ url('administra/administra/1/edit') }}" method="PUT">
                     {{ csrf_field() }}
-                    {{ method_field('PUT') }}
                     @if(isset($dataAdministra))
                         <input type="hidden" name="post_id" value="{{isset($dataAdministra) ? $dataAdministra[0]->id : ''}}">
                     @endif

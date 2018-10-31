@@ -16,10 +16,10 @@
 						<form  enctype="multipart/form-data"  action="{{ url('/administra/apadrina/') }}/{{isset($editdata) ? $editdata->id : ''}}" method="POST">
 							{{ method_field('PUT') }}
 							{{ csrf_field() }}
-              @if(isset($editdata))
-              	<input type="hidden" name="post_id" value="{{isset($editdata) ? $editdata->id : ''}}">
-              @endif
-              @include('administra.apadrina.formulari')
+							@if(isset($editdata))
+								<input type="hidden" name="post_id" value="{{isset($editdata) ? $editdata->id : ''}}">
+							@endif
+              				@include('administra.apadrina.formulari')
 						</form>
 					@endisset
 				</div>
