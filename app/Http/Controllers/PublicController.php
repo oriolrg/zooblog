@@ -44,7 +44,7 @@ class PublicController extends Controller
         $contacta = ModelContacta::get();
         $families = ModelCategoria::get()->where('status', 1);
         $data = ModelCategoria::where('title', $familia)->first();
-        $administra = ModelAdministra::get();
+        $administra = ModelAdministra::first();
             //$animals = ModelAnimal::where('categoria_id', $familia->id)->get();
             //$seccions = ModelSeccio::where('animal_id', $especie->id)->get();
         $data['animals'] = ModelCategoria::find($data->id)->animals;
@@ -68,7 +68,7 @@ class PublicController extends Controller
         $seccions = ModelAnimal::find($especie->id)->seccions;
         $colaboradors = ModelColaborador::get()->where('status', 1);
         $contacta = ModelContacta::get();
-        $administra = ModelAdministra::get();
+        $administra = ModelAdministra::first();
   		$especie['seccions'] = $seccions;
         return view('public.especie')
             ->with('families', $families)
@@ -87,7 +87,7 @@ class PublicController extends Controller
         $colaboradors = ModelColaborador::get()->where('status', 1);
         $apadrinaAnimal = ModelApadrina::where('nom', $apadrina)->get();
         $contacta = ModelContacta::get();
-        $administra = ModelAdministra::get();
+        $administra = ModelAdministra::first();
         return view('public.apadrina')
             ->with('apadrina', $apadrinaAnimal)
             ->with('families', $families)

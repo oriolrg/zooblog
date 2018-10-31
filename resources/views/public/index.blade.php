@@ -4,10 +4,8 @@
   <div class="container">
     <div class="intro-text" >
       <div class="intro-text-sombra">
-        <!-- TODO text corresponent a la plana on s'està -->
-        <div class="intro-heading">Benvinguts a {{ config('app.name') }}!</div>
-        <!-- TODO insertar descripció blog i comentaris -->
-        <div class="intro-lead-in">Falta petita descripció del blog</div>
+        <div class="intro-heading">Benvinguts a {{$administra->titol}}</div>
+        <div class="intro-lead-in">{{$administra->description}}</div>
       </div>
     </div>
   </div>
