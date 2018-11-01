@@ -1,9 +1,10 @@
+                <h2>Català</h2>
                 <label for="title">Titol del Blog</label>
-                <input type="text" name="titol" id="titol" class="form-control" placeholder="Nom..." value="{{isset($dataAdministra) ? $dataAdministra[0]->titol : ''}}"  maxlength="30">
+                <input type="text" name="titol" id="titol" class="form-control" placeholder="Nom..." value="{{isset($dataAdministra) ? $dataAdministra->titol : ''}}"  maxlength="30">
                 <label for="llista">Llista paraules de descripció del blog. (Separades per coma)</label>
-                <textarea type="text" name="llista" id="llista" class="form-control" placeholder="Descripció..." rows="2">@isset($dataAdministra) {{$dataAdministra[0]->llista}} @endisset</textarea>
+                <textarea type="text" name="llista" id="llista" class="form-control" placeholder="Descripció..." rows="2">@isset($dataAdministra) {{$dataAdministra->llista}} @endisset</textarea>
                 <label for="description">Descripció del blog</label>
-                <textarea type="text" name="descripcio" id="descripcio" class="form-control" placeholder="Descripció..." rows="2">@isset($dataAdministra) {{$dataAdministra[0]->description}} @endisset</textarea>
+                <textarea type="text" name="descripcio" id="descripcio" class="form-control" placeholder="Descripció..." rows="2">@isset($dataAdministra) {{$dataAdministra->description}} @endisset</textarea>
                 <legend>Imatge Logotip del blog</legend>
                 @include('administra.uploadimage.uploadimage1')
                 <button type="submit" class="btn btn-primary" >

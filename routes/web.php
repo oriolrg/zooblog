@@ -33,6 +33,8 @@ Route::resource('administra/colaboradors', 'ColaboradorsController')->middleware
 Route::resource('administra/contacta', 'ContactaController')->middleware('auth');
 Route::resource('administra/apadrina', 'ApadrinaController')->middleware('auth');
 Route::resource('administra/administra', 'AdministraController')->middleware('auth');
+Route::resource('ES/administra/administra', 'AdministraControllerES')->middleware('auth');
+Route::resource('EN/administra/administra', 'AdministraControllerEN')->middleware('auth');
 Route::post('mail/contact_me', 'EmailController@emailSend');
 //Route::resource('administra/familia', 'PostController')->middleware('auth');
 //Route::resource('administra/especie', 'PostController')->middleware('auth');

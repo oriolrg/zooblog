@@ -1,6 +1,9 @@
 jQuery(document).ready(function ($) {
   $("#formCategoria").hide();
   $("#llistarCategoria").addClass("active");
+  $("#catala").addClass("active");
+  $("#formCastella").hide();
+  $("#formAngles").hide();
   $("#llistarCategoria").click(function () {
     $("#llistarCategoria").addClass("active");
     $("#crearCategoria").removeClass("active");
@@ -27,6 +30,33 @@ jQuery(document).ready(function ($) {
     $("#llistarSeccio").removeClass("active");
     $("#formSeccio").show();
     $("#llistaSeccio").hide();
+    //location.reload(true);
+  });
+  $("#catala").click(function () {
+    $("#catala").addClass("active");
+    $("#castella").removeClass("active");
+    $("#angles").removeClass("active");
+    $("#formCatala").show();
+    $("#formCastella").hide();
+    $("#formAngles").hide();
+    //location.reload(true);
+  });
+  $("#castella").click(function () {
+    $("#catala").removeClass("active");
+    $("#castella").addClass("active");
+    $("#angles").removeClass("active");
+    $("#formCatala").hide();
+    $("#formCastella").show();
+    $("#formAngles").hide();
+    //location.reload(true);
+  });
+  $("#angles").click(function () {
+    $("#catala").removeClass("active");
+    $("#castella").removeClass("active");
+    $("#angles").addClass("active");
+    $("#formCatala").hide();
+    $("#formCastella").hide();
+    $("#formAngles").show();
     //location.reload(true);
   });
   

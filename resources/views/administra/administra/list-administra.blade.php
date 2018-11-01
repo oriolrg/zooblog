@@ -9,15 +9,40 @@
                 <div class="panel-heading">Administra el blog i SEO</div>
 
                 <div class="panel-body">
-                
-                <form  enctype="multipart/form-data"  action="{{ url('administra/administra/1/edit') }}" method="PUT">
-                    {{ csrf_field() }}
-                    @if(isset($dataAdministra))
-                        <input type="hidden" name="post_id" value="{{isset($dataAdministra) ? $dataAdministra[0]->id : ''}}">
-                    @endif
-                    @include('administra.administra.formulari')
-                </form>
-                
+                <div>
+                  <ul class="nav nav-tabs">
+                    <li class="llistarCategoria" id="catala"><a href="#">Català</a></li>
+                    <li id="castella"><a href="#">Castellà</a></li>
+                    <li id="angles"><a href="#">Anglès</a></li>
+                  </ul>
+                </div>
+                <div id="formCatala">
+                    <form  enctype="multipart/form-data"  action="{{ url('administra/administra/1/edit') }}" method="PUT">
+                        {{ csrf_field() }}
+                        @if(isset($dataAdministra))
+                            <input type="hidden" name="post_id" value="{{isset($dataAdministra) ? $dataAdministra->id : ''}}">
+                        @endif
+                        @include('administra.administra.formulari')
+                    </form>
+                </div>
+                <div id="formCastella">
+                    <form  enctype="multipart/form-data"  action="{{ url('ES/administra/administra/1/edit') }}" method="PUT">
+                        {{ csrf_field() }}
+                        @if(isset($dataAdministra))
+                            <input type="hidden" name="post_id" value="{{isset($dataAdministra) ? $dataAdministra->id : ''}}">
+                        @endif
+                        @include('administra.administra.formulari_ES')
+                    </form>
+                </div>
+                <div id="formAngles">
+                    <form  enctype="multipart/form-data"  action="{{ url('EN/administra/administra/1/edit') }}" method="PUT">
+                        {{ csrf_field() }}
+                        @if(isset($dataAdministra))
+                            <input type="hidden" name="post_id" value="{{isset($dataAdministra) ? $dataAdministra->id : ''}}">
+                        @endif
+                        @include('administra.administra.formulari_EN')
+                    </form>
+                </div>
             </div>
         </div>
     </div>

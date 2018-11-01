@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-md-3 col-sm-6">
         <a href="{{$colaborador->link}}">
-          <img class="img-fluid d-block mx-auto" src="{{asset('/storage/app/public//')}}/{{$colaborador->imatge}}" alt=""></img>
+          <img class="img-fluid d-block mx-auto" src="{{asset('/storage/app/public//')}}/{{$colaborador->imatge}}" alt=""/>
         </a>
       </div>
     </div>
