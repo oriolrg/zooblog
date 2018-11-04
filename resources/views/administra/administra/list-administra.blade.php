@@ -30,8 +30,8 @@
                         {{ csrf_field() }}
                         @if(isset($dataAdministra))
                             <input type="hidden" name="post_id" value="{{isset($dataAdministra) ? $dataAdministra->id : ''}}">
+                            @include('administra.administra.formulari_ES')
                         @endif
-                        @include('administra.administra.formulari_ES')
                     </form>
                 </div>
                 <div id="formAngles">
@@ -39,8 +39,8 @@
                         {{ csrf_field() }}
                         @if(isset($dataAdministra))
                             <input type="hidden" name="post_id" value="{{isset($dataAdministra) ? $dataAdministra->id : ''}}">
+                            @include('administra.administra.formulari_EN')
                         @endif
-                        @include('administra.administra.formulari_EN')
                     </form>
                 </div>
             </div>

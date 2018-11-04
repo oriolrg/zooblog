@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ModelCategoria;
+use App\ModelCategoriaES;
+use App\ModelCategoriaEN;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\UploadedFile;
 
@@ -36,7 +38,7 @@ class CategoriaController extends Controller
 
     $post->title = $input['title'];
     $post->description = $input['description'];
-
+    $post->alt_imatge = $input['alt_imatge'];
     $post->status = $input['status'];
     $post->save(); // Guarda el objeto en la BD
     $data = ModelCategoria::get();
@@ -56,19 +58,19 @@ class CategoriaController extends Controller
    }
   }
   public function edit($id = null) {
-
     if ($id == null){
       return view('administra.familia.edit-post');
     }else{
-       $data['editdata'] = ModelCategoria::find($id);
-       if($data['editdata'] == null){
-          return 'El post no existe';
-       }
-       return view('administra.familia.edit-familia', $data);
-   }
+      $dataAdministraES = ModelCategoriaES::where('categoriasES_id',$id)->get()->first();
+      $dataAdministraEN = ModelCategoriaEN::where('categoriasEN_id',$id)->get()->first();
+      $editdata = ModelCategoria::find($id);
+      if($editdata == null){
+        return 'El post no existe';
+      }
+      return view('administra.familia.edit-familia')->with('editdata', $editdata)->with('editdataES', $dataAdministraES)->with('editdataEN', $dataAdministraEN);
+    }
   }
   public function update($id = null) {
-
     if ($id == null){
       $data = ModelCategoria::get();
       return view('administra.familia.list-familia')->with('data', $data);
@@ -85,6 +87,7 @@ class CategoriaController extends Controller
       }
       $familia->title = $input['title'];
       $familia->description = $input['description'];
+      $familia->alt_imatge = $input['alt_imatge'];
       $familia->status = $input['status'];
       $familia->save();
       $data = ModelCategoria::get();

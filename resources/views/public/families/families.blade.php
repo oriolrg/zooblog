@@ -11,9 +11,9 @@
         <div class="col-md-3 col-sm-6 portfolio-item">
           <a class="portfolio-link"  href="{{asset('familia')}}/{{$familia->title}}">
             <div class="portfolio-hover">
-                <img class="img-fluid" src="{{asset('/storage/app/public//')}}/{{$familia->imatge}}" alt="{{$familia->title}}">
+                <img class="img-fluid" src="{{asset('/storage/app/public//')}}/{{$familia->imatge}}" alt="{{$familia->alt_imatge}}">
             </div>
-            <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$familia->imatge}}" alt="{{$familia->title}}">
+            <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$familia->imatge}}" alt="{{$familia->alt_imatge}}">
           </a>
           <div class="portfolio-caption">
             <h4>{{ $familia->title}}</h4>

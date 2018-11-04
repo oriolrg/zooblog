@@ -3,9 +3,9 @@
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="title" content="{{$administra->titol}}">
-    <meta name="description" content="{{$administra->description}}">
-    <meta name="keywords" content="{{$administra->llista}}">
+    <meta name="title" content="@if(isset($administra)) {{$administra->titol}} @endisset">
+    <meta name="description" content="@if(isset($administra)) {{$administra->description}} @endisset">
+    <meta name="keywords" content="@if(isset($administra)) {{$administra->llista}} @endisset">
     <meta name="author" content="TecnoLord: Oriol Riu Gispert">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -34,7 +34,7 @@
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
 
-        <title>{{$administra->titol}}</title>
+        <title>@if(isset($administra)) {{$administra->titol}} @endisset</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">

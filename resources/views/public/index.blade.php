@@ -4,8 +4,8 @@
   <div class="container">
     <div class="intro-text" >
       <div class="intro-text-sombra">
-        <div class="intro-heading">Benvinguts a {{$administra->titol}}</div>
-        <div class="intro-lead-in">{{$administra->description}}</div>
+        <div class="intro-heading">Benvinguts a @if(isset($administra)) {{$administra->titol}} @endisset</div>
+        <div class="intro-lead-in">@if(isset($administra)) {{$administra->description}} @endisset</div>
       </div>
     </div>
   </div>

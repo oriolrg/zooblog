@@ -21,7 +21,7 @@
             <div class="col">
               <a href="{{asset('familia')}}/{{$data->title}}/{{$animals->title}}">
                 <span class="fa-stack fa-4x">
-                  <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$animals->imatge}}" alt="{{$animals->title}}">
+                  <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$animals->imatge}}" alt="{{$animals->alt_imatge}}">
                 </span>
                 <h4 class="service-heading">{{ $animals->title}}</h4>
                 <h6>{{ $animals->nomcientific }}</h6>
