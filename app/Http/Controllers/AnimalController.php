@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ModelAnimal;
+use App\ModelAnimalES;
+use App\ModelAnimalEN;
 use App\ModelCategoria;
 use App\ModelSeccio;
 use Illuminate\Support\Facades\Input;
@@ -55,14 +57,16 @@ class AnimalController extends Controller
     if ($id == null){
       return view('administra.especie.edit-especie');
     }else{
-       $data['editdata'] = ModelAnimal::find($id);
-       $dataCategoria = ModelCategoria::get();
-       $dataSeccio = ModelSeccio::get()->where('animal_id', $id);
-       if($data['editdata'] == null){
-          return 'El post no existe';
-       }
-       //return $dataSeccio;
-       return view('administra.especie.edit-especie', $data)->with('dataCategoria', $dataCategoria)->with('dataSeccio', $dataSeccio);
+      $dataES = ModelAnimalES::where('animalsES_id',$id)->get()->first();
+      $dataEN = ModelAnimalEN::where('animalsEN_id',$id)->get()->first();
+      $editdata = ModelAnimal::find($id);
+      $dataCategoria = ModelCategoria::get();
+      $dataSeccio = ModelSeccio::get()->where('animal_id', $id);
+      if($editdata == null){
+        return 'El post no existe';
+      }
+      //return $dataEN;
+      return view('administra.especie.edit-especie')->with('editdata', $editdata)->with('editdataES', $dataES)->with('editdataEN', $dataEN)->with('dataCategoria', $dataCategoria);
    }
   }
   public function update($id = null) {

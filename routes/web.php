@@ -18,7 +18,7 @@ Route::get('/', 'PublicController@indexPublic');
 Route::get('familia/{familia}', 'PublicController@getAnimals');
 Route::get('familia/{familia}/{especie}', 'PublicController@getAnimal');
 Route::get('apadrina/{apadrina}', 'PublicController@getApadrina');
-//Route::get('/{familia}/{especie}', 'PublicController@getAnimal');
+
 Route::group(['prefix' => 'administra'], function () {
 
     Auth::routes();
@@ -37,6 +37,8 @@ Route::resource('ES/administra/administra', 'AdministraControllerES')->middlewar
 Route::resource('EN/administra/administra', 'AdministraControllerEN')->middleware('auth');
 Route::resource('ES/administra/familia', 'CategoriaControllerES')->middleware('auth');
 Route::resource('EN/administra/familia', 'CategoriaControllerEN')->middleware('auth');
+Route::resource('ES/administra/especie', 'AnimalControllerES')->middleware('auth');
+Route::resource('EN/administra/especie', 'AnimalControllerEN')->middleware('auth');
 Route::post('mail/contact_me', 'EmailController@emailSend');
 //Route::resource('administra/familia', 'PostController')->middleware('auth');
 //Route::resource('administra/especie', 'PostController')->middleware('auth');

@@ -12,4 +12,12 @@ class ModelAnimal extends Model
     {
         return $this->hasMany('App\ModelSeccio', 'animal_id');
     }
+    public function animalsES()
+    {
+        return $this->hasOne('App\ModelAnimalES', 'animalsES_id');
+    }
+    public function animalsEN()
+    {
+        return $this->hasOne('App\ModelAnimalEN', 'animalsEN_id');
+    }
 }

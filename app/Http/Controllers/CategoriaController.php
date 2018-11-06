@@ -11,18 +11,15 @@ use Illuminate\Http\UploadedFile;
 
 class CategoriaController extends Controller
 {
-  public function indexPublic() {
+  /*public function indexPublic() {
      $data = ModelCategoria::get();
      return view('public.index')->with('data', $data);;
      //return $data;
-  }
+  }*/
   public function index() {
      $data = ModelCategoria::get();
      return view('administra.familia.list-familia')->with('data', $data);
      //return $data;
-  }
-  public function show($id) {
-     return "Ver post, se pasa como parámetro la ID para buscarlo".$id;
   }
   public function store() {
     $input = Input::all();
@@ -61,13 +58,13 @@ class CategoriaController extends Controller
     if ($id == null){
       return view('administra.familia.edit-post');
     }else{
-      $dataAdministraES = ModelCategoriaES::where('categoriasES_id',$id)->get()->first();
-      $dataAdministraEN = ModelCategoriaEN::where('categoriasEN_id',$id)->get()->first();
+      $dataES = ModelCategoriaES::where('categoriasES_id',$id)->get()->first();
+      $dataEN = ModelCategoriaEN::where('categoriasEN_id',$id)->get()->first();
       $editdata = ModelCategoria::find($id);
       if($editdata == null){
         return 'El post no existe';
       }
-      return view('administra.familia.edit-familia')->with('editdata', $editdata)->with('editdataES', $dataAdministraES)->with('editdataEN', $dataAdministraEN);
+      return view('administra.familia.edit-familia')->with('editdata', $editdata)->with('editdataES', $dataES)->with('editdataEN', $dataEN);
     }
   }
   public function update($id = null) {

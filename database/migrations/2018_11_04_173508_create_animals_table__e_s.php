@@ -1,10 +1,10 @@
-i<?php
+<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAnimalsTable extends Migration
+class CreateAnimalsTableES extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateAnimalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('animals', function (Blueprint $table) {
+        Schema::create('animals_ES', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('animalsES_id')->unsigned()->index()->nullable();
             $table->string('title');
             $table->string('nomcientific');
             $table->string('ocurrencia')->nullable();
@@ -27,10 +28,10 @@ class CreateAnimalsTable extends Migration
             $table->string('proteccio')->nullable();
             $table->text('description')->nullable();
             $table->string('alt_imatge')->nullable();
-            $table->string('imatge')->nullable();
-            $table->tinyInteger('status'); // 0 No publicado / 1 Publicado
-            $table->unsignedInteger('categoria_id')->nullable();
             $table->timestamps();
+        });
+        Schema::table('animals_ES', function($table) {
+            $table->foreign('animalsES_id')->references('id')->on('animals')->onDelete('cascade');
         });
     }
 
@@ -41,6 +42,6 @@ class CreateAnimalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('animals');
+        Schema::dropIfExists('animals_ES');
     }
 }
