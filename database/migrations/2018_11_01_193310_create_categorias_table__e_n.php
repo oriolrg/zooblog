@@ -18,7 +18,9 @@ class CreateCategoriasTableEN extends Migration
           $table->integer('categoriasEN_id')->unsigned()->index()->nullable();
           $table->string('title')->nullable();
           $table->text('description')->nullable();
+          $table->string('imatge')->nullable();
           $table->string('alt_imatge')->nullable();
+          $table->tinyInteger('status'); // 0 No publicado / 1 Publicado
           $table->timestamps();
         });
         Schema::table('categorias_EN', function($table) {

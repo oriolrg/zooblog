@@ -11,6 +11,14 @@ class ModelCategoria extends Model
     {
         return $this->hasMany('App\ModelAnimal', 'categoria_id');
     }
+    public function animalsES()
+    {
+        return $this->hasMany('App\ModelAnimalES', 'categoria_id');
+    }
+    public function animalsEN()
+    {
+        return $this->hasMany('App\ModelAnimalEN', 'categoria_id');
+    }
     public function familiaES()
     {
         return $this->hasOne('App\ModelCategoriaES', 'categoriasES_id');

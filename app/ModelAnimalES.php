@@ -12,8 +12,4 @@ class ModelAnimalES extends Model
     {
         return $this->hasMany('App\ModelSeccio', 'animal_id');
     }
-    public function animals()
-    {
-        return $this->belongsTo('App\ModelAnimal');
-    }
 }

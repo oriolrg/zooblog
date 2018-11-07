@@ -18,6 +18,7 @@ class CategoriaControllerES extends Controller
       $familia->title = $input['title'];
       $familia->description = $input['description'];
       $familia->alt_imatge = $input['alt_imatge'];
+      $familia->imatge = $post->imatge;
       $post->familiaES()->save($familia);
     }else{
       $input = Input::all();
@@ -25,6 +26,8 @@ class CategoriaControllerES extends Controller
       $familia->title = $input['title'];
       $familia->description = $input['description'];
       $familia->alt_imatge = $input['alt_imatge'];
+      $familia->imatge = $post->imatge;
+      $familia->status = $post->status;
       $post->familiaES()->save($familia);
       $post->save();
     }

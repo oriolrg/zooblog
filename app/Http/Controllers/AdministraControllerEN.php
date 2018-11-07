@@ -24,6 +24,7 @@ class AdministraControllerEN extends Controller
                 $post2->titol = $input['titol'];
                 $post2->llista = $input['llista'];
                 $post2->description = $input['descripcio'];
+                $post2->imatge = $post->imatge;
                 $post->administraEN()->save($post2); // Guarda el objeto en la BD
             }else{
                 //return "No existeix id";
@@ -32,6 +33,7 @@ class AdministraControllerEN extends Controller
                 $post2->titol = $input['titol'];
                 $post2->llista = $input['llista'];
                 $post2->description = $input['descripcio'];
+                $post2->imatge = $post->imatge;
                 $post->administraEN()->save($post2);
                 $post->save(); // Guarda el objeto en la BD
             }            

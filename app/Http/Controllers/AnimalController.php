@@ -45,9 +45,8 @@ class AnimalController extends Controller
     $post->description = $input['description'];
     $post->status = $input['status'];
     $post->categoria_id = $input['familia'];
+    $post->alt_imatge = $input['alt_imatge'];
     $post->save(); // Guarda el objeto en la BD
-    $dataAnimal = ModelAnimal::get();
-    $dataCategoria = ModelCategoria::get();
     return redirect()->action('AnimalController@index');
     return view('administra.especie.list-especie')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal);
     //return view('administra.list-familia');
@@ -98,6 +97,7 @@ class AnimalController extends Controller
       $especie->description = $input['description'];
       $especie->status = $input['status'];
       $especie->categoria_id = $input['familia'];
+      $especie->alt_imatge = $input['alt_imatge'];
       $especie->save();
       $data = ModelAnimal::get();
       return redirect()->action('AnimalController@index');

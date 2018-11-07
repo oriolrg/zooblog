@@ -29,7 +29,7 @@
 <textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="7" maxlength="600">@isset($editdata) {{$editdata->description}} @endisset</textarea>
 <legend>Imatge</legend>
 <label for="description">Nom descriptiu imatge</label>
-<input type="text" name="alt_imatge" id="alt_imatge" class="form-control" placeholder="Nom descriptiu imatge..." value="{{isset($editdataEN) ? $editdataEN->alt_imatge : ''}}"  maxlength="30">
+<input type="text" name="alt_imatge" id="alt_imatge" class="form-control" placeholder="Nom descriptiu imatge..." value="{{isset($editdata) ? $editdata->alt_imatge : ''}}"  maxlength="30">
 @include('administra.uploadimage.uploadimage1')
 <label for="title">Publicar?</label>
 <select name="status" id="status" class="form-control">

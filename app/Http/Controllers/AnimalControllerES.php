@@ -27,6 +27,9 @@ class AnimalControllerES extends Controller
       $especie->proteccio = $input['proteccio'];
       $especie->description = $input['description'];
       $especie->alt_imatge = $input['alt_imatge'];
+      $especie->imatge = $post->imatge;
+      $especie->status = $post['status']; 
+      $especie->categoria_id = $post['categoria_id']; 
       $post->animalsES()->save($especie);
    }else{
       $input = Input::all();
@@ -43,6 +46,9 @@ class AnimalControllerES extends Controller
       $especie->proteccio = $input['proteccio'];
       $especie->description = $input['description'];
       $especie->alt_imatge = $input['alt_imatge'];
+      $especie->imatge = $post->imatge;
+      $especie->status = $post['status']; 
+      $especie->categoria_id = $post['categoria_id'];      
       $post->animalsES()->save($especie);
       $post->save();
    }

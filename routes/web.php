@@ -9,7 +9,23 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+*//*
+Route::group(array('prefix' => Config::get('app.locale_prefix')), function()
+{
+    Route::get('/politica', function () {
+        return view('public/politicaPrivacitat/politicaPrivacitat');
+    });
+    Route::get('/', 'PublicController@indexPublic');
+    Route::get('familia/{familia}', 'PublicController@getAnimals');
+    Route::get('familia/{familia}/{especie}', 'PublicController@getAnimal');
+    Route::get('apadrina/{apadrina}', 'PublicController@getApadrina');
+    
+
+
+
+});
 */
+Route::get('/idioma/{llengua}', array('as'=>'set-locale', 'uses'=>'LanguageController@setLocale'));
 
 Route::get('/politica', function () {
     return view('public/politicaPrivacitat/politicaPrivacitat');

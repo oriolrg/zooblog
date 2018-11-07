@@ -27,7 +27,10 @@ class CreateAnimalsTableES extends Migration
             $table->string('dieta')->nullable();
             $table->string('proteccio')->nullable();
             $table->text('description')->nullable();
+            $table->string('imatge')->nullable();
             $table->string('alt_imatge')->nullable();
+            $table->tinyInteger('status'); // 0 No publicado / 1 Publicado
+            $table->unsignedInteger('categoria_id')->nullable();
             $table->timestamps();
         });
         Schema::table('animals_ES', function($table) {
