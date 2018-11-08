@@ -15,6 +15,7 @@ public function setLocale($locale='en'){
     }
     Session::put('locale', $locale);
     //App::setLocale($locale);
+    return redirect()->action('PublicController@indexPublic');
     return redirect(url(URL::previous()));
     }
 }

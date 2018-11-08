@@ -33,6 +33,17 @@
           <a class="portfolio-link nav-link " data-toggle="modal" href="#politicaPrivacitat">Politica de Privacitat</a>
         </li>
       </ul>
+      <ul>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="{{asset('/')}}idioma/ca">CA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="{{asset('/')}}idioma/es">ES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="{{asset('/')}}idioma/en">EN</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
