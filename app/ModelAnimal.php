@@ -10,7 +10,7 @@ class ModelAnimal extends Model
 
     public function seccions()
     {
-        return $this->hasMany('App\ModelSeccio', 'animal_id');
+        return $this->hasMany('App\ModelSeccio', 'animal_id')->orderBy('ordre');
     }
     public function animalsES()
     {

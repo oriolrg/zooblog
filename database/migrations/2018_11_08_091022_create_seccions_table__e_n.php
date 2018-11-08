@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeccionsTable extends Migration
+class CreateSeccionsTableEN extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateSeccionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('seccions', function (Blueprint $table) {
+        Schema::create('seccionsEN', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('seccions_id')->unsigned()->index()->nullable();
             $table->string('title');
             $table->text('description');
             $table->text('list')->nullable();
@@ -25,6 +26,9 @@ class CreateSeccionsTable extends Migration
             $table->unsignedInteger('animal_id')->nullable();
             $table->timestamps();
         });
+        Schema::table('seccionsEN', function($table) {
+            $table->foreign('seccions_id')->references('id')->on('seccions')->onDelete('cascade');
+        });
     }
 
     /**
@@ -34,6 +38,6 @@ class CreateSeccionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seccions');
+        Schema::dropIfExists('seccionsEN');
     }
 }
