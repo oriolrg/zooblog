@@ -13,7 +13,7 @@ p {
 a {
   color: green; }
   a:hover {
-    color: #fec503; }
+    color: green; }
 
 .text-primary {
   color: green !important; }

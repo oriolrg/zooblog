@@ -202,3 +202,6 @@ body {
 .seo{
   color:red;
 }
+.portfolio-link:hover{
+  color:green;
+}

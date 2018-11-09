@@ -75,7 +75,7 @@ class PublicController extends Controller
             $apadrina = ModelApadrina::get()->where('status', 1)->where('categoria_id', $idCategoria);
             $animals = ModelAnimal::get()->where('status', 1);
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $contacta = ModelContacta::get();
+            $contacta = ModelContacta::first();
             $families = ModelCategoria::get()->where('status', 1);
             $data = ModelCategoria::where('title', $familia)->first();
             $administra = ModelAdministra::first();
@@ -89,7 +89,7 @@ class PublicController extends Controller
             $apadrina = ModelApadrina::get()->where('status', 1)->where('categoria_id', $idCategoria);
             $animals = ModelAnimalES::get();
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $contacta = ModelContactaES::get();
+            $contacta = ModelContactaES::first();
             $families = ModelCategoriaES::get();
             $data = ModelCategoriaES::where('title', $familia)->first();
             $administra = ModelAdministraES::first();
@@ -101,7 +101,7 @@ class PublicController extends Controller
             $apadrina = ModelApadrina::get()->where('status', 1)->where('categoria_id', $idCategoria);
             $animals = ModelAnimalEN::get();
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $contacta = ModelContactaEN::get();
+            $contacta = ModelContactaEN::first();
             $families = ModelCategoriaEN::get();
             $data = ModelCategoriaEN::where('title', $familia)->first();
             $administra = ModelAdministraEN::first();
@@ -128,7 +128,7 @@ class PublicController extends Controller
             $apadrina = ModelApadrina::get()->where('status', 1)->where('animal_id', $idFamilia);
             $seccions = ModelAnimal::find($especie->id)->seccions;
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $contacta = ModelContacta::get();
+            $contacta = ModelContacta::first();
             $administra = ModelAdministra::first();
             $especie['seccions'] = $seccions;
         }elseif(Session::get('locale')=='es'){
@@ -141,7 +141,7 @@ class PublicController extends Controller
             $apadrina = ModelApadrina::get()->where('status', 1)->where('animal_id', $idFamilia);
             $seccions = ModelAnimal::find($especie->animalsES_id)->seccions;
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $contacta = ModelContactaES::get();
+            $contacta = ModelContactaES::first();
             $administra = ModelAdministraES::first();
             $especie['seccions'] = $seccions;
         }else{
@@ -153,7 +153,7 @@ class PublicController extends Controller
             $apadrina = ModelApadrina::get()->where('status', 1)->where('animal_id', $idFamilia);
             $seccions = ModelAnimal::find($especie->id)->seccions;
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $contacta = ModelContactaEN::get();
+            $contacta = ModelContactaEN::first();
             $administra = ModelAdministraEN::first();
             $especie['seccions'] = $seccions;
         }
