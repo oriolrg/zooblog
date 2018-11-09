@@ -3,10 +3,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">Contacta</h2>
-        <h3 class="section-subheading text-muted">Telèfon @isset($contacta[0]->telefon) {{$contacta[0]->telefon}} @endisset<br />
-          @isset($contacta[0]->direccio) {{$contacta[0]->direccio}} @endisset<br />
-          @isset($contacta[0]->email) {{$contacta[0]->email}} @endisset
+        <h2 class="section-heading text-uppercase">@isset($administra->menu5){{$administra->menu5}}@endisset</h2>
+        <h3 class="section-subheading text-muted">
+          @isset($contacta->telefon)  
+            <a href="tel:+34{{$contacta->telefon}}">
+              {{$contacta->telefon}}
+            </a> 
+          @endisset<br /> 
         </h3>
       </div>
     </div>
@@ -37,20 +40,18 @@
             </div>
             <div class="col-md-6">
                  <div class="form-group">
-                   <input type="checkbox" name="checkbox" id="option" required  data-validation-required-message="Accepta la politica de privacitat."><label for="option"><span></span> <p class="section-subheading text-muted">Sí, accepto la <a class="portfolio-link" data-toggle="modal" href="#politicaPrivacitat">politica de privacitat</a> de ZooPirineu</p></label>
+                   <input type="checkbox" name="checkbox" id="option" required  data-validation-required-message="Accepta la politica de privacitat."><label for="option"><span></span> <p class="section-subheading text-muted"><a class="portfolio-link" data-toggle="modal" href="#politicaPrivacitat">@isset($contacta){{$contacta->missAccepto}}@endisset</a></p></label>
                    <p class="help-block text-danger"></p>
                  </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-12 text-center">
               <div id="success"></div>
-              <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Envia el missatge</button>
+              <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">@isset($contacta){{$contacta->enviar}}@endisset</button>
             </div>
           </div>
           <p class="section-subheading text-muted">
-               ZooPirineu li informa que les dades de caracter personal que proporcionis omplint el formulari
-               serán tractats per Stania Kuspertova (ZooPirineu) com a responsable d'aquesta web. La finalitat de la recollida i tractament de les dades personals que sol·licito són per gestionar la sol·licitut que realizes en aquest formulario de contacte.
-               Legitimació: Consentimient de l'interessat.
+               @isset($contacta){{$contacta->missProteccio}}@endisset
           </p>
           <p>
 

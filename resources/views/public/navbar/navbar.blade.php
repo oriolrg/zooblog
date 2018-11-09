@@ -1,29 +1,29 @@
 <!-- Navigation navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav"-->
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <a class="navbar-brand js-scroll-trigger" href="{{asset('/')}}">{{$administra->titol}}</a>
+    <a class="navbar-brand js-scroll-trigger" href="{{asset('/')}}">@isset($administra){{$administra->titol}}@endisset</a>
     <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
         <ul class="navbar-nav mx-auto text-md-center text-left">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#families">Families d'animals</a>
+              <a class="nav-link js-scroll-trigger" href="#families">@isset($administra){{$administra->menu1}}@endisset</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#especies">Especies d'animals</a>
+              <a class="nav-link js-scroll-trigger" href="#especies">@isset($administra){{$administra->menu2}}@endisset</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#apadrina">Apadrina'ns</a>
+              <a class="nav-link js-scroll-trigger" href="#apadrina">@isset($administra){{$administra->menu3}}@endisset</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#colaboradors">Col·laboradors</a>
+              <a class="nav-link js-scroll-trigger" href="#colaboradors">@isset($administra){{$administra->menu4}}@endisset</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contacta</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">@isset($administra){{$administra->menu5}}@endisset</a>
             </li>
             <li class="nav-item">
-              <a class="portfolio-link nav-link " data-toggle="modal" href="#politicaPrivacitat">Politica de Privacitat</a>
+              <a class="portfolio-link nav-link " data-toggle="modal" href="#politicaPrivacitat">@isset($administra){{$administra->menu6}}@endisset</a>
             </li>
             </ul>
             <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">

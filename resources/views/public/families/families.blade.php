@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">Families d'animals</h2>
+        <h2 class="section-heading text-uppercase">@isset($administra){{$administra->menu1}}@endisset</h2>
       </div>
     </div>
     <div class="row">

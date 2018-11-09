@@ -33,6 +33,8 @@ Route::resource('ES/administra/especie/seccions', 'SeccioControllerES')->middlew
 Route::resource('EN/administra/especie/seccions', 'SeccioControllerEN')->middleware('auth');
 Route::resource('administra/colaboradors', 'ColaboradorsController')->middleware('auth');
 Route::resource('administra/contacta', 'ContactaController')->middleware('auth');
+Route::resource('ES/administra/contacta', 'ContactaControllerES')->middleware('auth');
+Route::resource('EN/administra/contacta', 'ContactaControllerEN')->middleware('auth');
 Route::resource('administra/apadrina', 'ApadrinaController')->middleware('auth');
 Route::resource('administra/administra', 'AdministraController')->middleware('auth');
 Route::resource('ES/administra/administra', 'AdministraControllerES')->middleware('auth');

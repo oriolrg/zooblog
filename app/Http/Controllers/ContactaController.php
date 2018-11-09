@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ModelContacta;
+use App\ModelContactaES;
+use App\ModelContactaEN;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\UploadedFile;
 
 class ContactaController extends Controller
 {
   public function index() {
-     $data = ModelContacta::get();
-     return view('administra.contacta.list-contacta')->with('data', $data);
-     //return $data;
+    $dataContacta = ModelContacta::get()->first();
+    $dataContactaES = ModelContactaES::get()->first();
+    $dataContactaEN = ModelContactaEN::get()->first();
+    return view('administra.contacta.list-contacta')->with('dataContacta', $dataContacta)->with('dataContactaES', $dataContactaES)->with('dataContactaEN', $dataContactaEN);
+    
   }
   public function store() {
     $input = Input::all();
@@ -22,22 +26,36 @@ class ContactaController extends Controller
     $post->latitud = $input['latitud'];
     $post->longitud = $input['longitud'];
     $post->email = $input['email'];
+    $post->missAccepto = $input['missAccepto'];
+    $post->missProteccio = $input['missProteccio'];
+    $post->enviar = $input['enviar'];
     $post->save(); // Guarda el objeto en la BD
     $data = ModelContacta::get();
     return view('administra.contacta.list-contacta')->with('data', $data);
     //return view('administra.list-familia');
   }
   public function edit($id = null) {
-
     if ($id == null){
-      return view('administra.contacta.edit-contacta');
+      $data = ModelContacta::get();
+      return view('administra.contacta.list-contacta')->with('data', $data);
     }else{
-       $data['editdata'] = ModelContacta::find($id);
-       if($data['editdata'] == null){
-          return 'El post no existe';
-       }
-       return view('administra.contacta.edit-contacta', $data);
-   }
+      $input = Input::all();
+      if(ModelContacta::find($id)){
+        $post = ModelContacta::find($id); 
+      }else{
+        $post = new ModelContacta();
+      }
+      $post->telefon = $input['telefon'];
+      $post->direccio = $input['direccio'];
+      $post->latitud = $input['latitud'];
+      $post->longitud = $input['longitud'];
+      $post->email = $input['email'];
+      $post->missAccepto = $input['missAccepto'];
+      $post->missProteccio = $input['missProteccio'];
+      $post->enviar = $input['enviar'];
+      $post->save(); // Guarda el objeto en la BD
+      return redirect()->action('ContactaController@index');
+    }
   }
   public function update($id = null) {
 
@@ -51,7 +69,10 @@ class ContactaController extends Controller
       $post->direccio = $input['direccio'];
       $post->latitud = $input['latitud'];
       $post->longitud = $input['longitud'];
-      $post->email = $input['email'];;
+      $post->email = $input['email'];
+      $post->missAccepto = $input['missAccepto'];
+      $post->missProteccio = $input['missProteccio'];
+      $post->enviar = $input['enviar'];
       $post->save(); // Guarda el objeto en la BD
       $data = ModelContacta::get();
       return redirect()->action('ContactaController@index');

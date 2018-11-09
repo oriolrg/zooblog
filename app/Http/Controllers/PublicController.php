@@ -13,7 +13,11 @@ use App\ModelSeccio;
 use App\ModelApadrina;
 use App\ModelColaborador;
 use App\ModelContacta;
+use App\ModelContactaES;
+use App\ModelContactaEN;
 use App\ModelAdministra;
+use App\ModelAdministraES;
+use App\ModelAdministraEN;
 use Session;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\UploadedFile;
@@ -30,7 +34,7 @@ class PublicController extends Controller
             $especies = ModelAnimal::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $imatges = ModelCategoria::get()->where('status', 1);
-            $contacta = ModelContacta::get();
+            $contacta = ModelContacta::first();
             $administra = ModelAdministra::first();
         }elseif(Session::get('locale')=='es'){
             //TODO castella
@@ -40,17 +44,17 @@ class PublicController extends Controller
             $especies = ModelAnimalES::get()->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $imatges = ModelCategoria::get()->where('status', 1);
-            $contacta = ModelContacta::get();
-            $administra = ModelAdministra::first();
+            $contacta = ModelContactaES::first();
+            $administra = ModelAdministraES::first();
         }else{
             //TODO angles i altres
             $families = ModelCategoriaEN::get();
             $apadrina = ModelApadrina::get()->where('status', 1);
             $especies = ModelAnimalEN::get()->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $imatges = ModelCategoria::get()->where('status', 1);
-            $contacta = ModelContacta::get();
-            $administra = ModelAdministra::first();
+            $imatges = ModelCategoriaEN::get()->where('status', 1);
+            $contacta = ModelContactaEN::first();
+            $administra = ModelAdministraEN::first();
         }
         return view('public.index')
             ->with('imatges', $imatges)
@@ -85,10 +89,10 @@ class PublicController extends Controller
             $apadrina = ModelApadrina::get()->where('status', 1)->where('categoria_id', $idCategoria);
             $animals = ModelAnimalES::get();
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $contacta = ModelContacta::get();
+            $contacta = ModelContactaES::get();
             $families = ModelCategoriaES::get();
             $data = ModelCategoriaES::where('title', $familia)->first();
-            $administra = ModelAdministra::first();
+            $administra = ModelAdministraES::first();
             $data['animals'] = ModelCategoria::find($data->categoriasES_id)->animalsES;
         }else{
             //TODO angles i altres
@@ -97,10 +101,10 @@ class PublicController extends Controller
             $apadrina = ModelApadrina::get()->where('status', 1)->where('categoria_id', $idCategoria);
             $animals = ModelAnimalEN::get();
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $contacta = ModelContacta::get();
+            $contacta = ModelContactaEN::get();
             $families = ModelCategoriaEN::get();
             $data = ModelCategoriaEN::where('title', $familia)->first();
-            $administra = ModelAdministra::first();
+            $administra = ModelAdministraEN::first();
             $data['animals'] = ModelCategoriaEN::find($data->id)->animals;
         }
         return view('public.familia')
@@ -137,8 +141,8 @@ class PublicController extends Controller
             $apadrina = ModelApadrina::get()->where('status', 1)->where('animal_id', $idFamilia);
             $seccions = ModelAnimal::find($especie->animalsES_id)->seccions;
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $contacta = ModelContacta::get();
-            $administra = ModelAdministra::first();
+            $contacta = ModelContactaES::get();
+            $administra = ModelAdministraES::first();
             $especie['seccions'] = $seccions;
         }else{
             //TODO angles i altres
@@ -149,8 +153,8 @@ class PublicController extends Controller
             $apadrina = ModelApadrina::get()->where('status', 1)->where('animal_id', $idFamilia);
             $seccions = ModelAnimal::find($especie->id)->seccions;
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $contacta = ModelContacta::get();
-            $administra = ModelAdministra::first();
+            $contacta = ModelContactaEN::get();
+            $administra = ModelAdministraEN::first();
             $especie['seccions'] = $seccions;
         }
         

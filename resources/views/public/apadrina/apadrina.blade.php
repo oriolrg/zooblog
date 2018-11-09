@@ -1,7 +1,7 @@
 <section class="bg-gray" id="apadrina">
 <div class="row">
          <div class="col-lg-12 text-center">
-           <h2 class="section-heading text-uppercase">Apadrina'ns</h2>
+           <h2 class="section-heading text-uppercase">@isset($administra){{$administra->menu3}}@endisset</h2>
            <h3 class="section-subheading text-muted">Apadrina algun dels nostres animals</h3>
          </div>
        </div>

@@ -36,6 +36,14 @@ class AdministraController extends Controller
             $post->titol = $input['titol'];
             $post->llista = $input['llista'];
             $post->description = $input['descripcio'];
+            //$post->alt_imatge = $input['alt_imatge'];
+            $post->menu1 = $input['menu1'];
+            $post->menu2 = $input['menu2'];
+            $post->menu3 = $input['menu3'];
+            $post->menu4 = $input['menu4'];
+            $post->menu5 = $input['menu5'];
+            $post->menu6 = $input['menu6'];
+            $post->politicaPrivacitat = $input['politicaPrivacitat'];
             $post->save(); // Guarda el objeto en la BD
             return redirect()->action('AdministraController@index');
         }
@@ -64,11 +72,19 @@ class AdministraController extends Controller
             $post->titol = $input['titol'];
             $post->llista = $input['llista'];
             $post->description = $input['descripcio'];
+            //$post->alt_imatge = $input['alt_imatge'];
+            $post->menu1 = $input['menu1'];
+            $post->menu2 = $input['menu2'];
+            $post->menu3 = $input['menu3'];
+            $post->menu4 = $input['menu4'];
+            $post->menu5 = $input['menu5'];
+            $post->menu6 = $input['menu6'];
+            $post->politicaPrivacitat = $input['politicaPrivacitat'];
             $post->save(); // Guarda el objeto en la BD
             return redirect()->action('AdministraController@index');
         }
     }
-    public function updateEN($id = null) {
+    /*public function update($id = null) {
         return "update";
         if ($id == null){
             $data = ModelAnimal::get();
@@ -87,16 +103,19 @@ class AdministraController extends Controller
             $post->titol = $input['titol'];
             $post->llista = $input['llista'];
             $post->description = $input['descripcio'];
+            $post->alt_imatge = $input['alt_imatge'];
+            $post->menu1 = $input['menu1'];
+            $post->menu2 = $input['menu2'];
+            $post->menu3 = $input['menu3'];
+            $post->menu4 = $input['menu4'];
+            $post->menu5 = $input['menu5'];
+            $post->menu6 = $input['menu6'];
+            $post->politicaPrivacitat = $input['politicaPrivacitat'];
             $post->save(); // Guarda el objeto en la BD
-            $post2 = new ModelAdministraES();
-            $post2->titol = $input['titol'];
-            $post2->llista = $input['llista'];
-            $post2->description = $input['descripcio'];
-            $post2->save();
             return redirect()->action('AdministraController@index');
         }
         
-    }
+    }*/
     public function destroy($id) {
         $post = ModelAdministra::find($id);
         if($post == null)
