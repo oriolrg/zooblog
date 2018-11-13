@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ModelApadrina;
+use App\ModelApadrinaES;
+use App\ModelApadrinaEN;
 use App\ModelAnimal;
 use App\ModelCategoria;
 use Illuminate\Support\Facades\Input;
@@ -48,6 +50,24 @@ class ApadrinaController extends Controller
   }
 
   public function edit($id = null) {
+    if ($id == null){
+      return view('administra.apadrina.edit-apadrina');
+    }else{
+      $dataES = ModelApadrinaES::where('apadrina_id',$id)->get()->first();
+      $dataEN = ModelApadrinaEN::where('apadrina_id',$id)->get()->first();
+      $editdata = ModelApadrina::find($id);
+      $dataAnimal = ModelAnimal::get();
+      $dataCategoria = ModelCategoria::get();
+      if($editdata == null){
+        return 'El post no existe';
+      }
+      //return $dataEN;
+      return view('administra.apadrina.edit-apadrina')->with('editdata', $editdata)->with('editdataES', $dataES)->with('editdataEN', $dataEN)->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal);
+    }
+
+
+
+
 
     if ($id == null){
       index();

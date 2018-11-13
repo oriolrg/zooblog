@@ -11,6 +11,8 @@ use App\ModelCategoriaES;
 use App\ModelCategoriaEN;
 use App\ModelSeccio;
 use App\ModelApadrina;
+use App\ModelApadrinaES;
+use App\ModelApadrinaEN;
 use App\ModelColaborador;
 use App\ModelContacta;
 use App\ModelContactaES;
@@ -40,16 +42,16 @@ class PublicController extends Controller
             //TODO castella
             //return "castella";
             $families = ModelCategoriaES::get();
-            $apadrina = ModelApadrina::get()->where('status', 1);
+            $apadrina = ModelApadrinaES::get()->where('status', 1);
             $especies = ModelAnimalES::get()->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $imatges = ModelCategoria::get()->where('status', 1);
+            $imatges = ModelCategoriaES::get()->where('status', 1);
             $contacta = ModelContactaES::first();
             $administra = ModelAdministraES::first();
         }else{
             //TODO angles i altres
             $families = ModelCategoriaEN::get();
-            $apadrina = ModelApadrina::get()->where('status', 1);
+            $apadrina = ModelApadrinaEN::get()->where('status', 1);
             $especies = ModelAnimalEN::get()->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $imatges = ModelCategoriaEN::get()->where('status', 1);
@@ -86,7 +88,7 @@ class PublicController extends Controller
             //Obtenir animals de la familia
             $data = ModelCategoriaES::where('title', $familia)->first();
             $idCategoria = $data->categoriasES_id;
-            $apadrina = ModelApadrina::get()->where('status', 1)->where('categoria_id', $idCategoria);
+            $apadrina = ModelApadrinaES::get()->where('status', 1)->where('categoria_id', $idCategoria);
             $animals = ModelAnimalES::get();
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $contacta = ModelContactaES::first();
@@ -98,7 +100,7 @@ class PublicController extends Controller
             //TODO angles i altres
             $familiaCategoria = ModelCategoriaEN::where('title', $familia)->first();
             $idCategoria = $familiaCategoria->id;
-            $apadrina = ModelApadrina::get()->where('status', 1)->where('categoria_id', $idCategoria);
+            $apadrina = ModelApadrinaEN::get()->where('status', 1)->where('categoria_id', $idCategoria);
             $animals = ModelAnimalEN::get();
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $contacta = ModelContactaEN::first();
@@ -138,7 +140,7 @@ class PublicController extends Controller
             //Obtenir id
             $idFamilia = $especie->animalsES_id;
             $families = ModelCategoriaES::get()->where('status', 1);
-            $apadrina = ModelApadrina::get()->where('status', 1)->where('animal_id', $idFamilia);
+            $apadrina = ModelApadrinaES::get()->where('status', 1)->where('animal_id', $idFamilia);
             $seccions = ModelAnimal::find($especie->animalsES_id)->seccions;
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $contacta = ModelContactaES::first();
@@ -150,7 +152,7 @@ class PublicController extends Controller
             //Obtenir id
             $idFamilia = $especie->id;
             $families = ModelCategoriaEN::get()->where('status', 1);
-            $apadrina = ModelApadrina::get()->where('status', 1)->where('animal_id', $idFamilia);
+            $apadrina = ModelApadrinaEN::get()->where('status', 1)->where('animal_id', $idFamilia);
             $seccions = ModelAnimal::find($especie->id)->seccions;
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $contacta = ModelContactaEN::first();
@@ -168,21 +170,30 @@ class PublicController extends Controller
 
       }
       public function getApadrina($apadrina) {
-        if(\Lang::getLocale()=='ca'){
-            //catala
-        }elseif(\Lang::getLocale()=='es'){
-            //TODO castella
-            //return "castella";
+        if(Session::get('locale')=='ca'){
+            $families = ModelCategoria::get()->where('status', 1);
+            $especies = ModelAnimal::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
+            $colaboradors = ModelColaborador::get()->where('status', 1);
+            $apadrinaAnimal = ModelApadrina::where('nom', $apadrina)->first();
+            $contacta = ModelContacta::get();
+            $administra = ModelAdministra::first();
+        }elseif(Session::get('locale')=='es'){
+            $families = ModelCategoriaES::get()->where('status', 1);
+            $especies = ModelAnimalES::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
+            $colaboradors = ModelColaborador::get()->where('status', 1);
+            $apadrinaAnimal = ModelApadrinaES::where('nom', $apadrina)->first();
+            $contacta = ModelContactaES::get();
+            $administra = ModelAdministraES::first();
         }else{
-            //TODO angles i altres
+            $families = ModelCategoriaEN::get()->where('status', 1);
+            $especies = ModelAnimalEN::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
+            $colaboradors = ModelColaborador::get()->where('status', 1);
+            $apadrinaAnimal = ModelApadrinaEN::where('nom', $apadrina)->first();
+            $contacta = ModelContactaEN::get();
+            $administra = ModelAdministraEN::first();
         }
         //Obtenir categories amb nom familia
-        $families = ModelCategoria::get()->where('status', 1);
-        $especies = ModelAnimal::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
-        $colaboradors = ModelColaborador::get()->where('status', 1);
-        $apadrinaAnimal = ModelApadrina::where('nom', $apadrina)->get();
-        $contacta = ModelContacta::get();
-        $administra = ModelAdministra::first();
+        //return $apadrinaAnimal->nom;
         return view('public.apadrina')
             ->with('apadrina', $apadrinaAnimal)
             ->with('families', $families)

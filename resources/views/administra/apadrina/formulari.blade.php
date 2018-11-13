@@ -1,7 +1,8 @@
+<h2>Català</h2>
 <label for="title">Nom</label>
 <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom..." value="{{isset($editdata) ? $editdata->nom : ''}}"  maxlength="30">
 <label for="description">Descripcio</label>
-<textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="2">@isset($editdata) {{$editdata->description}} @endisset</textarea>
+<textarea type="text" name="description" id="description" class="form-control" placeholder="Descripció..." rows="6">@isset($editdata) {{$editdata->description}} @endisset</textarea>
 <label for="preu">Preu</label><!-- TODO controlar que enllaç no sigui null -->
 <input type="text" name="preu" id="preu" class="form-control" placeholder="0€..." value="{{isset($editdata) ? $editdata->preu : ''}}">
 <label for="familia">Familia</label>

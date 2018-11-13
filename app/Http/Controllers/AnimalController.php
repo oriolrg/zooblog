@@ -16,7 +16,6 @@ class AnimalController extends Controller
 
     $dataAnimal = ModelAnimal::get();
     $dataCategoria = ModelCategoria::get();
-
     $dataSeccio = ModelSeccio::get();
     return view('administra.especie.list-especie')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal)->with('dataSeccio', $dataSeccio);
      //return $data;
@@ -66,7 +65,7 @@ class AnimalController extends Controller
       }
       //return $dataEN;
       return view('administra.especie.edit-especie')->with('editdata', $editdata)->with('editdataES', $dataES)->with('editdataEN', $dataEN)->with('dataCategoria', $dataCategoria);
-   }
+    }
   }
   public function update($id = null) {
 

@@ -79,7 +79,7 @@
           <?php $i += 1;?>
           @if(strlen($seccions->imatge)>=2)
             <div class="w3-col s3">
-              <img class="demo w3-opacity w3-hover-opacity-off" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" alt="{{$seccions->title}}" style="width:100%" style="" onclick="currentDiv({{$i}})">
+              <a><img class="demo w3-opacity w3-hover-opacity-off" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" alt="{{$seccions->title}}" style="width:100%; height: 5em" style="" onclick="currentDiv({{$i}})"></a>
             </div>
           @endif
         @endforeach

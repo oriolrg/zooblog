@@ -40,18 +40,18 @@
             </div>
             <div class="col-md-6">
                  <div class="form-group">
-                   <input type="checkbox" name="checkbox" id="option" required  data-validation-required-message="Accepta la politica de privacitat."><label for="option"><span></span> <p class="section-subheading text-muted"><a class="portfolio-link" data-toggle="modal" href="#politicaPrivacitat">@isset($contacta){{$contacta->missAccepto}}@endisset</a></p></label>
+                   <input type="checkbox" name="checkbox" id="option" required  data-validation-required-message="Accepta la politica de privacitat."><label for="option"><span></span> <p class="section-subheading text-muted"><a class="portfolio-link" data-toggle="modal" href="#politicaPrivacitat">@isset($contacta->missAccepto){{$contacta->missAccepto}}@endisset</a></p></label>
                    <p class="help-block text-danger"></p>
                  </div>
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-12 text-center">
               <div id="success"></div>
-              <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">@isset($contacta){{$contacta->enviar}}@endisset</button>
+              <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">@isset($contacta->enviar){{$contacta->enviar}}@endisset</button>
             </div>
           </div>
           <p class="section-subheading text-muted">
-               @isset($contacta){{$contacta->missProteccio}}@endisset
+               @isset($contacta->missProteccio){{$contacta->missProteccio}}@endisset
           </p>
           <p>
 

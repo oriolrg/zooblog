@@ -5,7 +5,7 @@
     <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+    <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2" role="navigation">
         <ul class="navbar-nav mx-auto text-md-center text-left">
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#families">@isset($administra){{$administra->menu1}}@endisset</a>

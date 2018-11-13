@@ -29,18 +29,24 @@ Route::get('administra', 'AdministraController@index')->middleware('auth');
 Route::resource('administra/familia', 'CategoriaController')->middleware('auth');
 Route::resource('administra/especie', 'AnimalController')->middleware('auth');
 Route::resource('administra/especie/seccions', 'SeccioController')->middleware('auth');
-Route::resource('ES/administra/especie/seccions', 'SeccioControllerES')->middleware('auth');
-Route::resource('EN/administra/especie/seccions', 'SeccioControllerEN')->middleware('auth');
 Route::resource('administra/colaboradors', 'ColaboradorsController')->middleware('auth');
 Route::resource('administra/contacta', 'ContactaController')->middleware('auth');
-Route::resource('ES/administra/contacta', 'ContactaControllerES')->middleware('auth');
-Route::resource('EN/administra/contacta', 'ContactaControllerEN')->middleware('auth');
 Route::resource('administra/apadrina', 'ApadrinaController')->middleware('auth');
 Route::resource('administra/administra', 'AdministraController')->middleware('auth');
-Route::resource('ES/administra/administra', 'AdministraControllerES')->middleware('auth');
-Route::resource('EN/administra/administra', 'AdministraControllerEN')->middleware('auth');
+
 Route::resource('ES/administra/familia', 'CategoriaControllerES')->middleware('auth');
-Route::resource('EN/administra/familia', 'CategoriaControllerEN')->middleware('auth');
 Route::resource('ES/administra/especie', 'AnimalControllerES')->middleware('auth');
+Route::resource('ES/administra/especie/seccions', 'SeccioControllerES')->middleware('auth');
+Route::resource('ES/administra/contacta', 'ContactaControllerES')->middleware('auth');
+Route::resource('ES/administra/apadrina', 'ApadrinaControllerES')->middleware('auth');
+Route::resource('ES/administra/administra', 'AdministraControllerES')->middleware('auth');
+
+
+Route::resource('EN/administra/familia', 'CategoriaControllerEN')->middleware('auth');
 Route::resource('EN/administra/especie', 'AnimalControllerEN')->middleware('auth');
+Route::resource('EN/administra/especie/seccions', 'SeccioControllerEN')->middleware('auth');
+Route::resource('EN/administra/contacta', 'ContactaControllerEN')->middleware('auth');
+Route::resource('EN/administra/apadrina', 'ApadrinaControllerEN')->middleware('auth');
+Route::resource('EN/administra/administra', 'AdministraControllerEN')->middleware('auth');
+
 Route::post('mail/contact_me', 'EmailController@emailSend');
