@@ -96,7 +96,7 @@ jQuery(document).ready(function ($) {
     if (r == true) {
       var _token = $("input[name='_token']").val();
       var tipus = 'DELETE';
-      var url = "/public/ZooBlog/administra/"+nom+"/"+id;
+      var url = "/administra/"+nom+"/"+id;
       console.log(url);
       var data = dataString;
       var data = {_token:_token};
