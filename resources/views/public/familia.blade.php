@@ -10,9 +10,14 @@
 </header>
 
   <!-- Services -->
-  <section id="animals">
+  <section id="especies">
 
     <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">@isset($administra){{$administra->menu2}}@endisset</h2>
+        </div>
+      </div>
     <!-- TODO insertar descripció blog i comentaris -->
       <div class="intro-lead-in">{{$data->description}}</div>
         <div class="row text-center">

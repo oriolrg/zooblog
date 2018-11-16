@@ -26,6 +26,7 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
     <link href="{{ asset('/css/agency.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/card.css') }}" rel="stylesheet">
@@ -63,7 +64,7 @@
     </head>
     <body>
     <div id="page-top"></div>
-        @include('public.navbar.navbar')
+        @include('public.navbar.navbarEspecie')
         @yield('content')
         @yield('js')
         <!-- Bootstrap core JavaScript

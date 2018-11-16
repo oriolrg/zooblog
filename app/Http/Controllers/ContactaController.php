@@ -65,18 +65,21 @@ class ContactaController extends Controller
     }else{
       $input = Input::all();
       $post = ModelContacta::find($id);
-      $post->telefon = $input['telefon'];
-      $post->direccio = $input['direccio'];
-      $post->latitud = $input['latitud'];
-      $post->longitud = $input['longitud'];
-      $post->email = $input['email'];
-      $post->missAccepto = $input['missAccepto'];
-      $post->missProteccio = $input['missProteccio'];
-      $post->enviar = $input['enviar'];
+      $post = $this->setContacta($post, $input);
       $post->save(); // Guarda el objeto en la BD
-      $data = ModelContacta::get();
       return redirect()->action('ContactaController@index');
    }
+  }
+  public function setContacta($post, $input){
+    $post->telefon = $input['telefon'];
+    $post->direccio = $input['direccio'];
+    $post->latitud = $input['latitud'];
+    $post->longitud = $input['longitud'];
+    $post->email = $input['email'];
+    $post->missAccepto = $input['missAccepto'];
+    $post->missProteccio = $input['missProteccio'];
+    $post->enviar = $input['enviar'];
+    return $post;
   }
   public function destroy($id) {
     $post = ModelContacta::find($id);

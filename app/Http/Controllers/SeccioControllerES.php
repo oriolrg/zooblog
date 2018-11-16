@@ -14,30 +14,27 @@ class SeccioControllerES extends Controller
     if(count(ModelSeccioES::where('seccions_id',$id)->get()) != 0){
       $input = Input::all();
       $dataSeccio = ModelSeccioES::where('seccions_id',$id)->get()->first();
-      $dataSeccio->title = $input['title'];
-  	  $dataSeccio->description = nl2br($input['description']);
-  	  $dataSeccio->list = nl2br($input['list']);
-      $dataSeccio->alt_imatge = $input['alt_imatge'];      
-      $dataSeccio->imatge = $dataSeccioOR->imatge;
-      $dataSeccio->status = $dataSeccioOR->status;
-      $dataSeccio->ordre = $dataSeccioOR->ordre;
+      $dataSeccio = $this->setSeccio($dataSeccio, $dataSeccioOR, $input);
       $dataSeccio->animal_id = $dataSeccioOR->animal_id;
       $dataSeccioOR->seccionsES()->save($dataSeccio);
     }else{
       $input = Input::all();
       $dataSeccio = new ModelSeccioES();
-      $dataSeccio->title = $input['title'];
-  	  $dataSeccio->description = nl2br($input['description']);
-  	  $dataSeccio->list = nl2br($input['list']); 
-      $dataSeccio->alt_imatge = $input['alt_imatge'];
-      $dataSeccio->imatge = $dataSeccioOR->imatge;
-      $dataSeccio->status = $dataSeccioOR->status;
-      $dataSeccio->ordre = $dataSeccioOR->ordre;
-      $dataSeccio->animal_id = $dataSeccioOR->animal_id;
+      $dataSeccio = $this->setSeccio($dataSeccio, $dataSeccioOR, $input);
       $dataSeccioOR->seccionsES()->save($dataSeccio);
     }
     return redirect()->action('SeccioController@show', ['id' => $dataSeccio->animal_id]);
 
+  }
+  public function setSeccio($dataSeccio, $dataSeccioOR, $input){
+    $dataSeccio->title = $input['title'];
+  	$dataSeccio->description = nl2br($input['description']);
+    $dataSeccio->list = nl2br($input['list']);   
+    $dataSeccio->alt_imatge = $input['alt_imatge'];
+    $dataSeccio->imatge = $dataSeccioOR->imatge;
+    $dataSeccio->status = $dataSeccioOR->status;
+    $dataSeccio->ordre = $dataSeccioOR->ordre;
+    return $dataSeccio;
   }
   public function destroy($id) {
     $post = ModelSeccio::find($id);

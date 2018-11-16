@@ -5,28 +5,19 @@
     <div class="intro-text">
     <!-- TODO text corresponent a la plana on s'està -->
       <div class="intro-heading">{{$apadrina->nom}}</div>
+      <div class="col-lg-12 text-center">
+        <div id="success"></div>
+        <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Apadina'm</button>
+      </div>
     </div>
   </div>
 </header>
 <section class="an" id="animals">
   <div class="container">
     <div class="intro-lead-in">
-      
-        <div class="col">
-          <!--<a  class="portfolio-link" href="{{asset('familia')}}/especie/{{$apadrina->title}}">-->
-            <div class="card-wrapper">
-              <div class="card-img">
-                <img src="{{asset('/storage/app/public/')}}/{{$apadrina->imatge}}" layout="responsive" width="20%" height="20%" alt="{{$apadrina->alt_imatge}}">
-              </div>
-              <div class="card-box">
-                <h1 class="card-sub-title mbr-fonts-style align-center display-3">{{$apadrina->nom}}</h1>
-                <h4 class="card-title mbr-fonts-style mbr-bold align-center display-5">{{$apadrina->preu}}€</h4>
-                
-                <p class="mbr-text mbr-fonts-style align-center display-7">{{$apadrina->description}}</p>
-              </div>
-            </div>
-          </a>
-        </div>
+      <h1 class="card-title mbr-fonts-style mbr-bold align-center display-5">{{$apadrina->nom}}</h1>
+      <h4 class="card-sub-title mbr-fonts-style align-center display-3">{{$apadrina->preu}}€</h4>
+      <p class="mbr-text mbr-fonts-style align-center display-7">{{$apadrina->description}}</p> 
     </div>
   </div>
 </section>

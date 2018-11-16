@@ -14,31 +14,30 @@ class SeccioControllerEN extends Controller
     if(count(ModelSeccioEN::where('seccions_id',$id)->get()) != 0){
       $input = Input::all();
       $dataSeccio = ModelSeccioEN::where('seccions_id',$id)->get()->first();
-      $dataSeccio->title = $input['title'];
-  	  $dataSeccio->description = nl2br($input['description']);
-      $dataSeccio->list = nl2br($input['list']); 
-      $dataSeccio->alt_imatge = $input['alt_imatge'];     
-      $dataSeccio->imatge = $dataSeccioOR->imatge;
-      $dataSeccio->status = $dataSeccioOR->status;
-      $dataSeccio->ordre = $dataSeccioOR->ordre;
-      $dataSeccioOR->familiaEN()->save($dataSeccio);
+      $dataSeccio = $this->setSeccio($dataSeccio, $dataSeccioOR, $input);
+      $dataSeccio->animal_id = $dataSeccioOR->animal_id;
+      $dataSeccioOR->seccionsEN()->save($dataSeccio);
     }else{
       $input = Input::all();
       $dataSeccio = new ModelSeccioEN();
-      $dataSeccio->title = $input['title'];
-  	  $dataSeccio->description = nl2br($input['description']);
-      $dataSeccio->list = nl2br($input['list']);   
-      $dataSeccio->alt_imatge = $input['alt_imatge'];
-      $dataSeccio->imatge = $dataSeccioOR->imatge;
-      $dataSeccio->status = $dataSeccioOR->status;
-      $dataSeccio->ordre = $dataSeccioOR->ordre;
-      $dataSeccio->save();
-      return $dataSeccio;
-   }
-   return redirect()->action('SeccioController@show', ['id' => $dataSeccio->animal_id]);
+      $dataSeccio = $this->setSeccio($dataSeccio, $dataSeccioOR, $input);
+      $dataSeccioOR->seccionsEN()->save($dataSeccio);
+    }
+    return redirect()->action('SeccioController@show', ['id' => $dataSeccio->animal_id]);
+
+  }
+  public function setSeccio($dataSeccio, $dataSeccioOR, $input){
+    $dataSeccio->title = $input['title'];
+  	$dataSeccio->description = nl2br($input['description']);
+    $dataSeccio->list = nl2br($input['list']);   
+    $dataSeccio->alt_imatge = $input['alt_imatge'];
+    $dataSeccio->imatge = $dataSeccioOR->imatge;
+    $dataSeccio->status = $dataSeccioOR->status;
+    $dataSeccio->ordre = $dataSeccioOR->ordre;
+    return $dataSeccio;
   }
   public function destroy($id) {
-    $post = ModelSeccio::find($id);
+    $post = ModelSeccioEN::find($id);
     if($post == null)
        return "No existe este post";
     else

@@ -12,46 +12,24 @@ use Illuminate\Support\Facades\Input;
 
 class AnimalController extends Controller
 {
-    public function index() {
+  public function index() {
 
     $dataAnimal = ModelAnimal::get();
     $dataCategoria = ModelCategoria::get();
     $dataSeccio = ModelSeccio::get();
-    return view('administra.especie.list-especie')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal)->with('dataSeccio', $dataSeccio);
-     //return $data;
-  	}
-    public function store() {
+    return view('administra.especie.list-especie')
+      ->with('dataCategoria', $dataCategoria)
+      ->with('dataAnimal', $dataAnimal)
+      ->with('dataSeccio', $dataSeccio);
+  }
+  public function store() {
     $input = Input::all();
-    $post = new ModelAnimal();
-    if(isset($input['file1'])){
-      $fileprincipal = $input['file1'];
-      //obtenir nom imatge principal
-      $nomprincipal = $fileprincipal->getClientOriginalName();
-      //Guardat imatges en local
-      \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
-      $post->imatge = $nomprincipal;
-    }
-    $post->title = $input['title'];
-    $post->nomcientific = $input['nomcientific'];
-    $post->ocurrencia = $input['ocurrencia'];
-    $post->mida = $input['mida'];
-    $post->pes = $input['pes'];
-    $post->embaras = $input['embaras'];
-    $post->cries = $input['cries'];
-    $post->vida = $input['vida'];
-    $post->dieta = $input['dieta'];
-    $post->proteccio = $input['proteccio'];
-    $post->description = $input['description'];
-    $post->status = $input['status'];
-    $post->categoria_id = $input['familia'];
-    $post->alt_imatge = $input['alt_imatge'];
-    $post->save(); // Guarda el objeto en la BD
+    $especie = new ModelAnimal();
+    $especie = $this->setAnimal($especie, $input);
+    $especie->save(); // Guarda el objeto en la BD
     return redirect()->action('AnimalController@index');
-    return view('administra.especie.list-especie')->with('dataCategoria', $dataCategoria)->with('dataAnimal', $dataAnimal);
-    //return view('administra.list-familia');
   }
   public function edit($id = null) {
-
     if ($id == null){
       return view('administra.especie.edit-especie');
     }else{
@@ -64,7 +42,11 @@ class AnimalController extends Controller
         return 'El post no existe';
       }
       //return $dataEN;
-      return view('administra.especie.edit-especie')->with('editdata', $editdata)->with('editdataES', $dataES)->with('editdataEN', $dataEN)->with('dataCategoria', $dataCategoria);
+      return view('administra.especie.edit-especie')
+        ->with('editdata', $editdata)
+        ->with('editdataES', $dataES)
+        ->with('editdataEN', $dataEN)
+        ->with('dataCategoria', $dataCategoria);
     }
   }
   public function update($id = null) {
@@ -75,7 +57,14 @@ class AnimalController extends Controller
     }else{
       $input = Input::all();
       $especie = ModelAnimal::find($id);
-      if(isset($input['file1'])){
+      $especie = $this->setAnimal($especie, $input);
+      $especie->save();
+      $data = ModelAnimal::get();
+      return redirect()->action('AnimalController@index');
+   }
+  }
+  public function setAnimal($especie, $input){
+    if(isset($input['file1'])){
         $fileprincipal = $input['file1'];
         //obtenir nom imatge principal
         $nomprincipal = $fileprincipal->getClientOriginalName();
@@ -97,10 +86,7 @@ class AnimalController extends Controller
       $especie->status = $input['status'];
       $especie->categoria_id = $input['familia'];
       $especie->alt_imatge = $input['alt_imatge'];
-      $especie->save();
-      $data = ModelAnimal::get();
-      return redirect()->action('AnimalController@index');
-   }
+      return $especie;
   }
   public function destroy($id) {
     $post = ModelAnimal::find($id);

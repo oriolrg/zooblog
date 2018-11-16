@@ -10,7 +10,9 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <div class="modal-body">
-            @isset($administra) {                                                                                                                                                                                                                                                                                               !!$administra->politicaPrivacitat!!} @endisset
+              @isset($administra) 
+                {!!$administra->politicaPrivacitat!!}
+              @endisset
               <button class="btn btn-primary" data-dismiss="modal" type="button">
                 <i class="fa fa-times"></i>
                 Tancar

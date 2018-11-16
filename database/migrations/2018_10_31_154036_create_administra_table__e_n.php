@@ -27,6 +27,7 @@ class CreateAdministraTableEN extends Migration
             $table->string('menu4')->nullable();
             $table->string('menu5')->nullable();
             $table->string('menu6')->nullable();
+            $table->string('menu7')->nullable();
             $table->longText('politicaPrivacitat')->nullable();
             $table->timestamps();
             

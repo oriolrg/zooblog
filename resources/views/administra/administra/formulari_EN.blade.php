@@ -12,6 +12,7 @@
 <textarea type="text" name="menu4" id="menu4" class="form-control" placeholder="Descripció..." rows="1">@isset($dataAdministraEN) {{$dataAdministraEN->menu4}} @endisset</textarea>
 <textarea type="text" name="menu5" id="menu5" class="form-control" placeholder="Descripció..." rows="1">@isset($dataAdministraEN) {{$dataAdministraEN->menu5}} @endisset</textarea>
 <textarea type="text" name="menu6" id="menu6" class="form-control" placeholder="Descripció..." rows="1">@isset($dataAdministraEN) {{$dataAdministraEN->menu6}} @endisset</textarea>
+<textarea type="text" name="menu7" id="menu7" class="form-control" placeholder="Descripció..." rows="1">@isset($dataAdministraEN) {{$dataAdministraEN->menu7}} @endisset</textarea>
 <label for="description">Missatge política privacitat</label>
 <textarea type="text" name="politicaPrivacitat" id="politicaPrivacitat" class="form-control" placeholder="Descripció..." rows="2">@isset($dataAdministraEN) {{$dataAdministraEN->politicaPrivacitat}} @endisset</textarea>
 <button type="submit" class="btn btn-primary" >

@@ -35,31 +35,28 @@ class PublicController extends Controller
             $apadrina = ModelApadrina::get()->where('status', 1);
             $especies = ModelAnimal::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $imatges = ModelCategoria::get()->where('status', 1);
             $contacta = ModelContacta::first();
             $administra = ModelAdministra::first();
         }elseif(Session::get('locale')=='es'){
             //TODO castella
             //return "castella";
-            $families = ModelCategoriaES::get();
+            $families = ModelCategoriaES::get()->where('status', 1);
             $apadrina = ModelApadrinaES::get()->where('status', 1);
             $especies = ModelAnimalES::get()->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $imatges = ModelCategoriaES::get()->where('status', 1);
             $contacta = ModelContactaES::first();
             $administra = ModelAdministraES::first();
         }else{
             //TODO angles i altres
-            $families = ModelCategoriaEN::get();
+            $families = ModelCategoriaEN::get()->where('status', 1);
             $apadrina = ModelApadrinaEN::get()->where('status', 1);
             $especies = ModelAnimalEN::get()->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
-            $imatges = ModelCategoriaEN::get()->where('status', 1);
             $contacta = ModelContactaEN::first();
             $administra = ModelAdministraEN::first();
         }
+        //return $imatges;
         return view('public.index')
-            ->with('imatges', $imatges)
             ->with('families', $families)
             ->with('apadrina', $apadrina->random(count($apadrina)))
             ->with('especies', $especies)

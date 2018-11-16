@@ -1,10 +1,10 @@
 <section class="bg-gray" id="apadrina">
 <div class="row">
-         <div class="col-lg-12 text-center">
-           <h2 class="section-heading text-uppercase">@isset($administra){{$administra->menu3}}@endisset</h2>
-           <h3 class="section-subheading text-muted">Apadrina algun dels nostres animals</h3>
-         </div>
-       </div>
+  <div class="col-lg-12 text-center">
+    <h2 class="section-heading text-uppercase">@isset($administra){{$administra->menu3}}@endisset</h2>
+    <h3 class="section-subheading text-muted">Apadrina algun dels nostres animals</h3>
+  </div>
+</div>
   <div class="mbr-row mbr-justify-content-center">
     @foreach ($apadrina as $key => $animalsapadrinar)
       <div class="card mbr-col-sm-3 mbr-col-md-12 mbr-col-lg-3">

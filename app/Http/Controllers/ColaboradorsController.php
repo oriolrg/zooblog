@@ -9,11 +9,6 @@ use Illuminate\Http\UploadedFile;
 
 class ColaboradorsController extends Controller
 {
-  public function indexPublic() {
-     $data = ModelColaborador::get();
-     return view('public.colaboradors.colaboradors')->with('data', $data);;
-     //return $data;
-  }
   public function index() {
      $data = ModelColaborador::get();
      return view('administra.colaboradors.list-colaboradors')->with('data', $data);
@@ -22,18 +17,7 @@ class ColaboradorsController extends Controller
   public function store() {
     $input = Input::all();
     $post = new ModelColaborador();
-    if(isset($input['file1'])){
-      $fileprincipal = $input['file1'];
-      //obtenir nom imatge principal
-      $nomprincipal = $fileprincipal->getClientOriginalName();
-      //Guardat imatges en local
-      \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
-      $post->imatge = $nomprincipal;
-    }
-    $post->status = $input['status'];
-    $post->nom = $input['nom'];
-    $post->descripcio = $input['funcions'];
-    $post->link = $input['link'];
+    $post = $this->setColaborador($post, $input);
     $post->save(); // Guarda el objeto en la BD
     $data = ModelColaborador::get();
     return view('administra.colaboradors.list-colaboradors')->with('data', $data);
@@ -59,22 +43,26 @@ class ColaboradorsController extends Controller
     }else{
       $input = Input::all();
       $post = ModelColaborador::find($id);
-      if(isset($input['file1'])){
+      $post = $this->setColaborador($post, $input);
+      $post->save(); // Guarda el objeto en la BD
+      $data = ModelColaborador::get();
+      return redirect()->action('ColaboradorsController@index');
+   }
+  }
+  public function setColaborador($post, $input){
+    if(isset($input['file1'])){
         $fileprincipal = $input['file1'];
         //obtenir nom imatge principal
         $nomprincipal = $fileprincipal->getClientOriginalName();
         //Guardat imatges en local
         \Storage::disk('public')->put($nomprincipal,  \File::get($fileprincipal));
         $post->imatge = $nomprincipal;
-      }
-      $post->status = $input['status'];
-      $post->nom = $input['nom'];
-      $post->descripcio = $input['funcions'];
-      $post->link = $input['link'];
-      $post->save(); // Guarda el objeto en la BD
-      $data = ModelColaborador::get();
-      return redirect()->action('ColaboradorsController@index');
-   }
+    }
+    $post->status = $input['status'];
+    $post->nom = $input['nom'];
+    $post->descripcio = $input['funcions'];
+    $post->link = $input['link'];
+    return $post;
   }
   public function destroy($id) {
     $post = ModelColaborador::find($id);
