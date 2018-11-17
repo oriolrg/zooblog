@@ -449,6 +449,7 @@ header.masthead {
     button.bg-info:focus {
       background-color: #117a8b !important;
     }
+
 section#contact {
   background-color: #212529;
   background-image: url("../img/map-image.png");
