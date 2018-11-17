@@ -6,7 +6,7 @@
         <h2 class="section-heading text-uppercase">@isset($administra->menu5){{$administra->menu5}}@endisset</h2>
         <h3 class="section-subheading text-muted">
           @isset($contacta->telefon)  
-            <a href="tel:+34{{$contacta->telefon}}">
+            <a class="portfolio-link" href="tel:+34{{$contacta->telefon}}">
               {{$contacta->telefon}}
             </a> 
           @endisset<br /> 

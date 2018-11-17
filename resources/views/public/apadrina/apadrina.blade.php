@@ -1,4 +1,4 @@
-<section class="bg-gray" id="apadrina">
+<section id="apadrina" class="color">
 <div class="row">
   <div class="col-lg-12 text-center">
     <h2 class="section-heading text-uppercase">@isset($administra){{$administra->menu3}}@endisset</h2>

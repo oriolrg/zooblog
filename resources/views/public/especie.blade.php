@@ -11,6 +11,7 @@
       <div class="intro-lead-in">{{$especie->nomcientific}}</div> 
     </div>
 </header>
+@include('public.components.shareSocial')
 <section id="info">
   <div class="container">
     <div class="flex">
@@ -69,7 +70,7 @@
       <div class="flex">
         <div class="w3-content slider">
           @foreach($especie->seccions as $key => $seccions)
-            <img class="mySlides" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" style="width:100%" alt="{{$seccions->title}}">
+            <img class="mySlides" src="{{asset('/storage/app/public//')}}/{{$seccions->imatge}}" style="width:100% ; height: 25em" alt="{{$seccions->title}}">
           @endforeach
           <div class="w3-row-padding w3-section">
             <?php $i = 0;?>

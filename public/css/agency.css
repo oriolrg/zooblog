@@ -449,18 +449,6 @@ header.masthead {
     button.bg-info:focus {
       background-color: #117a8b !important;
     }
-section#especies {
-  background-color: #e9ecef !important;
-}
-section#apadrina {
-  background-color: #ffffff !important;
-}
-section#families {
-  background-color: #ffffff !important;
-}
-section#colaboradors {
-  background-color: #e9ecef !important;
-}
 section#contact {
   background-color: #212529;
   background-image: url("../img/map-image.png");

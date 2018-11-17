@@ -12,6 +12,7 @@
     </div>
   </div>
 </header>
+@include('public.components.shareSocial')
 <section class="an" id="animals">
   <div class="container">
     <div class="intro-lead-in">

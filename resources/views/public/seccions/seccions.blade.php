@@ -1,4 +1,4 @@
-<section class="bg-gray" id="seccions">
+<section id="seccions">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">

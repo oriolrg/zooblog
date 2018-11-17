@@ -28,8 +28,8 @@
   margin: 0px;
   line-height: 35px;
   cursor: pointer;
-
-  .collapsed{
+}
+.collapsed,
     .arrow:before{
       font-family: FontAwesome;
       content: "\f053";
@@ -38,9 +38,8 @@
       padding-right: 10px;
       vertical-align: middle;
       float:right;
-    }
+    
   }
-}
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
   font-family: FontAwesome;
@@ -204,4 +203,14 @@ body {
 }
 .portfolio-link:hover{
   color:green;
+}
+#shareSocial{
+  margin: auto;
+  padding-left: 10em;
+  top: -1em;
+  width: 100%;
+}
+#shareSocial a{
+  padding-left: 5px;
+  font-size: 30px;
 }

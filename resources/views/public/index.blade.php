@@ -8,7 +8,7 @@
         <div class="intro-lead-in">@if(isset($administra)) {{$administra->description}} @endisset</div>
       </div>
     </div>
-  </div>
+/div>
 </header>
 @include('public.families.families')
 @include('public.especies.especies')

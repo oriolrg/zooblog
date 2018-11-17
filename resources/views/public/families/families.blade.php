@@ -1,4 +1,4 @@
-<section  id="families">
+<section  id="families" class="color">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">

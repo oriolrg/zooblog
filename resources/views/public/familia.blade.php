@@ -8,7 +8,7 @@
     </div>
   </div>
 </header>
-
+@include('public.components.shareSocial')
   <!-- Services -->
   <section id="especies">
 
