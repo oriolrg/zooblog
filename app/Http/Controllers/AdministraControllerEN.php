@@ -22,7 +22,6 @@ class AdministraControllerEN extends Controller
                 $post2 = $this->setAdministra($post, $post2, $input);  
                 $post->administraEN()->save($post2); // Guarda el objeto en la BD
             }else{
-                return $input;
                 $post = ModelAdministra::find($id);
                 $post2 = new ModelAdministraEN();
                 $post2 = $this->setAdministra($post, $post2, $input);

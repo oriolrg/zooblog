@@ -19,7 +19,7 @@ class CategoriaController extends Controller
   public function store() {
     $input = Input::all();
     $post = new ModelCategoria();
-    $familia = $this->setCategoria($familia, $input);
+    $familia = $this->setCategoria($post, $input);
     $post->save(); // Guarda el objeto en la BD
     $data = ModelCategoria::get();
     return view('administra.familia.list-familia')
@@ -76,6 +76,7 @@ class CategoriaController extends Controller
         $familia->imatge = $nomprincipal;
     }
     $familia->title = $input['title'];
+    $familia->nomcientific = $input['nomcientific'];
     $familia->description = $input['description'];
     $familia->alt_imatge = $input['alt_imatge'];
     $familia->status = $input['status'];

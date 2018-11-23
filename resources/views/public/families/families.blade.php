@@ -17,6 +17,7 @@
           <a class="portfolio-link"  href="{{asset('familia')}}/{{$familia->title}}">
             <div class="portfolio-caption">
               <h4>{{ $familia->title}}</h4>
+              <h6 class="">{{ $familia->nomcientific }}</h6>
               <p class="text-muted">{{substr($familia->description,0,100)}} <a  class="portfolio-link" href="{{asset('familia')}}/{{$familia->title}}" style="color:green">...</a></p>
             </div>
           </a>

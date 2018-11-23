@@ -8,7 +8,7 @@
     <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2" role="navigation">
         <ul class="navbar-nav mx-auto text-md-center text-left">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#especies">@isset($administra){{$administra->menu2}}@endisset</a>
+              <a class="nav-link js-scroll-trigger" href="#especia">@isset($administra){{$administra->menu2}}@endisset</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#apadrina">@isset($administra){{$administra->menu3}}@endisset</a>

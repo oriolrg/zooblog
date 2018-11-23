@@ -29,6 +29,7 @@ class CategoriaControllerES extends Controller
   }
   public function setCategoria($familia, $post, $input){
     $familia->title = $input['title'];
+    $familia->nomcientific = $input['nomcientific'];
     $familia->description = $input['description'];
     $familia->alt_imatge = $input['alt_imatge'];
     $familia->imatge = $post->imatge;

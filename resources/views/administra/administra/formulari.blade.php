@@ -15,8 +15,6 @@
 <textarea type="text" name="menu7" id="menu7" class="form-control" placeholder="Descripció..." rows="1">@isset($dataAdministra) {{$dataAdministra->menu7}} @endisset</textarea>
 <label for="description">Missatge política privacitat</label>
 <textarea type="text" name="politicaPrivacitat" id="politicaPrivacitat" class="form-control" placeholder="Descripció..." rows="2">@isset($dataAdministra) {{$dataAdministra->politicaPrivacitat}} @endisset</textarea>
-<legend>Imatge Logotip del blog</legend>
-@include('administra.uploadimage.uploadimage1')
 <button type="submit" class="btn btn-primary" >
         <i class="glyphicon glyphicon-send"> Enviar </i>
 </button>

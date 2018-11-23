@@ -10,6 +10,7 @@
     </div>
 </div>
 </header>
+@include('public.components.shareSocial')
 @include('public.families.families')
 @include('public.especies.especies')
 @include('public.apadrina.apadrina')

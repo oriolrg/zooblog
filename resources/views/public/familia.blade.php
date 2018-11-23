@@ -5,38 +5,49 @@
     <div class="intro-text">
     <!-- TODO text corresponent a la plana on s'està -->
       <div class="intro-heading">{{$data->title}}</div>
+      <h1> {{$data->nomcientific}}</h1>
     </div>
   </div>
 </header>
 @include('public.components.shareSocial')
   <!-- Services -->
-  <section id="especies">
+  <section id="especia">
 
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">@isset($administra){{$administra->menu2}}@endisset</h2>
+          <h2 class="section-heading text-uppercase">@isset($data){{$data->title}}@endisset</h2>
+          <h6 class="section-heading text-uppercase">@isset($data){{$data->nomcientific}}@endisset</h6>
         </div>
       </div>
     <!-- TODO insertar descripció blog i comentaris -->
       <div class="intro-lead-in">{{$data->description}}</div>
-        <div class="row text-center">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h3 class="section-heading text-uppercase"></h3>
+          </div>
+        </div>
+        <div class="row">
           @foreach($data->animals as $key => $animals)
             @if ($animals->status === 1)
-            <div class="col">
-              <a href="{{asset('familia')}}/{{$data->title}}/{{$animals->title}}">
-                <span class="fa-stack fa-4x">
-                  <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$animals->imatge}}" alt="{{$animals->alt_imatge}}">
-                </span>
-                <h4 class="service-heading">{{ $animals->title}}</h4>
-                <h6>{{ $animals->nomcientific }}</h6>
-              </a>
-              <a href="{{asset('familia')}}/{{$data->title}}/{{$animals->title}}">
-                <p>{{substr($animals->description,0,100)}}...</p>
-              </a>
-            </div>
-            @endif
-          @endforeach
+              <a  class="portfolio-link" href="{{asset('familia')}}/{{$data->title}}/{{$animals->title}}">
+                <div class="col-md-3 col-sm-6 portfolio-item">
+                  <div class="portfolio-hover">
+                    <img class="img-fluid" src="{{asset('/storage/app/public//')}}/{{$animals->imatge}}" alt="{{$animals->alt_imatge}}">
+                  </div>
+                  <img class="rounded-circle img-fluid" src="{{asset('/storage/app/public//')}}/{{$animals->imatge}}" alt="{{$animals->alt_imatge}}"> 
+                  <a class="portfolio-link"  href="{{asset('familia')}}/{{$data->title}}/{{$animals->title}}">
+                    <div class="portfolio-caption">
+                      <h4 class="">{{ $animals->title}}</h4>
+                      <h6 class="">{{ $animals->nomcientific }}</h6>
+                      <p class="">{{substr($animals->description,0,100)}}<a  class="portfolio-link" href="{{asset('familia')}}/{{$data->title}}/{{$animals->title}}" style="color:green">...</a></p>
+                    </div>
+                  </a>
+                  </div>
+                </a>
+              @endif
+            @endforeach
+          </div>
         </div>
       </div>
     </div>

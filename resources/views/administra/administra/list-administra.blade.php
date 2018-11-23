@@ -17,14 +17,15 @@
                   </ul>
                 </div>
                 <div id="formCatala">
-                    <form  enctype="multipart/form-data"  action="{{ url('administra/administra/1/edit') }}" method="PUT">
-                        {{ csrf_field() }}
-                        @if(isset($dataAdministra))
-                            <input type="hidden" name="post_id" value="{{isset($dataAdministra) ? $dataAdministra->id : ''}}">
-                        @endif
-                        @include('administra.administra.formulari')
-                    </form>
-                </div>
+						@if(isset($dataAdministra))
+							<form  enctype="multipart/form-data"  action="{{ url('administra/administra/1/edit')}}" method="PUT">
+								{{ method_field('PUT') }}
+								{{ csrf_field() }}
+								<input type="hidden" name="post_id" value="{{isset($dataAdministra) ? $dataAdministra->id : ''}}">
+								@include('administra.administra.formulari')
+							</form>
+						@endisset
+					</div>
                 <div id="formCastella">
                     <form  enctype="multipart/form-data"  action="{{ url('ES/administra/administra/1/edit') }}" method="PUT">
                         {{ csrf_field() }}

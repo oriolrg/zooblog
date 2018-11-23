@@ -31,7 +31,7 @@ class PublicController extends Controller
         
         if(Session::get('locale')=='ca'){
             //catala
-            $families = ModelCategoria::get()->where('status', 1);
+            $families = ModelCategoria::inRandomOrder()->get()->where('status', 1);
             $apadrina = ModelApadrina::get()->where('status', 1);
             $especies = ModelAnimal::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
@@ -40,7 +40,7 @@ class PublicController extends Controller
         }elseif(Session::get('locale')=='es'){
             //TODO castella
             //return "castella";
-            $families = ModelCategoriaES::get()->where('status', 1);
+            $families = ModelCategoriaES::inRandomOrder()->get()->where('status', 1);
             $apadrina = ModelApadrinaES::get()->where('status', 1);
             $especies = ModelAnimalES::get()->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
@@ -48,7 +48,7 @@ class PublicController extends Controller
             $administra = ModelAdministraES::first();
         }else{
             //TODO angles i altres
-            $families = ModelCategoriaEN::get()->where('status', 1);
+            $families = ModelCategoriaEN::inRandomOrder()->get()->where('status', 1);
             $apadrina = ModelApadrinaEN::get()->where('status', 1);
             $especies = ModelAnimalEN::get()->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
@@ -75,7 +75,7 @@ class PublicController extends Controller
             $animals = ModelAnimal::get()->where('status', 1);
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $contacta = ModelContacta::first();
-            $families = ModelCategoria::get()->where('status', 1);
+            $families = ModelCategoria::inRandomOrder()->get()->where('status', 1);
             $data = ModelCategoria::where('title', $familia)->first();
             $administra = ModelAdministra::first();
             $data['animals'] = ModelCategoria::find($data->id)->animals;
@@ -89,7 +89,7 @@ class PublicController extends Controller
             $animals = ModelAnimalES::get();
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $contacta = ModelContactaES::first();
-            $families = ModelCategoriaES::get();
+            $families = ModelCategoriaES::inRandomOrder()->get();
             $data = ModelCategoriaES::where('title', $familia)->first();
             $administra = ModelAdministraES::first();
             $data['animals'] = ModelCategoria::find($data->categoriasES_id)->animalsES;
@@ -99,7 +99,7 @@ class PublicController extends Controller
             $idCategoria = $familiaCategoria->id;
             $apadrina = ModelApadrinaEN::get()->where('status', 1)->where('categoria_id', $idCategoria);
             $animals = ModelAnimalEN::get();
-            $colaboradors = ModelColaborador::get()->where('status', 1);
+            $colaboradors = ModelColaborador::inRandomOrder()->get()->where('status', 1);
             $contacta = ModelContactaEN::first();
             $families = ModelCategoriaEN::get();
             $data = ModelCategoriaEN::where('title', $familia)->first();
@@ -123,7 +123,7 @@ class PublicController extends Controller
             $especie = ModelAnimal::where('title', $especie)->first();
             //Obtenir id
             $idFamilia = $especie->id;
-            $families = ModelCategoria::get()->where('status', 1);
+            $families = ModelCategoria::inRandomOrder()->get()->where('status', 1);
             $apadrina = ModelApadrina::get()->where('status', 1)->where('animal_id', $idFamilia);
             $seccions = ModelAnimal::find($especie->id)->seccions;
             $colaboradors = ModelColaborador::get()->where('status', 1);
@@ -136,7 +136,7 @@ class PublicController extends Controller
             $especie = ModelAnimalES::where('title', $especie)->first();
             //Obtenir id
             $idFamilia = $especie->animalsES_id;
-            $families = ModelCategoriaES::get()->where('status', 1);
+            $families = ModelCategoriaES::inRandomOrder()->get()->where('status', 1);
             $apadrina = ModelApadrinaES::get()->where('status', 1)->where('animal_id', $idFamilia);
             $seccions = ModelAnimal::find($especie->animalsES_id)->seccions;
             $colaboradors = ModelColaborador::get()->where('status', 1);
@@ -148,7 +148,7 @@ class PublicController extends Controller
             $especie = ModelAnimalEN::where('title', $especie)->first();
             //Obtenir id
             $idFamilia = $especie->id;
-            $families = ModelCategoriaEN::get()->where('status', 1);
+            $families = ModelCategoriaEN::inRandomOrder()->get()->where('status', 1);
             $apadrina = ModelApadrinaEN::get()->where('status', 1)->where('animal_id', $idFamilia);
             $seccions = ModelAnimal::find($especie->id)->seccions;
             $colaboradors = ModelColaborador::get()->where('status', 1);
@@ -168,21 +168,21 @@ class PublicController extends Controller
       }
       public function getApadrina($apadrina) {
         if(Session::get('locale')=='ca'){
-            $families = ModelCategoria::get()->where('status', 1);
+            $families = ModelCategoria::inRandomOrder()->get()->where('status', 1);
             $especies = ModelAnimal::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $apadrinaAnimal = ModelApadrina::where('nom', $apadrina)->first();
             $contacta = ModelContacta::get();
             $administra = ModelAdministra::first();
         }elseif(Session::get('locale')=='es'){
-            $families = ModelCategoriaES::get()->where('status', 1);
+            $families = ModelCategoriaES::inRandomOrder()->get()->where('status', 1);
             $especies = ModelAnimalES::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $apadrinaAnimal = ModelApadrinaES::where('nom', $apadrina)->first();
             $contacta = ModelContactaES::get();
             $administra = ModelAdministraES::first();
         }else{
-            $families = ModelCategoriaEN::get()->where('status', 1);
+            $families = ModelCategoriaEN::inRandomOrder()->get()->where('status', 1);
             $especies = ModelAnimalEN::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
             $colaboradors = ModelColaborador::get()->where('status', 1);
             $apadrinaAnimal = ModelApadrinaEN::where('nom', $apadrina)->first();

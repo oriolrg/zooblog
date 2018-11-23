@@ -17,7 +17,7 @@
 
       gtag('config', 'UA-112874394-1');
     </script>
-
+    <link rel="shortcut icon" href="{{{ asset('/public/img/favicon.ico') }}}">
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
