@@ -20,6 +20,8 @@ Route::get('familia/{familia}', 'PublicController@getAnimals');
 Route::get('familia/{familia}/{especie}', 'PublicController@getAnimal');
 Route::get('apadrina/{apadrina}', 'PublicController@getApadrina');
 Route::get('apadrina/compra/{id}', 'CarretController@indexPublic');
+//Route::get('apadrina/compra/plataform/redsys', ['as' => 'redsys', 'uses' => 'RedsysController@index']);
+Route::post('apadrina/compra/plataform/redsys', ['as' => 'redsys', 'uses' => 'CarretController@comprar']);
 
 Route::group(['prefix' => 'administra'], function () {
 

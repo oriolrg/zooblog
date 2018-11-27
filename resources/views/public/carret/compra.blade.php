@@ -32,7 +32,11 @@
             </tr>
           </tbody>
         </table>
-      @include('public.carret.formulari.formulari')
+        <form  enctype="multipart/form-data"  action="{{ url('apadrina/compra/plataform/redsys')}}" method="post">
+					{{ csrf_field() }}			
+          @include('public.carret.formulari.formulari')
+				</form>
+      
     </div>
   </div>
 </section>

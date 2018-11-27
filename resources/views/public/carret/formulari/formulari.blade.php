@@ -15,7 +15,10 @@
         <input name="telefon" id="telefon" class="form-control" placeholder="Telèfon...">
         <label for="dni">DNI</label>
         <input name="dni" id="dni" class="form-control" placeholder="dni...">
-        <a id="comprar" type="submit" class="btn btn-primary" name="Missatge Realitzar la comanda"><i class="glyphicon glyphicon-credit-card">Missatge Realitzar la comanda</i></a>
+        <input type="hidden" name="preu" value="{{ $apadrina->preu}}" />
+        <input type="hidden" name="order" value="{{ $apadrina->id }}" />
+        <input type="hidden" name="descripcio" value="{{ $apadrina->nom}}" />
+        <button id="comprar" type="submit" class="btn btn-primary" name="Missatge Realitzar la comanda"><i class="glyphicon glyphicon-credit-card">Missatge Realitzar la comanda</i></button>
     </div>
     <div class="col-md-6">
         <h4>Missatge Text informatiu mode de pagament</h4>

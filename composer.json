@@ -12,6 +12,7 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.5.*",
+        "ssheduardo/redsys-laravel": "~1.2",
         "vanilo/framework": "0.2"
     },
     "require-dev": {

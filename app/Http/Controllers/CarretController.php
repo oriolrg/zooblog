@@ -7,6 +7,7 @@ use App\ModelApadrina;
 use App\ModelContacta;
 use App\ModelAdministra;
 use Session;
+use App\Http\Controllers\RedsysController;
 use Illuminate\Support\Facades\Input;
 
 class CarretController extends Controller
@@ -36,5 +37,20 @@ class CarretController extends Controller
             ->with('contacta', $contacta)
             ->with('administra', $administra);
 	    //return $data;
-	}
+    }
+    public function comprar(){
+        $input = Input::all();
+        if(Session::get('locale')=='ca'){
+            //catala
+            $language=003;
+        }elseif(Session::get('locale')=='es'){
+            //TODO castella
+            $language=001;
+        }else{
+            //TODO angles i altres
+            $language=002;
+        }
+        $redsys= new RedsysController;
+        $redsys->index($input['order']+time(),$input['preu'],false,$input['descripcio'],$language);
+    }
 }
