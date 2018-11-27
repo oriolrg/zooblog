@@ -1,0 +1,41 @@
+{
+    "name": "vanilo/address",
+    "description": "Vanilo Address Module",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["address", "ecommerce", "vanilo", "artkonekt", "laravel"],
+    "support": {
+        "source": "https://github.com/artkonekt/address"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Attila Fulop",
+            "homepage": "https://github.com/fulopattila122"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "konekt/address": ">=0.9.6",
+        "vanilo/contracts": "0.2.*",
+        "vanilo/support": "0.2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "6.2 - 7.0",
+        "orchestra/testbench": "3.4.2"
+    },
+    "autoload": {
+        "psr-4": { "Vanilo\\Address\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vanilo\\Address\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.2.x-dev"
+        }
+    }
+}

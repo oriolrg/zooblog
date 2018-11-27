@@ -19,6 +19,7 @@ Route::get('/', 'PublicController@indexPublic');
 Route::get('familia/{familia}', 'PublicController@getAnimals');
 Route::get('familia/{familia}/{especie}', 'PublicController@getAnimal');
 Route::get('apadrina/{apadrina}', 'PublicController@getApadrina');
+Route::get('apadrina/compra/{id}', 'CarretController@indexPublic');
 
 Route::group(['prefix' => 'administra'], function () {
 

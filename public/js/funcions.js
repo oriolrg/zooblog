@@ -103,6 +103,13 @@ jQuery(document).ready(function ($) {
       ajax(data, tipus, url);
     }
   });
+  $("#comprar").click(function () {
+    var id = $(this).val();
+    var nom = $(this).attr("name");
+    console.log(nom);
+    var dataString = 'id_restaurant=' + id;
+    var r = confirm(nom+'?');
+  });
   /**
   * Executa ajax amb les dades passades
   */

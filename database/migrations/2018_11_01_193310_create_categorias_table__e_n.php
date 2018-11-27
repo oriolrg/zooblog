@@ -17,6 +17,7 @@ class CreateCategoriasTableEN extends Migration
           $table->increments('id');
           $table->integer('categoriasEN_id')->unsigned()->index()->nullable();
           $table->string('title')->nullable();
+          $table->string('nomcientific');
           $table->text('description')->nullable();
           $table->string('imatge')->nullable();
           $table->string('alt_imatge')->nullable();

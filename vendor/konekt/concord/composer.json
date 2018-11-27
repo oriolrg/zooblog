@@ -1,0 +1,55 @@
+{
+    "name": "konekt/concord",
+    "description": "Concord is a Laravel Extension for building modular Laravel Applications",
+    "type": "library",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Attila Fulop",
+            "homepage": "https://github.com/fulopattila122"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/artkonekt/concord"
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/support": "~5.4",
+        "illuminate/console": "~5.4",
+        "konekt/enum": "~2.1",
+        "konekt/enum-eloquent": "^1.1.3"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.4.2",
+        "phpunit/phpunit" : "6.0 - 7.0"
+    },
+    "autoload": {
+        "psr-4": { "Konekt\\Concord\\": "src"},
+        "files": [
+            "src/Support/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Konekt\\Concord\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Konekt\\Concord\\ConcordServiceProvider"
+            ],
+            "aliases": {
+                "Concord": "Konekt\\Concord\\Facades\\Concord",
+                "Helper": "Konekt\\Concord\\Facades\\Helper"
+            }
+        }
+    }
+}

@@ -2,12 +2,25 @@
 <html lang="{{ config('app.locale') }}">
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="ca">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title" content="@if(isset($administra)) {{$administra->titol}} @endisset">
     <meta name="description" content="@if(isset($administra)) {{$administra->description}} @endisset">
     <meta name="keywords" content="@if(isset($administra)) {{$administra->llista}} @endisset">
     <meta name="author" content="TecnoLord: Oriol Riu Gispert">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+    <!-- Twitter Card data -->
+
+    <meta property="og:type" content="website">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="@if(isset($administra)) {{$administra->titol}} @endisset" />
+    <meta property="og:url" content="{{asset('/storage/app/public//')}}" />
+    <meta property="og:image" content="{{asset('/storage/app/public//')}}/{{$families[rand(0,abs(sizeof($families))-1)]->imatge}}" />
+    <meta property="og:description" content="@if(isset($administra)) {{$administra->description}} @endisset" />
+    <meta property="og:site_name" content="@if(isset($administra)) {{$administra->titol}} @endisset"  />
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112874394-1"></script>
     <script>

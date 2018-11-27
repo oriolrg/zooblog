@@ -1,0 +1,49 @@
+{
+    "name": "konekt/appshell",
+    "description": "Foundation for Laravel business applications",
+    "type": "library",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "keywords": ["laravel", "concord", "concord-box"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Attila Fulop",
+            "homepage": "https://github.com/fulopattila122"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/artkonekt/appshell"
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "konekt/concord": "~1.1",
+        "konekt/customer": ">=0.9.6",
+        "konekt/user": ">=0.9.0",
+        "konekt/acl": "~1.0",
+        "konekt/menu": "~1.2",
+        "konekt/gears": "~1.1",
+        "konekt/enum-eloquent": "~1.2",
+        "laravelcollective/html": "~5.4",
+        "laracasts/flash": "~3.0",
+        "davejamesmiller/laravel-breadcrumbs": "3.0.2 - 5",
+        "cviebrock/eloquent-sluggable": "~4.2"
+    },
+    "require-dev": {
+        "ext-sqlite3": "*",
+        "phpunit/phpunit": "6.2 - 7.3",
+        "orchestra/testbench": "^3.4.2",
+        "mockery/mockery": "^1.1"
+    },
+    "autoload": {
+        "psr-4": { "Konekt\\AppShell\\": "src"},
+        "files": [
+            "src/Support/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Konekt\\AppShell\\Tests\\": "tests/"
+        }
+    }
+}

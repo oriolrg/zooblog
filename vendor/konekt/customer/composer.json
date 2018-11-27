@@ -1,0 +1,41 @@
+{
+    "name": "konekt/customer",
+    "description": "Customer handling library for Laravel (Concord module)",
+    "type": "library",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "keywords": ["laravel", "concord", "customer"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Attila Fulop",
+            "homepage": "https://github.com/fulopattila122"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/artkonekt/customer"
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "konekt/concord": "~1.0",
+        "konekt/user": ">=0.9.0",
+        "konekt/address": ">=0.9.6"
+    },
+    "require-dev": {
+        "ext-sqlite3": "*",
+        "orchestra/testbench": "^3.4.2",
+        "phpunit/phpunit" : "6.2 - 7.3",
+        "mockery/mockery": "^1.1"
+    },
+    "autoload": {
+        "psr-4": { "Konekt\\Customer\\": "src"}
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Konekt\\Customer\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
