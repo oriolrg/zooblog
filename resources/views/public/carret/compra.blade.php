@@ -3,7 +3,7 @@
     <h3 class="align-center">@isset($administra){{$administra->menu3}}@endisset</h3>
     <div class="panel panel-primary">
       <div class="panel-heading">        
-        <h6 class="align-center">Missatge Finalitzar la Compra</h6>
+        <h6 class="align-center">@isset($plataformaPagament){{$plataformaPagament->miss_fiCompra}}@endisset</h6>
       </div>
       <div class="panel-body">
         <table id="tableCategories" class="table table-striped tablesorter">

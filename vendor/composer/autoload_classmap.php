@@ -36,6 +36,7 @@ return array(
     'App\\Http\\Controllers\\LanguageController' => $baseDir . '/app/Http/Controllers/LanguageController.php',
     'App\\Http\\Controllers\\PublicController' => $baseDir . '/app/Http/Controllers/PublicController.php',
     'App\\Http\\Controllers\\QuisomController' => $baseDir . '/app/Http/Controllers/QuisomController.php',
+    'App\\Http\\Controllers\\RedsysController' => $baseDir . '/app/Http/Controllers/RedsysController.php',
     'App\\Http\\Controllers\\SeccioController' => $baseDir . '/app/Http/Controllers/SeccioController.php',
     'App\\Http\\Controllers\\SeccioControllerEN' => $baseDir . '/app/Http/Controllers/SeccioControllerEN.php',
     'App\\Http\\Controllers\\SeccioControllerES' => $baseDir . '/app/Http/Controllers/SeccioControllerES.php',

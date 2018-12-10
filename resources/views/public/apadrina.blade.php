@@ -34,7 +34,7 @@
             <a id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit" href="{{asset('apadrina')}}/compra/{{$apadrina->id}}"><i class="fa fa-shopping-cart"> </i> Apadina'm</a>
         </div>
           <h1 class="card-title mbr-fonts-style mbr-bold align-center display-5">Condicions</h1>
-          <p>@isset($data){{$apadrina->ofereix}}@endisset</p>
+          <p>@isset($plataformaPagament){{$plataformaPagament->condicions}}@endisset</p>
         </div>
       </div>
   </div>

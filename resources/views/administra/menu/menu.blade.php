@@ -35,6 +35,11 @@
                      Contacta
                   </li>
                 </a>
+                <a href="{{asset('/administra/plataformaPagament')}}">
+                  <li  data-toggle="collapse" data-target="#plataformaPagament" class="plataformaPagament">
+                     Plataforma de Pagament
+                  </li>
+                </a>
             </ul>
      </div>
 </div>

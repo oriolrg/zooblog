@@ -17,7 +17,7 @@
     <!-- Open Graph data -->
     <meta property="og:title" content="@if(isset($administra)) {{$administra->titol}} @endisset" />
     <meta property="og:url" content="{{asset('/storage/app/public//')}}" />
-    <meta property="og:image" content="{{asset('/storage/app/public//')}}/{{$families[rand(0,abs(sizeof($families))-1)]->imatge}}" />
+    <meta property="og:image" content="{{asset('/storage/app/public//')}}/@isset($header){{$header->imatge}}@endisset" />
     <meta property="og:description" content="@if(isset($administra)) {{$administra->description}} @endisset" />
     <meta property="og:site_name" content="@if(isset($administra)) {{$administra->titol}} @endisset"  />
 

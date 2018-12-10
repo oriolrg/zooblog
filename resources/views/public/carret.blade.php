@@ -1,6 +1,6 @@
 @extends('layouts.publicappcarret')
 @section('content')
-<section style="background-image: url('{{asset('/storage/app/public//')}}/{{$apadrina->imatge}}');">
+<section style="background-image: url('@isset($apadrina->imatge){{asset('/storage/app/public//')}}/{{$apadrina->imatge}}@endisset');">
 
 </section>
 @include('public.carret.compra')

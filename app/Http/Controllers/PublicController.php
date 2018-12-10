@@ -18,6 +18,9 @@ use App\ModelContacta;
 use App\ModelContactaES;
 use App\ModelContactaEN;
 use App\ModelAdministra;
+use App\ModelPlataformaPagament;
+use App\ModelPlataformaPagamentES;
+use App\ModelPlataformaPagamentEN;
 use App\ModelAdministraES;
 use App\ModelAdministraEN;
 use Session;
@@ -55,8 +58,8 @@ class PublicController extends Controller
             $contacta = ModelContactaEN::first();
             $administra = ModelAdministraEN::first();
         }
-        //return $imatges;
         return view('public.index')
+            ->with('header', $families->first())
             ->with('families', $families)
             ->with('apadrina', $apadrina->random(count($apadrina)))
             ->with('especies', $especies)
@@ -174,6 +177,7 @@ class PublicController extends Controller
             $apadrinaAnimal = ModelApadrina::where('nom', $apadrina)->first();
             $contacta = ModelContacta::get();
             $administra = ModelAdministra::first();
+            $plataformaPagament = ModelPlataformaPagament::first();
         }elseif(Session::get('locale')=='es'){
             $families = ModelCategoriaES::inRandomOrder()->get()->where('status', 1);
             $especies = ModelAnimalES::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
@@ -181,6 +185,7 @@ class PublicController extends Controller
             $apadrinaAnimal = ModelApadrinaES::where('nom', $apadrina)->first();
             $contacta = ModelContactaES::get();
             $administra = ModelAdministraES::first();
+            $plataformaPagament = ModelPlataformaPagamentES::first();
         }else{
             $families = ModelCategoriaEN::inRandomOrder()->get()->where('status', 1);
             $especies = ModelAnimalEN::get()->where('status', 1)->sortByDesc('updated_at')->take(4);
@@ -188,6 +193,7 @@ class PublicController extends Controller
             $apadrinaAnimal = ModelApadrinaEN::where('nom', $apadrina)->first();
             $contacta = ModelContactaEN::get();
             $administra = ModelAdministraEN::first();
+            $plataformaPagament = ModelPlataformaPagamentEN::first();
         }
         //Obtenir categories amb nom familia
         //return $apadrinaAnimal->nom;
@@ -197,7 +203,39 @@ class PublicController extends Controller
             ->with('especies', $especies)
             ->with('colaboradors', $colaboradors)
             ->with('contacta', $contacta)
-            ->with('administra', $administra);
+            ->with('administra', $administra)
+            ->with('plataformaPagament', $plataformaPagament);
 
-  	}
+      }
+      public function getCarret($id) {
+        
+        if(Session::get('locale')=='ca'){
+            //catala
+            $apadrina = ModelApadrina::get()->where('id', $id)->where('status', 1)->first();
+            $contacta = ModelContacta::first();
+            $administra = ModelAdministra::first();
+            $plataformaPagament = ModelPlataformaPagament::first();
+        }elseif(Session::get('locale')=='es'){
+            //TODO castella
+            //return "castella";
+            $apadrina = ModelApadrinaES::get()->where('id', $id)->where('status', 1)->first();
+            $contacta = ModelContactaES::first();
+            $administra = ModelAdministraES::first();
+            $plataformaPagament = ModelPlataformaPagamentES::first();
+        }else{
+            //TODO angles i altres
+            $apadrina = ModelApadrinaEN::get()->where('id', $id)->where('status', 1)->first();
+            $contacta = ModelContactaEN::first();
+            $administra = ModelAdministraEN::first();
+            $plataformaPagament = ModelPlataformaPagamentEN::first();
+            return $plataformaPagament;
+        }
+        //return $imatges;
+        return view('public.carret')
+            ->with('apadrina', $apadrina)
+            ->with('contacta', $contacta)
+            ->with('administra', $administra)
+            ->with('plataformaPagament', $plataformaPagament);
+	    //return $data;
+    }
 }

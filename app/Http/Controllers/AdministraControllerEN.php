@@ -16,7 +16,6 @@ class AdministraControllerEN extends Controller
         }else{
             $input = Input::all();
             if(count(ModelAdministraEN::where('administraEN_id',$id)->get()) != 0){
-                return $input;
                 $post = ModelAdministra::find($id);
                 $post2 = ModelAdministraEN::where('administraEN_id',$id)->get()->first();
                 $post2 = $this->setAdministra($post, $post2, $input);  

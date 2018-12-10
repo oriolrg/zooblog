@@ -159,8 +159,7 @@ jQuery(document).ready(function ($) {
   if(pathname.indexOf("especie") > -1){
     var pathname = "especie";
     menuSelec(pathname);
-  }
-  if(pathname.indexOf("/especie/") > -1){
+  }  if(pathname.indexOf("/especie/") > -1){
     var pathname = "especie";
     submenuSelec(pathname);
   }else if(pathname.indexOf("familia") > -1){
@@ -174,6 +173,9 @@ jQuery(document).ready(function ($) {
     menuSelec(pathname);
   }else if(pathname.indexOf("apadrina") > -1) {
     var pathname = "apadrina";
+    menuSelec(pathname);
+  }else if(pathname.indexOf("plataformaPagament") > -1) {
+    var pathname = "plataformaPagament";
     menuSelec(pathname);
   }else if(pathname.indexOf("administra") > -1) {
     var pathname = "administra";

@@ -28,6 +28,7 @@
           </div>
         </div>
         <div class="row">
+        @isset($data->animals)
           @foreach($data->animals as $key => $animals)
             @if ($animals->status === 1)
               <a  class="portfolio-link" href="{{asset('familia')}}/{{$data->title}}/{{$animals->title}}">
@@ -47,6 +48,7 @@
                 </a>
               @endif
             @endforeach
+          @endisset
           </div>
         </div>
       </div>
